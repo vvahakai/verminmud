@@ -1,0 +1,2 @@
+(prototype "web" true)
+(object "org.vermin.world.skills.WebSkill")

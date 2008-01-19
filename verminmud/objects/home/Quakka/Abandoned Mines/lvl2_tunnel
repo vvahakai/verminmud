@@ -1,0 +1,8 @@
+(prototype "lvl2_tunnel" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Mine railway")
+        (field longDescription "This corridor has a set of rails on the floor, leading onward. It seems that this level of the mines was used for moving ore and equipment between the different shafts.")
+        (field waterLevel 0)
+        (field illumination 50))
+

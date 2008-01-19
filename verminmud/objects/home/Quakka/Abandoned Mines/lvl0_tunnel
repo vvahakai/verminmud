@@ -1,0 +1,9 @@
+(prototype "entrance_tunnel" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Entrance tunnel")
+        (field longDescription "This large tunnel leads straight in to the depths of the mines. The daylight from the opening lights the tunnel well, and you have no problems proceeding, even though couple of large boulders have fallen from the ceiling. Around you you see many marks of mountain animals, which seem to use this tunnel as a shelter.")
+        (field waterLevel 0)
+        (field illumination 50))
+
+

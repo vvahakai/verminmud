@@ -1,0 +1,2 @@
+(prototype "outworldcameldriver" "false")
+(object "org.vermin.world.monsters.CamelDriver")

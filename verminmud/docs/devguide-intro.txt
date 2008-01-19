@@ -1,0 +1,49 @@
+
+* VerminMUD Developer's Guide
+
+** Introduction
+
+Welcome to the VerminMUD Developer's Guide. The purpose of this document is to 
+serve as a starting point or tutorial for new developers coming to the VerminMUD
+project.
+
+As you propably are aware, VerminMUD is a completely custom MUD started in the beginning
+of 2002. Both the driver and the mudlib has been developed from scratch using the Java
+programming language. 
+
+** Prerequisites
+
+This guide is meant to give examples and introduce the reader to the APIs of VerminMUD
+and show how 3rd party developers can develop content for VerminMUD.
+
+This document is not a general MUD guide, nor is it a programming or Java guide.
+If you need help in Java programming see Sun Microsystem's Java site at \url{http://java.sun.com}.
+
+** Before we start
+
+This guide is divided into different sections. Each section describes some type of 
+content development (eg. one chapter for creating a simple area). I will try to include
+all necessary information in each chapter regarding the task at hand. If there are
+some pieces of information required from other chapters, I will refer to those.
+
+\sidebarhead{Work in progress}
+\sidebar{
+This document is still a "work in progres". Some chapters may be incomplete
+or unclear. Please submit clarification requests and comments in the \url{http://verminmud.org}
+forums or email me at tadex@verminmud.org.
+}
+
+** Guide contents
+
+The contents of this guide are as follows:
+\bullets{
+\item{VerminMUD objects and API overview}
+\item{Developing a simple area}
+\item{Adding monsters}
+\item{NPCs: monsters with behaviour}
+}
+
+Chapters contain code examples of Java code and VerminMUD object save files.
+For brevity, all examples might not be presented in full but the complete files
+are in the developer guide distribution package under the examples directory.
+

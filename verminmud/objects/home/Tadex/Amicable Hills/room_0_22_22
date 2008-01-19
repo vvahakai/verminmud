@@ -1,0 +1,12 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+(field id #38:home/Tadex/Amicable Hills/room_0_22_22)
+(field description #15:Top of the hill)
+(field longDescription #205:You are on the top of the hill. It isn't very high, but the wind blows a little harder here because there are no trees. The ground here is bare rock and there is a small crevice leading down into the rock.)
+(field outdoor (boolean true))
+(field waterLevel (int 0))
+(field illumination (int 91))
+(field startMonsters (vector
+ "home/Tadex/Amicable Hills/lemming"))
+(field startExits (vector
+ "home/Tadex/Amicable Hills/exit_sw_22_22_ne_21_23_0" "home/Tadex/Amicable Hills/exit_s_22_21_n_22_22_0" "home/Tadex/Amicable Hills/exit_e_21_22_w_22_22_0" "home/Tadex/Amicable Hills/exit_se_21_21_nw_22_22_0" "home/Tadex/Amicable Hills/exit_down_22_22_up_23_23_0"))
+)

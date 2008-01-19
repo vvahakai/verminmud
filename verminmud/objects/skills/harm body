@@ -1,0 +1,3 @@
+
+(prototype "harm body skill" true)
+(object "org.vermin.world.skills.HarmBodySkill")

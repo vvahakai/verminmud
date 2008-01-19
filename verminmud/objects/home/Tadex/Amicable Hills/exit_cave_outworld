@@ -1,0 +1,1 @@
+(object "org.vermin.mudlib.DefaultExitImpl" (field id "home/Tadex/Amicable Hills/exit_cave_outworld") (field rooms ["home/Tadex/Amicable Hills/room_0_21_32" "outworld:23,-20,0"]) (field directions ["chute" "chute"]) (field passMessages ["You slide down through the slippery chute and fall to the ground." null]))

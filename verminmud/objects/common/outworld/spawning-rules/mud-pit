@@ -1,0 +1,21 @@
+{
+ "TYPE": "area"
+ "AREA": "Shark Islet's Mud Pit"
+ "RULE": 
+	(object "org.vermin.mudlib.DefaultSpawningRuleImpl" 1
+  	  (field spawnEntries [
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$DefaultSpawnEntry" 2
+	  (field entryProbability 100)
+          (field spawnMax 20)
+          (field rooms [])
+          (field spawnData [
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 7
+               (field id "common/outworld/mudmonster")
+               (field probability 100)) ]
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 7
+               (field id "common/outworld/mudmonster")
+               (field probability 100)) ]
+           )
+          )]
+         ))
+}

@@ -1,0 +1,2 @@
+(prototype "ice blast" true)
+(object "org.vermin.world.skills.IceBlastSkill")

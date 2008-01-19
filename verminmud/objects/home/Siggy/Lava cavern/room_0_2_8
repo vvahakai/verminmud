@@ -1,0 +1,21 @@
+
+  (object "org.vermin.mudlib.DefaultRoomImpl"
+    (field startExits (vector "home/Siggy/Lava cavern/exit_w_2_8_e_1_8_0" "home/Siggy/Lava cavern/exit_w_3_8_e_2_8_0"))
+    (field startItems (vector))
+    (field startMonsters (vector))
+    (field mapper null)
+    (field illumination (int 50))
+    (field outdoor (boolean false))
+    (field waterLevel (int 0))
+    (field lightModifiers null)
+    (field waterLevelModifiers null)
+    (field outdoorModifiers null)
+    (field id "home/Siggy/Lava cavern/room_0_2_8")
+    (field name "")
+    (field description "Hot and humid cavern way")
+    (field longDescription "The cavern way is extremely hot and humid. Walls all around you are warm and moist.
+Cavern ceiling raises to above 20 feet and is filled with stalactites. Troll growling
+can be heard throughout the cavern. Time has smoothened the floor level.")
+    (field extendedDescriptions {"lava":"It looks kind of hot."})
+    (field aliases (vector))
+    (field parent null))

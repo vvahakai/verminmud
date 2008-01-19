@@ -1,0 +1,30 @@
+(prototype "power_golem" "false")
+(object "org.vermin.mudlib.DefaultMonster"
+(field name "power golem")
+(field description "Power golem")
+(field longDescription "This huge silvery golem is standing immobile on a low pedestal in a crouched position. Though it doesn't move, you can feel tremendous power flowing from its smooth gleaming figure into the pedestal. This construct seems to be the source of power for the whole mine, empowering the other constructs and keeping them working through the ages.")
+(field aliases (vector "automaton", "golem", "robot"))
+(field aggressive (boolean false))
+(field behaviours [(object "org.vermin.world.monsters.PowerGolemBehaviour"
+						(field owner (parent)))
+                   (object "org.vermin.mudlib.behaviour.BattleSkillBehaviour"
+                   		(field owner (parent)))])
+(field race (singleton "org.vermin.world.races.AutomatonRace"))
+(field skills { "fighting" : 90
+				"parry" : 90
+				"single hand combat" : 90
+				"electric burst" : 90
+})
+(field physicalStr (int 600))
+(field mentalStr (int 50))
+(field physicalCon (int 800))
+(field mentalCon (int 50))
+(field physicalDex (int 500))
+(field mentalDex (int 50))
+(field physicalCha (int 50))
+(field mentalCha (int 50))
+(field resistance (array "int" 1 (int 70) (int 90) (int 90) (int 30) (int 30) (int 90) (int 60) (int 20) (int 40) (int 30) (int 50) (int 50)))
+(field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+(field battleGroup (object "org.vermin.mudlib.SingleBattleGroup" (field owner (parent))))
+(field invnentory [(ref "home/Quakka/Abandoned Mines/heart_of_a_golem")])
+)

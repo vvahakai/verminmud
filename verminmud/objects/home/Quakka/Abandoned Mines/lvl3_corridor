@@ -1,0 +1,8 @@
+(prototype "steep_corridor" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Steep corridor")
+        (field longDescription "This corridor leads steeply downwards. At the deep end of the tunnel you can see a strong pulsing red light, and from the light you hear a loud repeating sound of metal clanging against metal which makes the walls vibrate.")
+        (field waterLevel 0)
+        (field illumination 50))
+

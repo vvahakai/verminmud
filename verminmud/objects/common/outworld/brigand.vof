@@ -1,0 +1,24 @@
+(prototype "roadbrigand" "false")
+
+(object "org.vermin.mudlib.DefaultMonster"
+  (field name "brigand")
+ 
+  (field description "A shady brigand")
+  (field longDescription "A shady looking brigand.")
+  (field aliases (vector "brigand" "shady brigand"))
+  (field aggressive (boolean true))
+  (field race (ref "races/human"))
+  (field skills {"fighting": 33 "smite": 60 })
+  ; TODO: Add BattleSkillBehaviour when ready
+  (field physicalStr 50)
+  (field mentalStr  7)
+  (field physicalCon 50)
+  (field mentalCon 10)
+  (field physicalDex 75)
+  (field mentalDex 5)
+  (field physicalCha 30)
+  (field mentalCha 15)
+  (field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+  (field wieldable [ (factory "weapon" "" "bludgeon" 40) ])
+
+)

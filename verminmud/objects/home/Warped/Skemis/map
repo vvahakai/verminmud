@@ -1,0 +1,44 @@
+(object "org.vermin.mudlib.outworld.EasyOutworldLoader"
+  (field mapped true)
+  (field map "
+hhhhhhh##################hhhhhh
+hhh#####..##.....##.##..#hhhhhh
+hh##................##..###hhhh
+###.###..##.###...........###hh
+#...#|#..##.###..##.##.##...#hh
+=................-#.##.##..###h
+####...#.#.......##.##.....-##h
+hhh###.#|#..##.............###h
+hhhhh#####..##..##..##...###hhh
+hhhhhhhhh#####..-#..##.###hhhhh
+hhhhhhhhhhhhh###########hhhhhhh")
+ (field roomTypes {
+	".":"home/Warped/Skemis/room_street" 
+	"=":"home/Warped/Skemis/room_gate"})
+ (field things {
+	"5,6,0":["home/Warped/Skemis/exit_stable"] 
+	"8,7,0":["home/Warped/Skemis/exit_mage"]
+	"26,7,0":["home/Warped/Skemis/exit_house1"]
+	"15,10,0":["home/Warped/Skemis/exit_house2"]
+	"16,6,0":["home/Warped/Skemis/exit_general_shop"]
+	"0,6,0":["home/Warped/Skemis/exit_from_outworld"]})
+ (field mapDisplay {"h":"&B8;h" ".":"&2;." "#":"&8;#" "|":"&2;|" "-":"&2;-"} "=":"&2;=")
+ (field spawningRules [
+   (object "org.vermin.mudlib.DefaultSpawningRuleImpl"
+     (field spawnEntries [
+        (object "org.vermin.mudlib.DefaultSpawningRuleImpl$DefaultSpawnEntry"
+          (field entryProbability 10)
+          (field spawnMax 10)
+          (field rooms ["street of a small hamlet"])
+          (field spawnData [
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping"
+               (field id "home/Warped/Skemis/living_smallkid")
+               (field probability 100))
+          ])
+        )
+     ])
+   )
+ ])
+ (field exitStrategy {"default":NO_DIAGONAL})
+ (field suppressSpecials true)
+)

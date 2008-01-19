@@ -1,0 +1,10 @@
+(prototype "entrance" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Mine entrance")
+        (field longDescription "You are standing before a large mine shaft dug straight into the mountain shrine. The entrance has clearly been very impressive in some long ago forgotten time, but now the pillars and the heavy beautifully engraved stone doors have been all but destroyed by the elements. Above the entrance you see a sign which is would still be readable, if only you could regocnize the strange runes.")
+        (field extendedDescriptions {"sign":"You cannot read the runes, but you recognice this place from legends. You are standing at the entrance of the Abandoned mines of Umduwdr, created ages ago by an ancient unnamed race. Not much is known nowdays of this race, but the workmanship of the mines they left behind show they have been skilled miners and unsurpassed enchanters. The legends of these mines whisper darkly of the deepest mine shafts, where the aeons old magics of the ancient race still hold sway."})
+        (field waterLevel 0)
+        (field illumination 60))
+
+

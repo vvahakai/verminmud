@@ -1,0 +1,26 @@
+(prototype "outworldant" "false")
+(object "org.vermin.mudlib.DefaultMonster"
+(field name "eagle")
+(field behaviours [
+   (object "org.vermin.world.quest.QuestDeathBehaviour"
+      (field owner (parent)))
+ ])
+(field description "A great eagle")
+(field longDescription "A magnificient eagle crouching upon it's nest.")
+(field aliases (vector "bird" "eagle"))
+(field aggressive (boolean true))
+(field race (singleton "org.vermin.world.races.LargeBirdRace"))
+(field skills (map "java.util.TreeMap"
+(mapentry "fighting" (int 40))
+))
+(field physicalStr (int 30))
+(field mentalStr (int 1))
+(field physicalCon (int 25))
+(field mentalCon (int 1))
+(field physicalDex (int 35))
+(field mentalDex (int 1))
+(field physicalCha (int 2))
+(field mentalCha (int 1))
+(field resistance (array "int" 1 (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 15) (int 0) (int 10) (int 0) (int 0)))
+(field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+)

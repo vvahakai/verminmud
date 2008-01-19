@@ -1,0 +1,6 @@
+Help on: say
+
+With this command you can contact everyone in same room as you.
+Usage: say <message>
+
+See also: tell

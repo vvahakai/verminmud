@@ -1,0 +1,11 @@
+(prototype "anthill" "false")
+(object "org.vermin.mudlib.DefaultItemImpl"
+  (field size (int 20))
+  (field material "wood")
+  (field dp (int 20))
+  (field maxDp (int 20))
+  (field mayTake false)
+  (field name "anthill")
+  (field longDescription "It's an anthill swarming with ants")
+  (field description "An anthill")
+)

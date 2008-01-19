@@ -1,0 +1,9 @@
+
+(prototype "recently_opened_shaft" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Recently opened shaft")
+        (field longDescription "This mining shaft is obviously freshly cut, and you can hear the loud sounds of ongoing mining all around. Either these mines are not so abandoned as believed, or something very strange is going on.")
+        (field waterLevel 0)
+        (field illumination 50))
+

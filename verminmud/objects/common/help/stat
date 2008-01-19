@@ -1,0 +1,8 @@
+Help on: stat points
+
+Free stat points are given on every level of every guild the same amount. You can use them to boost whatever stats you want, the cost is defined by your race. 
+Usage:
+"stat cost" to see the costs and free points.
+"stat train <stat>" to buy one point of that stat.
+Example:
+"stat train physical str"

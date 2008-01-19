@@ -1,0 +1,3 @@
+
+(prototype "destroy oxygen skill" true)
+(object "org.vermin.world.skills.DestroyOxygenSkill")

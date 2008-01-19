@@ -1,0 +1,2 @@
+(prototype "disrupt balance skill" true)
+(object "org.vermin.mudlib.skills.Automatic")

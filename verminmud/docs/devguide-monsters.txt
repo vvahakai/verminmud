@@ -1,0 +1,114 @@
+* VerminMUD Programmer's Guide
+
+** Adding monsters
+
+This chapter deals with making the area we developed in the last chapter a little bit more 
+interesting. In this chapter we will be adding some monsters.
+
+*** Cruel murder
+
+As is the norm in MUDs, the mindless slaughter of entire families is a common thing (and good for exp too :).
+So with this in mind we can come up with the following monsters:
+\bullets{
+\item{Mom}
+\item{Dad}
+\item{Small kid}
+\item{Dog}
+}
+
+Let's make so that mom is in the kitchen, dad is in the living room and the kid is in the entrance.
+The placement of the dog will be random, ie. it can spawn into any room but still only one dog is in
+the house at any given time. 
+
+*** Placing the monsters into the area
+
+In order for the monsters to appear in the area, we need to put them into the area savefile we
+created in the last chapter. 
+Here is the fragment from the savefile that defines the things (cut positions marked with "..."):
+
+    ...
+    (field things {
+       "1,2,0": ["nw 0 1 0"
+                 "s 1 3 0"]
+    })
+    ...
+
+Now we need to add three things: mom to the kitchen, dad to the living room and small kid to the entrance.
+Here is the new fragment:
+
+    ...
+    (field things {
+       "1,2,0": ["nw 0 1 0"
+                 "s 1 3 0"
+                 "home/Tadex/SmallHouse/mom"]
+       "1,3,0": ["home/Tadex/SmallHouse/dad"]
+       "2,3,0": ["home/Tadex/SmallHouse/kid"]
+    })
+    ...
+
+We have added path references for each room location to the monster prototype files.
+But we can't add the dog because we don't know which room it should be in.
+For this case we need to use a spawning rule.
+
+Spawning rules are a more flexible way of adding monsters to room. Instead of
+defining static room locations where the monsters will spawn, we define a rule
+which states probabilities of monsters spawning in different types of rooms.
+Spawning rules can also keep track of the amount of monsters alive and limit 
+spawning.
+
+We can add a spawning rule to our area by adding a field called spawningRules.
+The spawningRules field is a list of rules. In this case we will be using
+the UniqueMonsterRule class for defining the rule.
+Add the following to the end of the file (before the last closing ")"):
+
+    ...
+    (field spawningRules
+       [ (object "org.vermin.mudlib.spawn.UniqueMonsterRule"
+            (field propability 30)
+	    (field monster "home/Tadex/SmallHouse/dog")) ])
+    ...
+ 
+The unique monster rule is a simple spawning rule which takes a propability and the
+path of the monster to spawn. Every time a room in the area is loaded the spawning rule
+is checked. If the monster has not already been spawned and the propability dice succeeds,
+the monster is spawned. In the above example there is a 30% chance of the dog spawning
+if it has not been spawned. When the monster dies or the room which it resides in is unloaded
+the monster is unspawned and can spawn again.
+
+*** Simple monster savefile
+
+Now that we have defined where our monsters will appear it is time to actually define
+what the monsters will be like. We will create a savefile for each monster using the DefaultMonster
+class. As with all the other default implementations, the default monster implementation includes
+pretty much everything one might want.
+Here is the savefile for dad:
+
+    (object "org.vermin.mudlib.DefaultMonster"
+      (field name "dad") 
+      (field description "A fat middle-aged man")
+      (field longDescription "A fat middle-aged man is sitting on the sofa. He is undoubtedly the master of this house.")
+      (field aliases ["man" "master" "fat man"])
+      (field aggressive false)
+      (field race (ref "races/human"))
+      (field skills {"fighting": 33})
+      (field physicalStr 70)
+      (field mentalStr  10)
+      (field physicalCon 40)
+      (field mentalCon 10)
+      (field physicalDex 25)
+      (field mentalDex 5)
+      (field physicalCha 2)
+      (field mentalCha 1)
+      (field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+    )
+
+In the above example we have defined the necessary properties for a monster.
+We have a name and descriptions. We also have aliases which the monster can be addressed with.
+We also provide the physical and mental statistics of the monster.
+The race field defines the race this monster belongs to (in this case human). 
+The skills field is a mapping from skill name to the skill percentage.
+The last line defines that the monster uses the DefaultBattleStyle which is the basic
+fighting style. Different battle styles can be used to change the way the battle system
+works. Many guilds also provide their own styles. The aggressive field is set to false
+meaning that the monster will not attack unless he is attacked. Setting aggressive to true
+means that the monster will attack everyone on sight.

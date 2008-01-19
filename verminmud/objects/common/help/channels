@@ -1,0 +1,40 @@
+
+--[ Channel command format ]--
+
+	: <channel> <on | off | last | message>
+	
+  Examples:
+
+   .-----------------------------------------------------------.
+   | Command               | Effect                            |
+   |-----------------------+-----------------------------------|
+   | : chat on             | Starts listening to channel chat  |
+   | : chat off            | Stops listenin to channel chat    |
+   | : chat last           | Shows the last 25 messages        |
+   | : chat Hi everyone    | Sends a message to channel chat   |
+   | : list                | Lists all channels                |
+   '-----------------------------------------------------------'
+	
+	
+--[ Available channels ]--
+
+   .-----------------------------------------------------------.
+   | Channel               | Purpose                           |
+   |-----------------------+-----------------------------------|
+   | chat                  | Free for all chatting             |
+   | newbie                | Newbie questions and help         |
+   | ghost                 | Getting reborn                    |
+   | sales                 | Selling your equipment            |
+   | fin                   | Finnish chatting                  |
+   | devel                 | Bug reports and other devel stuff |
+   | kuilu                 | Angstista whinetystä              |
+   '-----------------------------------------------------------'
+	
+--[ Chat rules ]--
+
+	Just mind your manners and use the proper channels.
+	For example, don't go chatting in the ghost channel...
+	that's what chat channel is for.
+	
+	To check if a channel has special rules use:
+	help channel <channel name>

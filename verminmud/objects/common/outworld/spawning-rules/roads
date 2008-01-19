@@ -1,0 +1,15 @@
+{
+
+ "TYPE": "global"
+ "RULE": 
+   (object "org.vermin.mudlib.EasySpawningRule" 1
+     (field rooms ["Road." "Crossing."])
+     (field propability 3)
+     (field type "ONE-OF")
+     (field entries [
+       [10 "common/outworld/brigand"]
+       [60 "common/outworld/patrol"]
+       [60 "common/outworld/traveler"]
+      ]))
+
+}

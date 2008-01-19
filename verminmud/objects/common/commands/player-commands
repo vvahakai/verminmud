@@ -1,0 +1,121 @@
+{":": (object "org.vermin.world.commands.ChannelCommand"
+     (field channels 
+	    {"chat": 
+        (object "org.vermin.world.commands.ChannelCommand$Channel"
+          (field last [  null null null null null null null null null null null null null null null null null null null null null null null null null])
+          (field ppl 
+            (object "java.util.HashSet"))
+          (field lastPut (int 0))
+          (field topic "Life, universe and everything"))
+
+  	    "devel":
+        (object "org.vermin.world.commands.ChannelCommand$Channel"
+          (field last [  null null null null null null null null null null null null null null null null null null null null null null null null null])
+          (field ppl 
+            (object "java.util.HashSet"))
+          (field lastPut (int 0))
+          (field topic "For VerminNG development"))
+
+      "fin" :
+        (object "org.vermin.world.commands.ChannelCommand$Channel"
+          (field last [  null null null null null null null null null null null null null null null null null null null null null null null null null])
+          (field ppl 
+            (object "java.util.HashSet"))
+          (field lastPut (int 0))
+          (field topic "For Finnish players"))
+
+      "ghost" :
+        (object "org.vermin.world.commands.ChannelCommand$Channel"
+          (field last [  null null null null null null null null null null null null null null null null null null null null null null null null null])
+          (field ppl 
+            (object "java.util.HashSet"))
+          (field lastPut (int 0))
+          (field topic "Getting resurrected"))
+
+      "kuilu" :
+        (object "org.vermin.world.commands.ChannelCommand$Channel"
+          (field last [  null null null null null null null null null null null null null null null null null null null null null null null null null])
+          (field ppl 
+            (object "java.util.HashSet"))
+          (field lastPut (int 0))
+          (field topic "When all else fails"))
+
+      "newbie" :
+        (object "org.vermin.world.commands.ChannelCommand$Channel"
+          (field last [  null null null null null null null null null null null null null null null null null null null null null null null null null])
+          (field ppl 
+            (object "java.util.HashSet"))
+          (field lastPut (int 0))
+          (field topic "Help for new players"))
+
+      "sales" :
+        (object "org.vermin.world.commands.ChannelCommand$Channel"
+          (field last [ null null null null null null null null null null null null null null null null null null null null null null null null null])
+          (field ppl 
+            (object "java.util.HashSet"))
+          (field lastPut (int 0))
+          (field topic "Selling & buying equipment"))
+
+      "info":
+         (object "org.vermin.world.commands.ChannelCommand$Channel"
+           (field last [ null null null null null null null null null null null null null null null null null null null null null null null null null])   
+         (field ppl (object "java.util.HashSet"))
+         (field lastPut 0)
+         (field topic "Informational game messages")
+         (field playerOperations ["join" "leave" "last"]))
+    }))
+
+ "drop": (object "org.vermin.world.commands.GetCommand")
+
+ "eq": (object "org.vermin.world.commands.EqCommand")
+
+ "finger": (object "org.vermin.mudlib.commands.FingerCommand")
+
+ "get": (object "org.vermin.world.commands.GetCommand")
+ "help": (object "org.vermin.world.commands.HelpCommand"
+           (field path ["objects/common/help"]))
+ "put": (object "org.vermin.world.commands.GetCommand")
+ "score": (object "org.vermin.world.commands.ScoreCommand")
+ 
+ "take": (object "org.vermin.world.commands.GetCommand")
+ "tell": (object "org.vermin.mudlib.commands.Tell")
+ "reply": (object "org.vermin.mudlib.commands.Tell")
+ "lock": (object "org.vermin.world.commands.LockCommand")
+ "unlock": (object "org.vermin.world.commands.UnlockCommand")
+ "who": (object "org.vermin.mudlib.commands.WhoCommand")
+ "eat": (object "org.vermin.mudlib.commands.EatCommand")
+ "exits": (object "org.vermin.mudlib.commands.ExitsCommand")
+ "douse": (object "org.vermin.world.commands.IgniteCommand")
+ "extinguish": (object "org.vermin.world.commands.IgniteCommand")
+ "light": (object "org.vermin.world.commands.IgniteCommand")
+ "ignite": (object "org.vermin.world.commands.IgniteCommand")
+
+ "quaff": (object "org.vermin.world.commands.DrinkCommand")
+ "drink": (object "org.vermin.world.commands.DrinkCommand")
+ "friends": (object "org.vermin.world.commands.FriendsCommand")
+ "date": (object "org.vermin.world.commands.DateCommand")
+ "look": (object "org.vermin.mudlib.commands.Look")
+ "party": (object "org.vermin.mudlib.commands.PartyCommand")
+ "passwd": (object "org.vermin.mudlib.commands.Password")
+ "report": (object "org.vermin.mudlib.commands.Report")
+ "scan": (object "org.vermin.mudlib.commands.Scan")
+ "summary": (object "org.vermin.mudlib.commands.Summary")
+ "exp": (object "org.vermin.mudlib.commands.Summary")
+ "loot": (object "org.vermin.world.commands.GetCommand")
+ "battlestyle": (object "org.vermin.mudlib.commands.Battlestyle")
+ "eval": (object "org.vermin.mudlib.commands.Eval") 
+ "plan": (object "org.vermin.mudlib.commands.Plan") 
+ "weather": (object "org.vermin.mudlib.commands.WeatherCommand") 
+ "stats": (object "org.vermin.mudlib.commands.Stats") 
+ "guilds": (object "org.vermin.world.commands.GuildsCommand")
+ "order": (object "org.vermin.mudlib.minion.OrderCommand")
+ "minions": (object "org.vermin.mudlib.minion.OrderCommand")
+ "throw": (object "org.vermin.mudlib.commands.Throw")
+ "equip": (object "org.vermin.mudlib.commands.Equip")
+ "quests": (object "org.vermin.world.commands.QuestsCommand")
+ "stat": (object "org.vermin.mudlib.commands.StatCommand")
+ "ask": (object "org.vermin.world.commands.Ask")
+ "skills": (object "org.vermin.mudlib.commands.Skills")
+ "suicide": (object "org.vermin.world.commands.Suicide")
+}
+

@@ -1,0 +1,12 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+(field id #38:home/Tadex/Amicable Hills/room_0_22_32)
+(field description #10:Tight cave)
+(field longDescription #103:You are in a tight cave tunnel. It is very dark and moist here. The air is stale and smells really bad.)
+(field outdoor (boolean false))
+(field waterLevel (int 10))
+(field illumination (int 5))
+(field startMonsters (vector
+))
+(field startExits (vector
+ "home/Tadex/Amicable Hills/exit_ne_22_32_sw_23_31_0" "home/Tadex/Amicable Hills/exit_e_21_32_w_22_32_0"))
+)

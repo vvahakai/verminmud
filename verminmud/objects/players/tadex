@@ -1,0 +1,127 @@
+
+  (object "org.vermin.mudlib.DefaultPlayerImpl" 1
+    (field startingRoom "city:0,0")
+    (field aliasTable {})
+    (field plan null)
+    (field created (date "19.01.2008 17:14:17"))
+    (field level 0)
+    (field freeStatPoints 0)
+    (field usedStatPoints {
+    })
+    (field skills 
+      (object "org.vermin.mudlib.SkillObject" 2
+        (field skills {})
+        (field ticksLeft 0)))
+    (field surname "")
+    (field title "")
+    (field gender null)
+    (field availableTitles [])
+    (field preferences {
+     "prompt": "[Hp: $hp$ / $maxhp$] [Sp: $sp$ / $maxsp$] > "
+
+     "verbose": "on"
+
+     "showexp": "off"
+
+     "idleprompt": "on"
+})
+    (field availableBattleStyles [
+       (object "org.vermin.mudlib.DefaultBattleStyle" 3
+         (field owner (@ 1))) ])
+    (field wimpyPercent 0)
+    (field bestSoloKillDescription null)
+    (field bestSoloKillExperience 0)
+    (field bestPartyKillDescription null)
+    (field bestPartyKillExperience 0)
+    (field friends {})
+    (field exploreCount 2)
+    (field hp 100)
+    (field maxHp 200)
+    (field sp 264)
+    (field maxSp 264)
+    (field size 0)
+    (field exp 3775)
+    (field totalExp 0)
+    (field physicalStr 5)
+    (field mentalStr 5)
+    (field physicalCon 5)
+    (field mentalCon 5)
+    (field physicalDex 5)
+    (field mentalDex 5)
+    (field physicalCha 5)
+    (field mentalCha 5)
+    (field race (ref "races/human"))
+    (field inventory [])
+    (field possessive null)
+    (field objective null)
+    (field pronoun null)
+    (field resistance [ 0 0 0 0 0 0 0 0 0 0 0 0])
+    (field wielded [ 
+       (object "org.vermin.mudlib.FactoryWeapon" 4
+         (field damageTypes [ (enum "org.vermin.mudlib.Damage$Type" "SLASHING")          ])
+         (field weaponClass 2)
+         (field projectileClass 0)
+         (field defensiveValue 0)
+         (field type (enum "org.vermin.mudlib.WeaponType" "SWORD")         )
+         (field hitDamageTypes [ 
+            (object "org.vermin.mudlib.Damage" 5
+              (field type (enum "org.vermin.mudlib.Damage$Type" "CRUSHING")              )
+              (field damage 1))])
+         (field hitSpeed 1.9)
+         (field defenseModifiers null)
+         (field damageModifiers null)
+         (field size 1110)
+         (field material "iron")
+         (field dp 74371)
+         (field maxDp 1)
+         (field mayTake true)
+         (field pluralForm null)
+         (field sizeModifiers null)
+         (field maxDpModifiers null)
+         (field name "sword")
+         (field description "an iron sabre")
+         (field longDescription "This sabre is made of iron. It is a sword.")
+         (field aliases ["an iron sabre" "iron sabre" "sabre" ])
+         (field parent (@ 1))
+         (field illumination 0)
+         (field lightModifiers null)
+         (field id "")) (@ 4)])
+    (field worn [ null null null null null null null null null null null null null null null null null null])
+    (field style (@ 3))
+    (field offensiveness 50)
+    (field statModifiers null)
+    (field hpRegenModifiers [])
+    (field spRegenModifiers [])
+    (field maxHpModifiers null)
+    (field maxSpModifiers null)
+    (field offensivenessModifiers null)
+    (field resistanceModifiers null)
+    (field skillModifiers null)
+    (field sizeModifiers null)
+    (field damageListeners null)
+    (field alignmentLife 0)
+    (field alignmentProgress 0)
+    (field lawfulness 0)
+    (field sustenance 9911)
+    (field afflictions {
+    })
+    (field propertyProvider null)
+    (field livingProperties null)
+    (field money 
+      (object "org.vermin.mudlib.DefaultMoneyImpl" 6
+        (field amount [ 6 1 7 3 8 1])))
+    (field behaviours [
+       (object "org.vermin.world.behaviours.WeatherObservationBehaviour" 7
+         (field previousRoomId "city:0,0")
+         (field msgCount 0)
+         (field weatherService 
+           (object "org.vermin.mudlib.WeatherService" 8))
+         (field owner null)) ])
+    (field name "Tadex")
+    (field description "")
+    (field longDescription "")
+    (field aliases [])
+    (field parent (ref "city:0,0"))
+    (field illumination 0)
+    (field lightModifiers null)
+    (field id "players/tadex"))

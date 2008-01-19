@@ -1,0 +1,8 @@
+(prototype "steel_stairs" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Steel stairs")
+        (field longDescription "You are standing in a small enclave dug to a corner of the forge chamber. Wide stairs made from pure steel lead yet downward from here. A slight draft blows from the level below and you can smell the sharp odor of tin in the air. After the chamber, you wander what secrets could these mines yet withold.")
+        (field waterLevel 0)
+        (field illumination 60))
+

@@ -1,0 +1,8 @@
+Help on: alias
+
+alias <aliasname | remove> <command>
+
+for example:
+alias f finger
+alias remove f
+

@@ -1,0 +1,6 @@
+Help on: withdraw
+
+The command withdraws money from your account, the cash appears in your inventory. 
+
+Usage: withdraw <amount> <cointype>
+       withdraw all [cointype]

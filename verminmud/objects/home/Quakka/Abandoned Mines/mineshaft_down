@@ -1,0 +1,10 @@
+(prototype "mineshaft0" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Gaping mineshaft")
+        (field longDescription "You are at the end of the mine's entrance tunnel. Here opens a gaping shaft leading straight downwards into darkness. You still see the remains of a lift system of somekind, hanging ropes and half rotten boards, but it's clearly unusable now. Luckily there seems to be a spiraling ramp leading downwards as well, propably built for moving loads which were too heavy for the lift to carry.") 
+        (field extendedDescriptions {"lift":"The lift is completely destroyed. Attempting to use it would be suicide."
+                                     "remains":"The lift is completely destroyed. Attempting to use it would be suicide."
+                                    })
+        (field waterLevel 0)
+        (field illumination 50))

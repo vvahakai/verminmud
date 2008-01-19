@@ -1,0 +1,19 @@
+Help on: movement
+
+Moving around is done by typing the name of the exit.
+Available exits are shown when looking around the room
+or moving.
+
+Moving multiple rooms at once can be done by prefixing
+the direction with a number and space. For example
+commanding '10 w' (without the quotes) will move ten
+rooms west. 
+
+For moving whole terrain types at once you can type the
+direction in capital letters. For example commanding 'SE'
+(again without the quotes) will move south-east until
+the terrain type changes.
+
+All movement commands have a builtin maximum of moving
+only 50 rooms per command.
+

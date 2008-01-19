@@ -1,0 +1,24 @@
+(prototype "traveler" "false")
+
+(object "org.vermin.mudlib.DefaultMonster"
+  (field name "traveler")
+  (field money (factory "money" "5 gold, 3 silver")) 
+  (field description "A traveling merchant")
+  (field longDescription "A traveling merchant. He looks wealthy.")
+  (field aliases (vector "merchant" "traveler"))
+  (field aggressive (boolean false))
+  (field race (ref "races/human"))
+  (field skills {"fighting": 10 })
+  (field physicalStr 20)
+  (field mentalStr  5)
+  (field physicalCon 20)
+  (field mentalCon 30)
+  (field physicalDex 25)
+  (field mentalDex 30)
+  (field physicalCha 30)
+  (field mentalCha 65)
+  (field style (object "org.vermin.mudlib.DefaultBattleStyle" 
+                 (field owner (parent))))
+
+
+)

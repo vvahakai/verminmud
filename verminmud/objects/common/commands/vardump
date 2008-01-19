@@ -1,0 +1,54 @@
+
+(object "org.vermin.mudlib.SchemeCommand" 
+(field 
+code #|
+
+(load "elf/util.scm")
+
+;;; Command to dump a variable representation
+	
+(define (find-item who args)
+  (or 
+   (case args
+     (("this" "me" "self") who)
+     (("here" "room") (.getRoom who)))
+
+   (let ((inv (.findByName who args)))
+     (if (not (eq? #null inv))
+	 inv
+	 (.findByName (.getRoom who) args)))))
+
+
+(define (write-html-header title out)
+  (.println out {<HTML><HEAD><TITLE>[title]</TITLE></HEAD><BODY><PRE>}))
+
+(define (write-html-footer out)
+  (.println out {</PRE></BODY></HTML>}))
+
+(define (dump obj)
+  (let* ((path {testing/dump/[(.toString obj)].html})
+	 (url {http://vermin.game-host.org/[path]})
+	 (file {/var/www/[path]}))
+    (call-with-output-file file
+      (lambda (out)
+	(write-html-header (.toString obj) out)
+	(.serialize (org.vermin.driver.ObjectWriter. out) obj)
+	(write-html-footer out)))
+    url))
+      
+    
+(define (action who args)
+  (if (not (instanceof who org.vermin.mudlib.Wizard.class))
+      (.notice who "This is only for wizards (which you are not, my friend).")
+      (let ((item (find-item who (.substring args 8))))
+	(if (eq? #null item)
+	    (.notice who "Couldn't find object to dump")
+	    (begin
+	      (.notice who {Dumping object: [item]})
+	      (.showLink (.output (.getClientOutput who))
+			 "dumped object"
+			 (dump item)))))))
+
+
+
+|#))

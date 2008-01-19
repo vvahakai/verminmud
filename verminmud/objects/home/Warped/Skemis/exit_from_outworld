@@ -1,0 +1,4 @@
+  (object "org.vermin.mudlib.DefaultExitImpl"
+    (field rooms (array "java.lang.String" 1 "outworld:52,84,0" "home/Warped/Skemis/map|:0,6,0"))
+    (field directions (array "java.lang.String" 1 "village" "leave"))
+    )

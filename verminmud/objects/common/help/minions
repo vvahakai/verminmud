@@ -1,0 +1,24 @@
+Minions are various beings which the player can summon or construct to do his bidding. They can be ordered to do diverse tasks, depending on the type of the minion. The following commands are used with all types of minions:
+
+order (minion name) as (nickname)
+
+   Assigns a name to the minion.
+
+order (minion name) to follow
+order (minion name) to unfollow
+
+   Orders a minion to start or stop following the player.
+
+order (minion name) to front
+
+   Orders a minion to protect the player and other minions of that player. Any mosters or players that turn aggressive can engage in melee combat with this minion alone.
+
+order (minion name) to list commands
+order (minion name) to (command)
+
+   Depending on the minion, it may be ordered to perform various commands. Many of the commands are the same as those which are available to players as well, such as taking or dropping items. You can get a list of the commands available from a minion by ordering it to 'list commands'.
+
+minions
+
+   Lists all the minions currently assigned to the player.
+

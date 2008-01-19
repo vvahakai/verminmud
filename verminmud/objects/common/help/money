@@ -1,0 +1,10 @@
+Help on: money
+
+1 gold		100 copper
+1 silver	50 copper
+1 bronze	5 copper
+1 copper	1 copper
+1 brass		0.1 copper
+1 tin		0.01 copper
+
+See also: bank

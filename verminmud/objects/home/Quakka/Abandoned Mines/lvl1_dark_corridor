@@ -1,0 +1,9 @@
+
+(prototype "dark_corridor" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Dark corridor")
+        (field longDescription "This corridor seems to be an even older part of the mines, perhaps an old seam which was emptied and then walled off for some reason. You see large spider webs on the walls of the corridor.")
+        (field waterLevel 0)
+        (field illumination 35))
+

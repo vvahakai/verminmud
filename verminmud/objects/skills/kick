@@ -1,0 +1,3 @@
+
+(prototype "kick skill" true)
+(object "org.vermin.world.skills.KickSkill")

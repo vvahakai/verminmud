@@ -1,0 +1,12 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+(field id #33:home/Siggy/City walls/room_23_3_0)
+(field description #18:Guard house office)
+(field longDescription #255:This is one of the city's guardhouses, where high ranked officers work. There are papers everywhere. It isn't as methodical as you have imagined. The walls are decorated with all kinds of military medals and you don't have a clue what they all represent. )
+(field outdoor (boolean false))
+(field waterLevel (int 0))
+(field illumination (int 50))
+(field startMonsters (vector
+))
+(field startExits (vector
+ "home/Siggy/City walls/exit_53" "home/Siggy/City walls/exit_54"))
+)

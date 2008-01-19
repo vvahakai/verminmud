@@ -1,0 +1,9 @@
+(prototype "skemis_street" false)
+(object "org.vermin.mudlib.DefaultRoomImpl"
+ (field illumination 55)
+ (field outdoor true)
+ (field waterLevel 0)
+ (field description "street of a small hamlet")
+ (field longDescription "You are standing on a muddy street that runs in a small walled hamlet. The air reeks of farm animals. There are children playing and a few farmers leaving to their fields.")
+ (field location "skemis_street")
+ )

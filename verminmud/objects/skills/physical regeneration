@@ -1,0 +1,3 @@
+
+(prototype "physical regeneration skill" true)
+(object "org.vermin.world.skills.PhysicalRegenerationSkill")

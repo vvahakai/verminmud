@@ -1,0 +1,17 @@
+Help on: train
+
+Training skills is done in guild rooms.
+The train command can be used as follows:
+
+  Command                     Explanation
+  -------                     -----------
+  train <skill>               Trains 1 percent of the given skill
+  train <skill> to <number>   Train skill to some percentage  
+  train <skill> to max        Train skill to the maximum allowed percentage on this level
+  train <skill> to level      Train skill to the requirements of the next level
+  train level                 Train all skills to the requirements of the next level
+  
+  Examples:
+  train fighting to max
+  train create torch to 56
+  

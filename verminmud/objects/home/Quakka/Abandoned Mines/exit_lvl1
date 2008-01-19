@@ -1,0 +1,5 @@
+(object "org.vermin.mudlib.DefaultExitImpl"
+(field id "home/Quakka/Abandoned Mines/exit_lvl1")
+	(field rooms ["home/Quakka/Abandoned Mines/mines_map|:10,3,0" "home/Quakka/Abandoned Mines/mines_map|:1,5,0"])
+	(field directions ["down" "up"])
+)

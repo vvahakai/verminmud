@@ -1,0 +1,8 @@
+(prototype "power_plant" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Power plant")
+        (field longDescription "You have arrived into the heart of the mines. You are standing in a hall of immense height, supported by strange pilliars made of metal and strange translucent stone. The whole hall hums with terrifying power, and near the roof lightning arcs frequently form between the supporting pillars. In the center of the room you can see a low pedestal, on which stands a threatening shape.")
+        (field waterLevel 0)
+        (field illumination 65))
+

@@ -1,0 +1,3 @@
+ 
+(prototype "life link skill" true)
+(object "org.vermin.mudlib.skills.LifeLink")

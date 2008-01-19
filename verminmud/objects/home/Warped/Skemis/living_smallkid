@@ -1,0 +1,28 @@
+(prototype "living_smallkid" false)
+  (object "org.vermin.mudlib.DefaultMonster"
+     (field description "a small kid")
+     (field longDescription "This small child is playing with his dolls, and is amazed how the left eye of his favourite doll is replaced with something shiny and clean. However the kid is happy to have a doll with two eyes. You realize the eye has been replaced with a flawless small diamond. He is wearing a playsuit and has a balsa sword connected to his belt.")
+     (field name "kid")
+     (field aliases ["kid" "young kid" "small kid"])
+     (field physicalStr 20)
+     (field physicalDex 25)
+     (field physicalCon 30)
+     (field race (ref "races/human"))
+     (field inventory [
+       (factory "armour"
+          "cloth"
+          "torso,leg,leg,arm,arm,neck,head"
+          "60"
+          "1")
+       (factory "armour"
+          "leather"
+          "belt"
+          "70"
+          "1")
+       (factory "weapon"
+          "balsa"
+          "sword"
+          "40")
+         ])
+        )
+

@@ -1,0 +1,8 @@
+(prototype "spider_lair" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Spider's lair")
+        (field longDescription "This is the end of the old tunnel, and it's obvious that a spider has made it into it's nest. Thick layers of webs cover all the walls and you can see small animals hanging here and there, some of them still struggling helplessly.")
+        (field waterLevel 0)
+        (field illumination 50))
+

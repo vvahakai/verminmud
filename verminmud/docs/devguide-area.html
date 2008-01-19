@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>VerminMUD Developer's Guide</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+  </head>
+  <body>
+    <h1>VerminMUD Developer's Guide</h1>
+    <h2>Developing a simple area</h2>
+    <p>This chapter shows you one way of creating a simple area. In this example
+    we will use the EasyOutworldLoader to create our area. This method utilizes
+    the engine originally developed for use in our outerworld, but has been since
+    extended for easy creation of areas.</p>
+    <h3>Planning the area</h3>
+    <p>The first step is to plan how area looks geographically.
+    I've drawn an image outline of the area to be created.
+    The area is a small house consisting of five rooms: entrance, living room, 
+    bedroom, kitchen and storage.</p>
+    <p><img src='area/area-concept.png'></p>
+    <p>In the above image the directions run from west to east (left to right) and
+    north to south (top to bottom). So in the example the living room is north of the
+    entrance and the storage room is north-west from the kitchen and so on.</p>
+    <h3>Creating the area savefile</h3>
+    <p>Next we will create the basic skeleton of the area savefile from
+    which VerminMUD can load our area into memory. See the savefile primer chapter
+    for more information on savefiles.</p>
+    <pre>
+(object "org.vermin.mudlib.outworld.EasyOutworldLoader"
+   (field map "
+S
+ K
+ LB
+ E
+")
+  (field roomTypes {
+     "S":"home/Tadex/SmallHouse/storageroom"
+     "K":"home/Tadex/SmallHouse/kitchen"
+     "L":"home/Tadex/SmallHouse/livingroom"
+     "B":"home/Tadex/SmallHouse/bedroom"
+     "E":"home/Tadex/SmallHouse/entrance"
+   })
+   (field mapped false)
+   (field exitStrategy {"default": "NO_DIAGONAL"
+   	      		    "S": "ALL"
+                        "K": "NONE"})
+   (field things {
+      "1,2,0": ["nw 0 1 0"
+                "s 1 3 0"]
+   })
+   (field spawningRules [])
+)
+    </pre>
+    <p>Notice how simple the conversion from the initial concept image to the
+    savefile format was. The EasyOutworldLoader takes a two-dimensional ASCII map
+    and creates and creates an area from it. The roomTypes field is a mapping from
+    room type character in the map to a room prototype. Room prototype is a savefile
+    that defines the room object for the given type. The mapped field defines whether
+    the player can see a map of the area using the "map" command in the game. In this area we
+    have decided to disable the map by setting the mapped field to false.</p>
+    <p>The area loading mechanism automatically creates exits between rooms. The exitStrategy
+    field controls which exits are created for different room types. Here we have defined
+    a default exit strategy of "NO_DIAGONAL" which means that only exits to the main four directions
+    will be created (north,south,east and west). The "S" type (storage room) has an exit strategy of 
+    "ALL" so that it will create the south-east exit to the kitchen. The "K" type (kitchen) has 
+    an exit strategy of "NONE" meaning that no automatic exits will be created. The north-west and south
+    exits from the kitchen room to the storage room and living room respectively are created by the mapping
+    in the things field. The things field is a mapping from a room coordinate (in the form of "x,y,z") to a list
+    of things. The things can be references to savefiles like monsters or manual exits. The manual exits are
+    specified as "&lt;direction&gt; &lt;x&gt; &lt;y&gt; &lt;z&gt;".</p>
+    <p>
+    <div class='sidebarhead'>Note about exits</div>
+    
+    
+    <div class='sidebar'>
+    <p>The combination of exit strategies and manual exits may seem unintuitive at first.
+    The exit strategy approach is useful when there are many rooms of the same type (like for
+    example a grass field) and exits need to be created. See the API reference for OutworldRoomFactory.ExitStrategy
+    for a description of the different types of strategies.  
+    </p>
+    </div>
+    </p>
+    <h3>Creating room prototypes</h3>
+    <p>Now that we have the area topography defined we can move on the creating the room savefiles.
+    For the rooms we just create savefile prototypes of the DefaultRoomImpl class. DefaultRoomImpl is the
+    default room implementation which supports basically all features a normal room needs.
+    Rarely is there need to create a new room subclass except for shops and other special rooms (and we have
+    classes for shops and guild rooms etc... so you don't need to write your own).</p>
+    <pre>
+(object "org.vermin.mudlib.DefaultRoomImpl"
+   (field description "Entrance to a small house.")
+   (field longDescription "You are at the entrance of a small wooden house. 
+   The walls are covered with cheap looking wallpaper and the floorboards are creaky. 
+   The lighting is dim and the air smells faintly of some sort of cooking.")
+   (field waterLevel 0)
+   (field illumination 30))
+    </pre>
+    <p>Here is an example of a room prototype for the entrance room of our area.
+    We have defined only a few fields. The description and longDescription are the short and long desciptions of the room
+    respectively. The waterLevel and illumination control the environmental aspects of the room (both ranging from 0 to 100).
+    Because we are inside in a house, there is no water here and we have defined the waterLevel as 0. The illumination of 30
+    is dim light. The lighting and water level are not absolute except in scale. The player's racial attributes will affect
+    how they perceive the effects (for example races have different minimum and maximum levels of light in which they can see).</p>
+    <p>The descriptions for other rooms are not given here but are included in the examples folder.</p>
+    <h3>Making it playable</h3>
+    <p>The simple area we developed in this chapter is fully playable as it is, although quite boring.
+    This way of developing areas needs only the map file (the savefile defining EasyOutworldLoader)
+    and room prototype files. That's all there is to it.</p>
+    <p>Normally an area needs a location in the outer world in order to be useful or some other means
+    of accessing it. All developers don't have access to edit the outer world themselves so when your
+    area is finished, ask a wizard to create the exit to your area.</p>
+    <p>While developing an area it is useful to upload it multiple times and try different things. In this
+    case it is better to use the "go" command to access the area without needing an exit. 
+    </p>
+  </body>
+</html>

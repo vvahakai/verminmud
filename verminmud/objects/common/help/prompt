@@ -1,0 +1,23 @@
+The prompt is a good place to get instant information
+about your condition.
+
+The prompt can contain special tags that are replaced
+with the some information.
+
+The tags are embedded as '$tagname$' in the text (without quotes).
+
+Available tags:
+
+   .-----------------------------------------------------------.
+   | Tag      |  Description                                   |
+   |----------+------------------------------------------------|
+   | hp       | Current amount of hit points.                  |
+   | maxhp    | Maximum amount of hit points you can have.     |
+   | sp       | Current amount of spell points.                |
+   | maxsp    | Maximum amount of spell points you can have.   |
+   | exp      | Current amount of unused experience points.    |
+   | n        | A newline character.                           |
+   '-----------------------------------------------------------'
+
+Example:
+   '[Hp: $hp$, Sp: $sp$]-> ' is shown as '[Hp: 123, Sp: 50]-> '

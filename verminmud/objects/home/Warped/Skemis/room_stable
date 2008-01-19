@@ -1,0 +1,8 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+ (field startExits (vector "home/Warped/Skemis/exit_stable"))
+ (field illumination 55)
+ (field outdoor false)
+ (field waterLevel 0)
+ (field description "a small stable")
+ (field longDescription "You are inside a small stable. Most of the room is taken up by a couple of horse paddocks and a pile of hay.")
+ )

@@ -1,0 +1,13 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+(field id #36:home/Tadex/Amicable Hills/room_0_4_4)
+(field description #13:A forest path)
+(field longDescription #131:You are on gradually ascending path that leads to the top of the hills.
+The are a few tall trees on the path and light undergrowth.)
+(field outdoor (boolean true))
+(field waterLevel (int 0))
+(field illumination (int 91))
+(field startMonsters (vector
+ "home/Tadex/Amicable Hills/hawk"))
+(field startExits (vector
+ "home/Tadex/Amicable Hills/exit_w_4_4_e_3_4_0" "home/Tadex/Amicable Hills/exit_nw_5_5_se_4_4_0"))
+)

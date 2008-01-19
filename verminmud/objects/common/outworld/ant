@@ -1,0 +1,27 @@
+(prototype "outworldant" "false")
+(object "org.vermin.mudlib.DefaultMonster"
+(field name "ant")
+(field behaviours [
+   (object "org.vermin.world.quest.QuestDeathBehaviour"
+      (field owner (parent)))
+ ])
+(field description "A small ant")
+(field longDescription "A small ant gathering pine needles for its hill.")
+(field aliases (vector "ant"))
+(field aggressive (boolean false))
+(field race (singleton "org.vermin.world.races.InsectoidRace"))
+(field skills (map "java.util.TreeMap"
+(mapentry "fighting" (int 20))
+))
+(field physicalStr (int 10))
+(field mentalStr (int 1))
+(field physicalCon (int 20))
+(field mentalCon (int 1))
+(field physicalDex (int 30))
+(field mentalDex (int 1))
+(field physicalCha (int 2))
+(field mentalCha (int 1))
+(field resistance (array "int" 1 (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 15) (int 0) (int 10) (int 0) (int 0)))
+(field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+(field battleGroup (object "org.vermin.mudlib.SingleBattleGroup" (field owner (parent))))
+)

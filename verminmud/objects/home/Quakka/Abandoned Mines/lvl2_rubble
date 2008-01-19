@@ -1,0 +1,9 @@
+(prototype "rubble" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Rubble filled tunnel")
+        (field longDescription "The tunnel has collapsed here, blocking the railway. Between the gaps in the huge boulders you can see the rails dissappearing in to the darkness.")
+        (field extendedDescription {"boulders":"The boulders make the tunnel impassable. The glow-globes lighting the tunnel also seem to be malfunctioning on the other side of the blockage."})
+	(field waterLevel 0)
+        (field illumination 50))
+

@@ -1,0 +1,2 @@
+(prototype "polearms skill" true)
+(object "org.vermin.mudlib.skills.Automatic")

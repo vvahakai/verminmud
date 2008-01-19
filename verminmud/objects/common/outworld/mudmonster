@@ -1,0 +1,29 @@
+(prototype "mudmonster" "false")
+(object "org.vermin.mudlib.DefaultMonster"
+(field name "mud monster")
+(field description "A horrifying mud monster")
+(field longDescription "A horrifying mud monster rising from the pit of hot mud. It smoothly moves through the pit, frequently disappearing in the mud.")
+(field aliases (vector "monster"))
+(field aggressive (boolean false))
+(field race (singleton "org.vermin.world.races.MudMonsterRace"))
+(field skills (map "java.util.TreeMap"
+(mapentry "fighting" (int 71))
+(mapentry "summon lesser spores" (int 68))))
+(field behaviours [ 
+                    (object "org.vermin.mudlib.behaviour.BattleSkillBehaviour"
+                    (field owner (parent)))
+					(object "org.vermin.world.behaviours.AmbushBehaviour"
+                    (field owner (parent)))
+                    ])
+(field physicalStr (int 283))
+(field mentalStr (int 132))
+(field physicalCon (int 312))
+(field mentalCon (int 153))
+(field physicalDex (int 232))
+(field mentalDex (int 124))
+(field physicalCha (int 2))
+(field mentalCha (int 1))
+(field resistance (array "int" 1 (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 15) (int 0) (int 10) (int 0) (int 0)))
+(field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+(field battleGroup (object "org.vermin.mudlib.SingleBattleGroup" (field owner (parent))))
+)

@@ -1,0 +1,11 @@
+* VerminMUD Developer's Guide
+
+** TABLE OF CONTENTS
+
+\bullets{
+\item{\link{\href{devguide-intro.html}\text{Introduction}}}
+\item{\link{\href{devguide-overview.html}\text{VerminMUD objects and API overview}}}
+\item{\link{\href{devguide-area.html}\text{Developing a simple area}}}
+\item{\link{\href{devguide-monsters.html}\text{Adding monsters}}}
+\item{\link{\href{devguide-behaviour.html}\text{NPCs: monsters with behaviour}}}
+}

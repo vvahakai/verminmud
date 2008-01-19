@@ -1,0 +1,135 @@
+(object 
+ "org.vermin.mudlib.outworld.EasyOutworldLoader"
+ (field map "
+
+            
+ abbbbbbbbc 
+                     
+ deeeeeeeeeeeeh 
+         f 
+         g 
+         g 
+         g 
+         g 
+         g 
+         g 
+         g 
+         gzzzzzzzz 
+                    
+            h 
+            i 
+            i 
+            i 
+            i 
+            i 
+            i 
+ jiiiiiiiiiidiiiiiiij 
+            i 
+            i 
+            i 
+            i 
+            i 
+            i 
+            j 
+                   
+              mmmm 
+              mmmm    
+            mmmmmmmmm 
+ dkkkkkkkkkkmmmmmmmmm 
+          l mmmmmmmmm 
+          l   mmmm  n 
+          l   mmmm    
+          l           
+          l 
+          l 
+          l 
+          l 
+                
+      ppp 
+ oooooppp 
+      ppp 
+           
+")
+ (field roomTypes {
+        "a" : "home/Quakka/Abandoned Mines/lvl0_entrance"
+        "b" : "home/Quakka/Abandoned Mines/lvl0_tunnel"
+        "c" : "home/Quakka/Abandoned Mines/mineshaft_down"
+        "d" : "home/Quakka/Abandoned Mines/mineshaft_bottom"
+        "e" : "home/Quakka/Abandoned Mines/lvl1_tunnel"
+        "f" : "home/Quakka/Abandoned Mines/lvl1_broken_chamber"
+        "g" : "home/Quakka/Abandoned Mines/lvl1_dark_corridor"
+        "z" : "home/Quakka/Abandoned Mines/lvl1_spider_lair"
+        "h" : "home/Quakka/Abandoned Mines/lvl1_mineshaft"
+        "i" : "home/Quakka/Abandoned Mines/lvl2_tunnel"
+        "j" : "home/Quakka/Abandoned Mines/lvl2_rubble"
+        "k" : "home/Quakka/Abandoned Mines/lvl3_corridor"
+        "l" : "home/Quakka/Abandoned Mines/lvl3_digging_shaft"
+        "m" : "home/Quakka/Abandoned Mines/lvl3_forge_chamber"
+        "n" : "home/Quakka/Abandoned Mines/lvl3_stairs_down"
+        "o" : "home/Quakka/Abandoned Mines/lvl4_stairs"
+        "p" : "home/Quakka/Abandoned Mines/lvl4_power_plant"
+	})
+
+ (field mapped false)
+ (field exitStrategy {})
+ (field things {
+	"1,3,0": ["home/Quakka/Abandoned Mines/exit_outworld"]
+	"10,3,0": ["home/Quakka/Abandoned Mines/exit_lvl1"]
+	"1,5,0": ["home/Quakka/Abandoned Mines/exit_lvl1"]
+	"14,5,0": ["home/Quakka/Abandoned Mines/exit_lvl2"]
+	"12,23,0": ["home/Quakka/Abandoned Mines/exit_lvl2"]
+	"12,16,0": ["home/Quakka/Abandoned Mines/exit_lvl3"]
+	"1,35,0": ["home/Quakka/Abandoned Mines/exit_lvl3"]
+	"20,37,0": ["home/Quakka/Abandoned Mines/exit_lvl4"]
+	"1,46,0": ["home/Quakka/Abandoned Mines/exit_lvl4"]
+	"7,46,0": ["home/Quakka/Abandoned Mines/power_golem"]
+})
+ (field spawningRules 
+	[ 
+	   (object "org.vermin.mudlib.EasySpawningRule"
+                  (field rooms ["Entrance tunnel"])
+		  (field propability 50)
+		  (field entries [
+				["50" "home/Quakka/Abandoned Mines/rat"]
+				["50" "home/Quakka/Abandoned Mines/rat"]
+				["50" "home/Quakka/Abandoned Mines/rat"]
+				]))
+	   (object "org.vermin.mudlib.EasySpawningRule"
+                  (field rooms ["Globe-lit tunnel"])
+		  (field propability 50)
+		  (field entries [
+				["50" "home/Quakka/Abandoned Mines/rat"]
+				["50" "home/Quakka/Abandoned Mines/rat"]
+				["50" "home/Quakka/Abandoned Mines/cave_lizard"]
+				]))
+	   (object "org.vermin.mudlib.EasySpawningRule"
+                  (field rooms ["Dark corridor"])
+		  (field propability 50)
+		  (field entries [
+				["50" "home/Quakka/Abandoned Mines/cave_lizard"]
+				["50" "home/Quakka/Abandoned Mines/cave_lizard"]
+				]))
+	   (object "org.vermin.mudlib.EasySpawningRule"
+                  (field rooms ["Mine railway"])
+		  (field propability 50)
+		  (field entries [
+				["50" "home/Quakka/Abandoned Mines/cave_lizard"]
+				["20" "home/Quakka/Abandoned Mines/cave_lizard_large"]
+				]))
+	   (object "org.vermin.mudlib.EasySpawningRule"
+                  (field rooms ["Recently opened shaft"])
+		  (field propability 50)
+		  (field entries [
+				["50" "home/Quakka/Abandoned Mines/worker_automaton"]
+				["50" "home/Quakka/Abandoned Mines/worker_automaton"]
+				]))
+	   (object "org.vermin.mudlib.EasySpawningRule"
+                  (field rooms ["Forge chamber"])
+		  (field propability 50)
+		  (field entries [
+				["50" "home/Quakka/Abandoned Mines/forge_automaton"]
+				["50" "home/Quakka/Abandoned Mines/forge_automaton"]
+				]))
+
+	  ])
+ )

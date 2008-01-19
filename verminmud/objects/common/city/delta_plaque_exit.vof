@@ -1,0 +1,9 @@
+  (object "org.vermin.mudlib.DefaultExitImpl"
+    (field rooms (array "java.lang.String" 1 "common/city/plaque_room_delta" "common/city/plaque_room"))
+    (field directions (array "java.lang.String" 1 "n" "s"))
+    (field barrierModifiers null)
+    (field id "common/city/delta_plaque_exit")
+    (field name "")
+    (field description "")
+    (field longDescription "")
+    (field aliases (vector)))

@@ -1,0 +1,9 @@
+(object "org.vermin.mudlib.DefaultExitImpl"
+  (field rooms (array "java.lang.String" 1 "city2:1,11,0" "outworld:-186,118,0"))
+  (field directions (array "java.lang.String" 1 "s" "n"))
+  (field barrierModifiers null)
+  (field id "Siggy/city/exit_south_outworld")
+  (field name "")
+  (field description "")
+  (field longDescription "")
+  (field aliases (vector)))
