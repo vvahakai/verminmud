@@ -1,0 +1,31 @@
+
+You can access all the party commands by:
+ `party <subcommand> ...args...'
+
+Membership
+----------
+invite <player>  Invite someone to your party.
+join             Join a party you were invited to.
+kick <member>    Kick a member from you party.
+leave            Leave the party you are in.
+
+Management
+----------
+create <name>            Create a party.
+leader <member>          Change party leader.
+name <name>              Change the party name.
+place <mbr> <row> <col>  Set the combat place of a member.
+disband                  Disband the party. 
+
+Generic
+-------
+say <message>      Say something in the party channel.
+follow             Toggle leader following on/off.
+shares             List party share information.
+kills              List the most recent kills of your party.
+place              Show party combat places.
+place <row> <col>  Set your own combat place.
+dice               Roll a dice for all members.
+status             Show party status information.
+who <member>       Show information about a specific member.
+

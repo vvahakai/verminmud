@@ -1,0 +1,8 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+ (field startExits (vector "home/Warped/Skemis/exit_house1"))
+ (field illumination 55)
+ (field outdoor false)
+ (field waterLevel 0)
+ (field description "a log house")
+ (field longDescription "This is small house built of logs and it has a thatched roof. It only has a one room that contains a small kitchen in one corner and a series of beds in another. The occupants are probably quite poor.")
+ )

@@ -1,0 +1,25 @@
+
+Help on: newbie
+
+The help system is accessible via the 'help' command.
+To see a list of help topics, type 'help topics'.
+
+This game has mostly been tested with TinyFugue and
+ZMud mud-clients. If you are playing with telnet you
+might want to 'set idleprompt off'.
+(see also: 'help settings')
+
+Use 'map legend' to see what the letters in the city 
+map mean.
+
+Use 'map large' to see a larger map.
+
+To request help use the newbie channel.
+
+See also: channels
+          combat
+          movement
+          food
+          experience
+          explore
+          stat

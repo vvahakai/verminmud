@@ -1,0 +1,22 @@
+{
+ "TYPE": "area"
+ "AREA": "Mount Openty"
+ "RULE":
+    (object "org.vermin.mudlib.DefaultSpawningRuleImpl" 
+     (field spawnEntries [
+        (object "org.vermin.mudlib.DefaultSpawningRuleImpl$DefaultSpawnEntry" 
+	  (field entryProbability 10)
+          (field spawnMax 10)
+          (field rooms [])
+          (field spawnData [
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 
+               (field id "common/outworld/eagles_nest")
+               (field probability 100))
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 
+               (field id "common/outworld/great_eagle")
+               (field probability 100)) 
+	     ]
+           )
+         )]
+       ))
+}

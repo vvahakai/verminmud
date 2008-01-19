@@ -1,0 +1,7 @@
+Help on: friends
+
+Usage: friends [-a | -r | -l] [name] [list]
+
+-a	add
+-r	remove
+-l	list

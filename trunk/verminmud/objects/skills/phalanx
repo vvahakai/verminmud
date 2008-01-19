@@ -1,0 +1,2 @@
+(prototype "phalanx skill" true)
+(object "org.vermin.mudlib.skills.Automatic")

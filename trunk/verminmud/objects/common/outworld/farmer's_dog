@@ -1,0 +1,21 @@
+(prototype "farmersdog" "false")
+
+(object "org.vermin.mudlib.DefaultMonster"
+  (field name "dog")
+ 
+  (field description "A small dog")
+  (field longDescription "The farmer's mangy dog.")
+  (field aliases (vector "dog"))
+  (field aggressive (boolean false))
+  (field race (factory "quadruple-race" "PAWS" "TAIL"))
+  (field skills {"fighting": 33})
+  (field physicalStr 30)
+  (field mentalStr  1)
+  (field physicalCon 20)
+  (field mentalCon 1)
+  (field physicalDex 35)
+  (field mentalDex 1)
+  (field physicalCha 10)
+  (field mentalCha 1)
+  (field style (object "org.vermin.mudlib.battle.BestialBattleStyle" (field owner (parent))))
+)

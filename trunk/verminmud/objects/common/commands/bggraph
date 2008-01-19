@@ -1,0 +1,78 @@
+
+(object "org.vermin.mudlib.SchemeCommand"
+(field 
+code 
+#|
+
+(use-module "elf/util.scm")
+(use-module "common/scripts/utils.scm")
+
+;;; Print a graphviz digraph of the players battlegroup
+
+(import "org.vermin.mudlib.*")
+
+
+(define *bg-id* 0)
+(define *bg* (java.util.HashMap.))
+
+
+
+(define (battlegroup-id grp)
+  (if (.containsKey *bg* grp)
+      (.get *bg* grp)
+      (let ((id {bg[*bg-id*]}))
+	(.put *bg* grp id)
+	(set! *bg-id* (+ *bg-id* 1))
+	id)))
+
+(define (print-battlegroup-node grp out)
+  (if (not (.containsKey *bg* grp))
+      (begin
+	(display {[(battlegroup-id grp)] ["["]shape=box, label="[(.getName grp)]"["]"];} out)
+        (newline out))))
+
+(define (print-battlegroup-link from to out)
+  (display {[(battlegroup-id from)] -> [(battlegroup-id to)];} out)
+  (newline out))
+
+
+(define (print-battlegroup branch out)
+  (print-battlegroup-node branch out)
+  (let ((iter (.children branch)))
+    (let loop ()
+      (if (.hasNext iter)
+	  (let ((child (.next iter)))
+	    (begin 
+	      (print-battlegroup child out)
+	      (print-battlegroup-link branch child out)
+	      (loop)))))))
+
+(define (dot who)
+  (set! *bg-id* 0)
+  (set! *bg* (java.util.HashMap.))
+  (let ((file {/tmp/[(.getName who)]-bg.dot}))
+    (call-with-output-file file
+	(lambda (out)
+	  (display "digraph BG {" out)
+	  (newline out)
+	  (print-battlegroup (.getBattleGroup who) out)
+	  (display "}" out)))
+    file))
+
+(define (dot->svg dotfile svgfile)
+  (.waitFor (.start (ProcessBuilder. (array String.class 
+					    "/usr/bin/dot" "-Tsvg" "-o" svgfile dotfile)))))
+
+
+(define (action who params)
+  (if (not (instanceof who org.vermin.mudlib.Wizard.class))
+      (.notice who "This command is for wizards only, sorry.")
+      (let* ((path {dump/[(.getName who)]-bg.svg})
+	     (dotfile (dot who))
+	     (svgfile {/var/www/testing/[path]}))
+	(.notice who {Convert [dotfile] to SVG: [svgfile]})
+	(dot->svg dotfile svgfile)
+	(.showLink (.output (.getClientOutput who)) "BattleGroup graph"
+		   {http://vermin.game-host.org/testing/[path]}))))
+
+|#))

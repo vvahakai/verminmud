@@ -1,0 +1,12 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+(field id #33:home/Siggy/City walls/room_4_11_0)
+(field description #30:You are standing on city walls)
+(field longDescription #297:These walls are atleast 15 feet above the ground level. The walls are well made and are hefty work. You can see guard patrols moving around the walls. There's a great view opening outside the city. When you look forward you can see that this is the place where mountains come nearest to the city. )
+(field outdoor (boolean true))
+(field waterLevel (int 0))
+(field illumination (int 50))
+(field startMonsters (vector
+))
+(field startExits (vector
+ "home/Siggy/City walls/exit_7" "home/Siggy/City walls/exit_6"))
+)

@@ -1,0 +1,2 @@
+(prototype "tinning" true)
+(object "org.vermin.mudlib.skills.Tinning")

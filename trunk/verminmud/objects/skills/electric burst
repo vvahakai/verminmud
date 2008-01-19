@@ -1,0 +1,2 @@
+(prototype "electric burst" true)
+(object "org.vermin.world.skills.ElectricBurst")

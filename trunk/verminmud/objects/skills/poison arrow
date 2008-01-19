@@ -1,0 +1,3 @@
+
+(prototype "poison arrow skill" true)
+(object "org.vermin.world.skills.PoisonArrowSkill")

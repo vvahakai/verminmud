@@ -1,0 +1,5 @@
+Help on: balance
+
+The command shows the amount of money you have on your bank account. It displays all the different cointypes and amounts you have depositted.
+
+Usage: balance

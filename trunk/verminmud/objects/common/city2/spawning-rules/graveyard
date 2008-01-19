@@ -1,0 +1,21 @@
+{
+ "TYPE": "global"
+ "RULE":
+    (object "org.vermin.mudlib.DefaultSpawningRuleImpl" 
+     (field spawnEntries [
+        (object "org.vermin.mudlib.DefaultSpawningRuleImpl$DefaultSpawnEntry" 
+	  (field entryProbability 20)
+          (field spawnMax 20)
+          (field rooms ["Unquiet Graveyard."])
+          (field spawnData [
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 
+               (field id "common/city2/undertaker")
+               (field probability 40))
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 
+               (field id "common/city2/gravedigger")
+               (field probability 60)) 
+	     ]
+           )
+         )]
+       ))
+}

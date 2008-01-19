@@ -1,0 +1,18 @@
+{
+  "money": (script "org.vermin.driver.Factory"
+#| 
+(define (create desc)
+  (org.vermin.mudlib.DefaultMoneyImpl.createMoneyFromDescription (vector-ref desc 0)))
+
+|#)
+
+  "quadruple-race": (script "org.vermin.driver.Factory" #| 
+(define (create desc)
+ (.create (org.vermin.world.races.QuadrupleFactory.getInstance)
+	(list->array Enum.class 
+		(map (lambda (oname)
+			(org.vermin.world.races.QuadrupleFactory$QuadrupleOption.valueOf oname))
+			(array->list desc)))))
+|#)
+
+}

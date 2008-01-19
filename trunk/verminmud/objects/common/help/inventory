@@ -1,0 +1,7 @@
+Help on: inventory
+
+Shows all the items you carry, except equipment which are worn or 
+wielded. Also shows the amount of money you carry. Command 'inv' is 
+alias to this command.
+
+See also: wear, wield, unwear, unwield, eq

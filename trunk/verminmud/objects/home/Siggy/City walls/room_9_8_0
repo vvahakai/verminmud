@@ -1,0 +1,17 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+(field id #32:home/Siggy/City walls/room_9_8_0)
+(field description #18:Guard house office)
+(field longDescription #255:This is one of the city's guardhouses, where high ranked officers work. There are papers everywhere. It isn't as methodical as you have imagined. The walls are decorated with all kinds of military medals and you don't have a clue what they all represent. )
+(field outdoor (boolean false))
+(field waterLevel (int 0))
+(field illumination (int 50))
+(field startMonsters (vector
+  "home/Quakka/master_of_mercenaries"
+))
+(field startExits (vector
+ "home/Siggy/City walls/exit_to_outworld"
+ "home/Siggy/City walls/exit_22"))
+ (field extendedDescriptions {
+   "sign" : "The sign reads: 'The Master of Mercenaries, Imperial Infantry. Quest contracts available for asking.'"
+  })
+)

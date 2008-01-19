@@ -1,0 +1,3 @@
+
+(prototype "acid arrow skill" true)
+(object "org.vermin.world.skills.AcidArrowSkill")

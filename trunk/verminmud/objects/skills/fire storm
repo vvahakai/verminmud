@@ -1,0 +1,3 @@
+
+(prototype "fire storm skill" true)
+(object "org.vermin.world.skills.FireStormSkill")

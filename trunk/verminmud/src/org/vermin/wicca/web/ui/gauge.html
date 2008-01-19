@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>erno penttikoski</title>
+<script src='prototype-1.2.0.js'></script>
+<script src='gauge.js'></script>
+<script>
+
+var model;
+var amount = 0;
+function test() {
+   model.setCurrent(amount++);
+   window.setTimeout(test, 100);
+}
+
+window.onload = function() {
+   model = new FractionModel(0, 100);
+   gauge = new Gauge(document.getElementById('bar'), document.getElementById('text'), model);
+   test();
+}
+
+</script>
+<style type='text/css'>
+div.progressbar { position: absolute; height: 20px; width: 400px; border: 1px solid black; overflow: hidden; } 
+div.progressbar div { position: relative; background-color: #cc0000;  width: 100%; height:100% }
+div.progressbar div div { position: relative; background-color: #00ff00; width: 0%; height: 100%; }
+div.progressbar span { position: absolute; font-weight: bold; color: white; top: 0px;  width: 100%; text-align: center; }
+</style>
+</head>
+<body>
+<div class='progressbar'>
+   <div>
+      <div ID='bar'>
+      </div>
+      <span ID='text'>test</span>
+   </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,8 @@
+(prototype "forge_chamber" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Forge chamber")
+        (field longDescription "This huge hall is full of unbearable noise and searing red light. All around you jets of flames streak forth underneath steel griders, heating up forges set side by side in straight rows all over the hall. From the roof hangs strange machines which apparently sometimes supplied the forges with metals, but seem to have ceased functioning by now.")
+        (field waterLevel 0)
+        (field illumination 80))
+

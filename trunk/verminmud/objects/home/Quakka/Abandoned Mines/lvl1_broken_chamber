@@ -1,0 +1,8 @@
+(prototype "broken_chamber" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Waiting chamber")
+        (field longDescription "This is a waiting chamber of some kind carved into the side of the tunnel. You can still see the remains of furniture on the floor. The rear wall of the chamber has collapsed, or has been crushed in by something, and you can see a dark tunnel leading away behind the hole.") 
+        (field waterLevel 0)
+        (field illumination 50))
+

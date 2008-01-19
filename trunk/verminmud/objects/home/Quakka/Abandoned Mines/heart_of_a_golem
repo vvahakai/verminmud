@@ -1,0 +1,31 @@
+(prototype "heart_of_the_golem" false)
+(object "org.vermin.mudlib.MagicalWearableImpl"
+	(field slots (array "org.vermin.mudlib.Slot" 1 
+		(object "org.vermin.mudlib.Slot"
+		(field type "pendant")
+    (field name null))))
+	(field sizeScale (int 2))
+	(field damageTypeModifiers (array "int" 1 (int 10) (int 10) (int 0) (int 5)))
+	(field slots null)
+	(field armourModifiers null)
+	(field armourValue (int 67))
+	(field size (int 30))
+	(field material "iron")
+	(field dp (int 901))
+	(field maxDp (int 900))
+	(field pluralForm null)
+	(field sizeModifiers null)
+	(field maxDpModifiers null)
+	(field id "")
+	(field name "heart")
+	(field description "a heart of a golem")
+	(field longDescription "This is a faintly glowing mechanical heart. Though it has been cut of from the golem which it once powered, it still pumps slowly and steadilly. Some of the cords hanging from it have been tied into a loop, allowing you to wear it as a necklace.")
+	(field aliases (vector "heart" "golem heart" "heart of a golem" "amulet" "pendant"))
+	(field parent (parent))
+	(field illumination (int 20))
+	(field modifiers (vector 
+		(object "org.vermin.mudlib.DefaultModifierImpl" 
+	    	(field amount (int 15))
+    		(field type (enum "org.vermin.mudlib.ModifierTypes" "SPREGEN")))))
+    (field lightModifiers null)
+)

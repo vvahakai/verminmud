@@ -1,0 +1,2 @@
+(prototype "light skill" true)
+(object "org.vermin.world.skills.LightSkill")

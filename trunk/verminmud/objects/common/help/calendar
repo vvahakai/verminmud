@@ -1,0 +1,14 @@
+
+Help on: calendar
+
+The calendar of Vermin world consists of 13 months, each
+28 days long, and a single designated national hangover
+day which doesn't belong into any month. A new year is
+considered to start when the sun rises after the night
+following the hangover day.
+
+You can see the current time using the 'date' command.
+
+See also: month names
+
+

@@ -1,0 +1,5 @@
+
+  (object "org.vermin.world.rooms.Bank"
+    (field startExits ["Siggy/city/exit_street_bank"])
+    (field illumination (int 50)))
+

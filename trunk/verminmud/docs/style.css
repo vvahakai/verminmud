@@ -1,0 +1,24 @@
+body {
+  margin: .25in .5in; 
+  font-size: 12pt;
+}
+h1, h2 { font-family: "Helvetica"; }
+sup { font-size: 9pt;  }
+pre { 
+    margin: 0; 
+    font-size: 9pt; 
+    padding: .1in; 
+    margin-left: .25in; 
+    background-color: #d0d0d0;
+    border: dotted 1px black;
+}
+
+div.note { font-size: 10pt; }
+
+div.sidebarhead {
+    font-variant: small-caps;
+}
+div.sidebar {
+    padding: .1in;
+    border: dotted 1px black;
+}

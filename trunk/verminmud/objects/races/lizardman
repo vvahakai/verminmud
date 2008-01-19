@@ -1,0 +1,93 @@
+
+  (object "org.vermin.world.races.LizardmanRace" 1
+    (field name "lizardman")
+    (field slots [ 
+       (object "org.vermin.mudlib.Slot" 2
+         (field type "head")
+         (field name "head")) 
+       (object "org.vermin.mudlib.Slot" 3
+         (field type "neck")
+         (field name "neck")) 
+       (object "org.vermin.mudlib.Slot" 4
+         (field type "arm")
+         (field name "left arm")) 
+       (object "org.vermin.mudlib.Slot" 5
+         (field type "hand")
+         (field name "left claw")) 
+       (object "org.vermin.mudlib.Slot" 6
+         (field type "arm")
+         (field name "right arm")) 
+       (object "org.vermin.mudlib.Slot" 7
+         (field type "hand")
+         (field name "right claw")) 
+       (object "org.vermin.mudlib.Slot" 8
+         (field type "torso")
+         (field name "torso")) 
+       (object "org.vermin.mudlib.Slot" 9
+         (field type "leg")
+         (field name "left leg")) 
+       (object "org.vermin.mudlib.Slot" 10
+         (field type "foot")
+         (field name "left foot")) 
+       (object "org.vermin.mudlib.Slot" 11
+         (field type "leg")
+         (field name "right leg")) 
+       (object "org.vermin.mudlib.Slot" 12
+         (field type "foot")
+         (field name "right foot")) 
+       (object "org.vermin.mudlib.Slot" 13
+         (field type "tail")
+         (field name "tail")) 
+       (object "org.vermin.mudlib.Slot" 14
+         (field type "finger")
+         (field name "left hand finger")) 
+       (object "org.vermin.mudlib.Slot" 15
+         (field type "finger")
+         (field name "right hand finger")) 
+       (object "org.vermin.mudlib.Slot" 16
+         (field type "amulet")
+         (field name "amulet")) 
+       (object "org.vermin.mudlib.Slot" 17
+         (field type "belt")
+         (field name "belt")) 
+       (object "org.vermin.mudlib.Slot" 18
+         (field type "cloak")
+         (field name "cloak")) 
+       (object "org.vermin.mudlib.Slot" 19
+         (field type "wrist")
+         (field name "left wrist")) 
+       (object "org.vermin.mudlib.Slot" 20
+         (field type "wrist")
+         (field name "right wrist"))])
+    (field dirty false)
+    (field id "races/lizardman")
+    (field leader null)
+    (field hitLocations null)
+    (field name null)
+    (field limbNames null)
+    (field limbs null)
+    (field slots null)
+    (field hitlocSlotMap null)
+    (field stats null)
+    (field statCosts {
+      "PHYS_STR": 0
+      "MENT_STR": 0
+      "PHYS_DEX": 0
+      "MENT_DEX": 0
+      "PHYS_CON": 0
+      "MENT_CON": 0
+      "PHYS_CHA": 0
+      "MENT_CHA": 0
+    })
+    (field baseHpRegen 0)
+    (field baseSpRegen 0)
+    (field size 0)
+    (field expRate 0)
+    (field genders null)
+    (field minimumVisibleIlluminationLevel 0)
+    (field maximumVisibleIlluminationLevel 100)
+    (field alignmentProgress 0)
+    (field alignmentLife 0)
+    (field intrinsicSkills {})
+    (field raceProperties [])
+    (field goreFlags ["HAS_BLOOD" ]))

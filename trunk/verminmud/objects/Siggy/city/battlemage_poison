@@ -1,0 +1,6 @@
+
+  (object "org.vermin.world.rooms.PoisonMastersGuildRoom"
+    (field startExits (vector "Siggy/city/exit_battlemage_poison"))
+    (field id "Siggy/city/battlemage_poison")
+    (field illumination 50)
+    (field parent null))

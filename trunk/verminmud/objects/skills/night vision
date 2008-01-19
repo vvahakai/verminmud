@@ -1,0 +1,2 @@
+(prototype "night vision" true)
+(object "org.vermin.world.skills.NightVision")

@@ -1,0 +1,198 @@
+
+  (object "org.vermin.world.rooms.BattleMageGuildRoom"
+    (field guildName "battlemage")
+    (field train (vector 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "essence eye")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 14) (byte 22) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 25) (byte 55) (byte 75) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 5000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "quick chant")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 13) (byte 30) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 55)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 13) (byte 13) (byte 23) (byte 30) (byte 45) (byte 48) (byte 70) (byte 73) (byte 79) (byte 82) (byte 85) (byte 89) (byte 94) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 10000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "fighting")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 30) (byte 50) (byte 70) (byte 70) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 2000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "polearms")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 15) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 30) (byte 30) (byte 70) (byte 70) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 7000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "consider")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 12) (byte 23) (byte 34) (byte 45) (byte 54) (byte 70) (byte 77) (byte 85) (byte 93) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 1843))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "magic lore")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 20) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 25) (byte 25) (byte 40) (byte 40) (byte 40) (byte 75) (byte 90) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 6000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "wand making")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 30) (byte 55) (byte 55) (byte 55) (byte 55) (byte 75) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 8000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "create food")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 15) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 30) (byte 30) (byte 50) (byte 70) (byte 80) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 1235))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "create money")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 30) (byte 30) (byte 50) (byte 55) (byte 70) (byte 70) (byte 90) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 3467))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "darkness")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 50) (byte 70) (byte 70) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 4000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "light")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 50) (byte 70) (byte 70) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 4000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "magic missile")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 20) (byte 34) (byte 56) (byte 78) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 50) (byte 70) (byte 70) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 5430))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "infravision")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 20) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 32) (byte 56) (byte 65) (byte 74) (byte 85) (byte 92) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 5132))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "shelter")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 11) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 20) (byte 35) (byte 35) (byte 35) (byte 35) (byte 50) (byte 70) (byte 85) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 6000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "water walking")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 11) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 20) (byte 35) (byte 35) (byte 35) (byte 35) (byte 50) (byte 70) (byte 85) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 3256))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "curse")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 20) (byte 35) (byte 35) (byte 35) (byte 35) (byte 50) (byte 70) (byte 85) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 4553))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "remove curse")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 20) (byte 35) (byte 35) (byte 35) (byte 35) (byte 50) (byte 70) (byte 85) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 4553))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "avoidance")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 15) (byte 20) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 25) (byte 25) (byte 60) (byte 80) (byte 80) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 8000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "teleport")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 45) (byte 45) (byte 60) (byte 60) (byte 75) (byte 95) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 7000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "force globe")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 18) (byte 30) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 35) (byte 55) (byte 55) (byte 70) (byte 70) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 9000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "faerie fire")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 10) (byte 20) (byte 0) (byte 60)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 30) (byte 45) (byte 65) (byte 80) (byte 100)))
+        (field costClass (int 10000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "enfeeblement")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 40) (byte 40) (byte 60) (byte 75) (byte 75) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 12000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "see through protections")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 35) (byte 35) (byte 55) (byte 55) (byte 70) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 14000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "golden arrow")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 15) (byte 30) (byte 45) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 40) (byte 40) (byte 60) (byte 75) (byte 75) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 9999))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "forget")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 35) (byte 35) (byte 55) (byte 55) (byte 70) (byte 90) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 11000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "invisibility")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 25) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 40) (byte 55) (byte 70) (byte 85) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 6543))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "know alignment")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 35) (byte 55) (byte 75) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 3400))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "mirror image")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 12) (byte 24) (byte 44) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 25) (byte 40) (byte 40) (byte 60) (byte 60) (byte 70) (byte 70) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 3000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "web")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 25) (byte 45) (byte 60) (byte 70) (byte 80) (byte 95) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 12000))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "haste")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 40) (byte 55) (byte 70) (byte 85) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 6943))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "relocate")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 35) (byte 55) (byte 70) (byte 84) (byte 100)))
+        (field costClass (int 10900))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "lead weight")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 25) (byte 45) (byte 60) (byte 70) (byte 80) (byte 95) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 7450))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "feather weight")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 10) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 25) (byte 45) (byte 60) (byte 70) (byte 80) (byte 95) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 7450))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "poison")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 5) (byte 25) (byte 45) (byte 60) (byte 70) (byte 80) (byte 95) (byte 100) (byte 100) (byte 100) (byte 100)))
+        (field costClass (int 7450))) 
+      (object "org.vermin.world.rooms.GuildRoom$TrainEntry"
+        (field name "summon familiar")
+        (field levelMinimum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 25)))
+        (field levelMaximum (array "byte" 1 (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 0) (byte 35) (byte 55) (byte 70) (byte 100)))
+        (field costClass (int 15000)))))
+    (field guildLevels (int 20))
+    (field startExits (vector "Siggy/city/exit_street_battlemage" "Siggy/city/exit_battlemage_acid" "Siggy/city/exit_battlemage_poison" "Siggy/city/exit_battlemage_electricity" "Siggy/city/exit_battlemage_asphyxiation"))
+    (field startItems (vector))
+    (field startMonsters (vector))
+    (field mapper null)
+    (field illumination (int 50))
+    (field outdoor (boolean false))
+    (field waterLevel (int 0))
+    (field lightModifiers null)
+    (field waterLevelModifiers null)
+    (field outdoorModifiers null)
+    (field id "Siggy/city/room_battlemage_guild")
+    (field name "")
+    (field description "Battlemage guild class room")
+    (field longDescription "This is a class room in the guild of battlemages. This is where the master mages of the guild give training in ways of art.
+You have to come here when you want to advance your level and train in the battlemage guild
+Commands: advance, join, train, list")
+    (field aliases (vector))
+    (field parent null))

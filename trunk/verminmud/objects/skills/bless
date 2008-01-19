@@ -1,0 +1,3 @@
+
+(prototype "bless skill" true)
+(object "org.vermin.world.skills.BlessSkill")

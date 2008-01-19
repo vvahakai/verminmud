@@ -1,0 +1,13 @@
+{
+ "bggraph": (ref "common/commands/bggraph")
+ "vardump": (ref "common/commands/vardump")
+
+ "call":   (singleton "org.vermin.mudlib.commands.Editing")
+ "list":   (singleton "org.vermin.mudlib.commands.Editing")
+ "edit":   (singleton "org.vermin.mudlib.commands.Editing")
+ "save":   (singleton "org.vermin.mudlib.commands.Editing")
+ "unload": (singleton "org.vermin.mudlib.commands.Editing")
+
+ "shutdown": (object "org.vermin.mudlib.commands.Shutdown")
+ "go": (object "org.vermin.mudlib.commands.Go")
+}

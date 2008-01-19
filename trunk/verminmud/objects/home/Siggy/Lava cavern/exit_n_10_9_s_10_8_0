@@ -1,0 +1,31 @@
+
+  (object "org.vermin.mudlib.DefaultExitImpl"
+    (field rooms (array "java.lang.String" 1 "home/Siggy/Lava cavern/room_0_10_9" "home/Siggy/Lava cavern/room_0_10_8"))
+    (field directions (array "java.lang.String" 1 "n" "s"))
+    (field barrierModifiers null)
+    (field id "home/Siggy/Lava cavern/exit_n_10_9_s_10_8_0")
+    (field name "")
+    (field description "")
+    (field longDescription "")
+    (field aliases (vector))
+    (field parent 
+      (object "org.AreaEditor.Exporter$MonsterExportHackRoom"
+        (field startExits (vector "home/Siggy/Lava cavern/exit_n_10_9_s_10_8_0" "home/Siggy/Lava cavern/exit_w_11_9_e_10_9_0" "home/Siggy/Lava cavern/exit_e_9_9_w_10_9_0"))
+        (field startItems (vector))
+        (field startMonsters (vector))
+        (field mapper null)
+        (field illumination (int 50))
+        (field outdoor (boolean false))
+        (field waterLevel (int 0))
+        (field lightModifiers null)
+        (field waterLevelModifiers null)
+        (field outdoorModifiers null)
+        (field id "home/Siggy/Lava cavern/room_0_10_9")
+        (field name "")
+        (field description "Cavern way flooding lava")
+        (field longDescription "This part of cavern is getting flooded with lava. The warmth is getting worse the deeper
+you go in the mountain. There is atleast a few feet of thick steam above you and you 
+barely can see the ceiling.
+")
+        (field aliases (vector))
+        (field parent null))))

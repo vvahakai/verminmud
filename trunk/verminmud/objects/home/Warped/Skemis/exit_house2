@@ -1,0 +1,5 @@
+(object "org.vermin.mudlib.DefaultExitImpl"
+  (field rooms (array "java.lang.String" 1 "home/Warped/Skemis/map|:15,10,0" "home/Warped/Skemis/room_house2"))
+  (field directions (array "java.lang.String" 1 "e" "w"))
+  (field barrierModifiers null)
+)

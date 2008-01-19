@@ -1,0 +1,30 @@
+
+  (object "org.vermin.mudlib.DefaultExitImpl"
+    (field rooms (array "java.lang.String" 1 "home/Siggy/Lava cavern/room_0_5_10" "home/Siggy/Lava cavern/room_0_4_10"))
+    (field directions (array "java.lang.String" 1 "w" "e"))
+    (field barrierModifiers null)
+    (field id "home/Siggy/Lava cavern/exit_w_5_10_e_4_10_0")
+    (field name "")
+    (field description "")
+    (field longDescription "")
+    (field aliases (vector))
+    (field parent 
+      (object "org.AreaEditor.Exporter$MonsterExportHackRoom"
+        (field startExits (vector "home/Siggy/Lava cavern/exit_w_5_10_e_4_10_0" "home/Siggy/Lava cavern/exit_w_6_10_e_5_10_0"))
+        (field startItems (vector))
+        (field startMonsters (vector "home/Siggy/Lava cavern/female_4"))
+        (field mapper null)
+        (field illumination (int 50))
+        (field outdoor (boolean false))
+        (field waterLevel (int 0))
+        (field lightModifiers null)
+        (field waterLevelModifiers null)
+        (field outdoorModifiers null)
+        (field id "home/Siggy/Lava cavern/room_0_5_10")
+        (field name "")
+        (field description "Tunneled cavern")
+        (field longDescription "This section of the cavern reminds a bit of a mining tunnel, because the walls have 
+clearly been hand-crafted. The floor is covered with straw and chips of wood.
+")
+        (field aliases (vector))
+        (field parent null))))

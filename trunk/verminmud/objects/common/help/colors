@@ -1,0 +1,39 @@
+
+--[ Color in Vermin Mud ]--
+
+   Apart from normal game colors, it is also possible to use
+   color to enhance prompts and other texts (even chat-messages).
+
+   To use colors simply add a color tag. Color tags start with
+   an ampersand (&) and end with a semicolon (;) and in between
+   there are the color numbers and the attribute.
+	
+   For example: 
+     & B 3 5 ;  (without the spaces)
+   will cause the following text to appear in bright red with a 
+   blue background. You don't have to give the attribute or the 
+   background color. If you don't specify the attribute or the 
+   colors (just ampersand + semicolon) the color will reset to 
+   normal.
+
+--[ Available Colors and attributes ]--
+
+   Attributes:
+	
+   B     bold
+   b     blink
+   r     reverse
+		
+   Colors:
+                   normal      bright
+   1     black     &1;#####&;       &B1;#####&;
+   2     white     &2;#####&;       &B2;#####&;
+   3     red       &3;#####&;       &B3;#####&;
+   4     green     &4;#####&;       &B4;#####&;
+   5     blue      &5;#####&;       &B5;#####&;
+   6     magenta   &6;#####&;       &B6;#####&;
+   7     cyan      &7;#####&;       &B7;#####&;
+   8     yellow    &8;#####&;       &B8;#####&;
+
+
+

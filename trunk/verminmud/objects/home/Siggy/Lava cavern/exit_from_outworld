@@ -1,0 +1,11 @@
+
+  (object "org.vermin.mudlib.DefaultExitImpl"
+    (field rooms (array "java.lang.String" 1 "outworld:106,-74,0" "home/Siggy/Lava cavern/room_0_16_8"))
+    (field directions (array "java.lang.String" 1 "cavern" "out"))
+    (field barrierModifiers null)
+    (field id "home/Siggy/Lava cavern/exit_from_outworld")
+    (field name "")
+    (field description "")
+    (field longDescription "")
+    (field aliases (vector))
+    )

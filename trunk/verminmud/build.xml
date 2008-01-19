@@ -1,0 +1,47 @@
+<project name="VerminMUD" default="compile" basedir=".">
+
+  <!-- set global properties for this build -->
+  <property name="src" value="src"/>
+  <property name="build" value="build"/>
+  <property name="docs" value="javadocs"/>
+  <property name="libs" value="libs"/>
+  <!--property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/-->
+	
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+		
+  <target name="compile" depends="init">
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac debug="true" srcdir="${src}" destdir="${build}" source="1.5">
+		<classpath>
+		  <pathelement location="../org.eclipse.jdt.core_3.1.1.jar"/>
+		  <pathelement location="${libs}/jscheme.jar"/>
+		  <pathelement location="${libs}/xmlrpc-1.2-b1.jar"/>
+		  <pathelement location="${libs}/junit.jar"/>
+		  <pathelement location="${libs}/liveconnect.jar"/>
+		  <pathelement location="${libs}/bcel-5.1.jar"/>
+		</classpath>
+	 </javac>
+  </target>
+
+  <target name="docs">
+     <!-- create javadoc -->
+     <mkdir dir="${docs}"/>
+     <javadoc packagenames="org.vermin.mudlib,org.vermin.mudlib.skills,org.vermin.mudlib.battle"
+        sourcepath="${src}"
+        destdir="${docs}"/>
+  </target>
+
+  <target name="clean">
+    <!-- Delete the ${build} and ${docs} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${docs}"/>
+  </target>
+
+   
+</project>

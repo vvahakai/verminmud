@@ -1,0 +1,18 @@
+Help on: title
+
+Title is a honorific your character can earn by doing various
+tasks, such as advancing to a certain level in a guild or
+completing a quest. When you earn a title, it isn't automatically
+visible to other players, you must first choose which title to
+use from the ones you have aquired. 
+
+When you select a title to use, it will be visible to other
+players after your race. For example, if your characters is a 
+giant named 'Smith' and you choose to use the title 'Newbie',
+other players will see you as 'Smith the Giant Newbie'.
+
+You can change your title at any time you wish.
+
+To view your available titles, type 'set title'.
+
+See also: settings

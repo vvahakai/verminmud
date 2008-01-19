@@ -1,0 +1,10 @@
+
+(prototype "IMF ant quest" "true")
+
+(object "org.vermin.world.quest.OutworldBattleQuest"
+	(field killObjectives {"common/outworld/ant": 5})
+	(field monsterDescriptions {"common/outworld/ant": "small, but evil, ants"})
+	(field briefing "A host of small but evil ants has invaded the Forest of Elm's tailor. The ants keep pestering trade caravans using the nearby road, attacking grain wagons and viciously eating the goods. The ants are a threat to the commerce in Vermin city, and the Imperial Infantry has hired you to shorten their numbers.")
+	(field info "The evil ants reside in the Forest of Elm's Tailor. The forest is located southwest from Vermin city.")
+	(field debriefing "Well done, soldier! The trade caravans should be able to travel in peace for a good while now."))
+	

@@ -1,0 +1,27 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+ (field startExits ["home/Warped/Skemis/exit_mage"])
+ (field startMonsters [
+	(object "org.vermin.mudlib.DefaultMonster"
+	 (field description "a young mage")
+	 (field longDescription "He looks very young for mage. He is wearing a yellow velvet robe that has an unfamiliar mark on the chest. Somehow he feels preoccupied with something.")
+         (field name "mage")
+	 (field aliases ["mage" "young mage" "man"])
+	 (field physicalStr 40)
+	 (field physicalDex 50)
+	 (field physicalCon 60)
+	 (field race (ref "races/human"))
+	 (field inventory [
+	  (factory "armour" 
+	   ""
+           "torso,leg,leg,arm,arm,neck,head"
+	   "60"
+	   "2")
+	 ])
+	)
+ ]) 
+ (field illumination 55)
+ (field outdoor false)
+ (field waterLevel 0)
+ (field description "a small brick tower")
+ (field longDescription "This is room inside a small tower made of bricks. The tower looks atleast three stories high on the outside but you can see no stairs going to the upper floors. The room is filled with trinkets that you can only imagine belonging to a magic user of somekind.")
+ )

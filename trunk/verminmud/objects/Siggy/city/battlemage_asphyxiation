@@ -1,0 +1,6 @@
+
+  (object "org.vermin.world.rooms.AsphyxiationMastersGuildRoom"
+    (field startExits (vector "Siggy/city/exit_battlemage_asphyxiation"))
+    (field id "Siggy/city/battlemage_asphyxiation")
+    (field illumination 50)
+    (field parent null))

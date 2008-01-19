@@ -1,0 +1,57 @@
+(prototype "fieldfarmer" "false")
+
+(object "org.vermin.mudlib.DefaultMonster"
+  (field name "farmer")
+  (field behaviours [
+   (object "org.vermin.mudlib.behaviour.ScriptableBehaviour"
+      (field code 
+#| 
+(define (onRegenTick who)
+  (if (= 1 (org.vermin.mudlib.Dice.random 10))
+      (.notice (.getRoom who) who 
+	       (string-append 
+		"Farmer says \""
+		(case (org.vermin.mudlib.Dice.random 10)
+		  ((1) "It's a hard living, doing agricultural duties all day long.")
+		  ((2) "Damn those hobbits, always stealing my 'shrooms.")
+		  ((3) "Badger. Badger. Badger. Badger. Badger. Badger. Badger.")
+		  ((4) "Sad are the times when even farmers are under considerable economic distress.")
+		  ((5) "I am a Farmer... Frank Farmer.")
+		  ((6) "Nowadays the imperial subsidies can hardly bring a decent earning.")
+		  ((7) "Oh I still remember the Month of the Roosting Dragon in the year 1... those were the days.")
+		  ((8) "Ask me about WINSUX.")
+		  ((9) "How about that weather.")
+		  ((10) "I reckon' it's gonna rain soon."))
+		"\""))))
+
+(define (asks asker what)
+  (.notice asker (string-append
+		  "Farmer says \""
+		  (if (string=? what "WINSUX")
+		      (string-append 
+		       "Ahh WINSUX, the proud achievement of a secretive group called Council 4. "
+		       "Featuring state of the art graphics and immersive game-play. "
+		       "WINSUX is an acronym for Winged Interceptor: Nuclear Strike Under Xenophobia.")
+		      "I wouldn't know about that.")
+		  "\"")))
+
+
+|#))
+   ])
+ 
+  (field description "A farmer")
+  (field longDescription "A farmer doing his agricultural duties. He looks opinionated.")
+  (field aliases (vector "farmer"))
+  (field aggressive (boolean false))
+  (field race (ref "races/human"))
+  (field skills {"fighting": 33})
+  (field physicalStr 70)
+  (field mentalStr  10)
+  (field physicalCon 40)
+  (field mentalCon 10)
+  (field physicalDex 25)
+  (field mentalDex 5)
+  (field physicalCha 2)
+  (field mentalCha 1)
+  (field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+)

@@ -1,0 +1,4 @@
+
+  (object "org.vermin.mudlib.CentralBank" 1
+    (field accounts {
+}))

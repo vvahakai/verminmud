@@ -1,0 +1,64 @@
+
+Help on: stats
+
+Physical stats are mostly used by guilds and races which
+fight in melee combat and use physical weapons.
+
+  * Physical strength
+
+    Physical strength affects the damage you deal in
+    melee combat and with attack skills. Strength
+    determines how quickly you attack in combat with
+    heavy weapons.
+
+  * Physical constitution
+    
+    Physical constitution determines how good your
+    general health and ability to withstand damage is.
+ 	
+  * Physical dexterity
+
+    Physical dexterity determines your nimbleness. It
+    affects your ability to hit and avoid melee attacks
+    in combat. It also affects your attack speed with
+    light weapons.
+
+  * Physical charisma
+
+    Physical charisma measures how good you look
+    outward. It is said that some gods of this world
+    are more benevolent towards handsome heroes.
+
+Mental stats are used by spellcasters, such as mages and 
+healers. They need them to gain more spell points, spell
+point regeneration etc. 
+
+  * Mental strength
+
+    Mental strength is your minds ability to concentrate
+    on a single thought of power. It allows you to
+    create more powerful magical effects with a singe
+    casting.
+
+  * Mental constitution
+
+    Mental constitution determines ability of your mind
+    to endure continuous stress and sudden trauma.
+    High mental constitution raises your maximum
+    spellpoints and gives you resistance against mind
+    affecting spells.
+
+  * Mental dexterity
+
+    Mental dexterity measures the speed your mind is able
+    to adapt to new situations and absorb new
+    information. It improves your ability to learn and
+    put to use various lore and mastery skills.
+
+  * Mental charisma
+
+    Mental charisma is your ability to behave in a
+    charismatic, socially acceptable manner. 
+    Characters with high mental charisma are natural born 
+    leaders. Many gods are more benevolent towards
+    charismatic heroes.

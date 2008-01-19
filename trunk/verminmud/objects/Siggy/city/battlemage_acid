@@ -1,0 +1,6 @@
+
+  (object "org.vermin.world.rooms.AcidMastersGuildRoom"
+    (field startExits (vector "Siggy/city/exit_battlemage_acid"))
+    (field id "Siggy/city/battlemage_acid")
+    (field illumination 50)
+    (field parent null))

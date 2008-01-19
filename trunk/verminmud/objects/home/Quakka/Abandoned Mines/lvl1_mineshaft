@@ -1,0 +1,6 @@
+(prototype "mineshaft1" "false")
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Gaping mineshaft")
+        (field longDescription "You are at a mineshaft leading down to a deeper level of the mines. The shaft has a spiraling ramp leading downwards.") 
+        (field waterLevel 0)
+        (field illumination 50))

@@ -1,0 +1,31 @@
+(prototype "imppatrol" "false")
+
+(object "org.vermin.mudlib.DefaultMonster"
+  (field name "patrol")
+ 
+  (field description "Imperial infantry patrol")
+  (field longDescription "An imperial infantry soldier patrolling the roads.")
+  (field aliases (vector "soldier" "patrol"))
+  (field aggressive (boolean false))
+  (field race (ref "races/human"))
+  (field skills {"fighting": 33 
+		 "bash": 60 
+		 "magic missile": 80})
+  (field behaviours [ (object "org.vermin.mudlib.behaviour.BattleSkillBehaviour"
+                       (field owner (parent))) ])
+  (field physicalStr 50)
+  (field mentalStr  7)
+  (field physicalCon 50)
+  (field mentalCon 10)
+  (field physicalDex 75)
+  (field mentalDex 5)
+  (field physicalCha 30)
+  (field mentalCha 15)
+  (field style (object "org.vermin.mudlib.battle.SwordAndShieldBattleStyle" 
+                 (field owner (parent))))
+  (field inventory [ (factory "weapon" "" "sword" 60) 
+		     (factory "weapon" "" "shield" 60)
+                     (factory "armour" "" "torso" 60 2)
+                   ])
+
+)

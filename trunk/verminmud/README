@@ -1,0 +1,15 @@
+
+Vermin MUD:
+
+== Initialization ==
+Run: org.vermin.driver.BootstrapDatabase <driverclass> <jdbcurl> to create database
+tables.
+Example: java -cp build:derby.jar org.vermin.driver.BootstrapDatabase org.apache.derby.jdbc.EmbeddedDriver "jdbc:derby:database;create=true"
+
+== Running the game ==
+Run the main class org.vermin.mudlib.Main with the config file name as parameter.
+Example: java -cp build:derby.jar:libs/jscheme.jar org.vermin.mudlib.Main config
+
+== Logging in ==
+Telnet to the port configured in config and use 'n' command to create a new character.
+

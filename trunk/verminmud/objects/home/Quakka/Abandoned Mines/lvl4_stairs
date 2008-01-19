@@ -1,0 +1,8 @@
+(prototype "power_plant_stairs" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Steel stairs")
+        (field longDescription "The steely stairs continue down towards a big hall. A steady blue glow from the hall lights the tunnel and makes the steps gleam. Some kind of power conduits are fastened to the walls and roof of this passage, and blue waves of energy crackle upwards away from the hall. The air smells strongly of tin, and you can sense the presence of a great power ahead.")
+        (field waterLevel 0)
+        (field illumination 60))
+

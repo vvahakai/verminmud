@@ -1,0 +1,14 @@
+Help on: quests
+
+You can use this command to view information about the quests you are currently participating in.
+
+Usage:
+
+quests
+Shows the list of active quests.
+
+quests <number>
+Shows more information about the specified quest, and the current objectives for that quest.
+
+quests abandon <number>
+Abandons the specified quest.

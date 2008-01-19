@@ -1,0 +1,6 @@
+Help on: deposit
+
+The command deposits money from your inventory to your bank account. Default cointype is copper.
+
+Usage: deposit <amount> <cointype>
+       deposit all [cointype]

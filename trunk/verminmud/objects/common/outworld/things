@@ -1,0 +1,37 @@
+
+-98, -28   -  -96, -26  : location(V)      = Shark Islet's Mud Pit
+-17, -3    -   2, 34    : location(FfT)    = Forest of Elm's Tailor
+-30, -35   -  -1, 44    : location(p)     = Elf Floor
+-70, -32   -  -91, -19  : location(phFfT)  = Shark islet
+-4, 94     -  52, 204   : location(d)     = Desert of Homo
+-281, -212 -  -112, 137 : location("~_;:{}s) = Sea of Ior
+-111, -112 -  80, 8     : location("~_;:{}s) = Gulf of Embean
+-210, 102  -  -166, 146 : location(y)     = Fields of Cattlebridge
+10, -33    -  40, -16   : location(h^mo)  = Mount Openty
+494, -212  -  619, 68   : location("~_;:{}s) = Sea of Unwi
+376, -212  -  493, -117 : location("~_;:{}s) = Gulf of Oid
+-155, 92   -  -95, 151  : location(sj)    = Allot's Mire
+-28, -135  -  -4, -98   : location(rR)    = Giant's Arrow
+
+ 3, 0: Siggy/city/exit_eastgate_outworld
+-3, 0: Siggy/city/exit_westgate_outworld
+ 0,-3: Siggy/city/exit_northgate_outworld
+ 0, 3: Siggy/city/exit_southgate_outworld
+
+-186, 118: Siggy/city2/exit_south_outworld
+-184, 116: Siggy/city2/exit_east_outworld
+
+
+106,-74: home/Siggy/Lava cavern/exit_from_outworld
+95,-77: home/Siggy/Lava cavern/exit_to_outworld
+
+20,-22: home/Tadex/Amicable Hills/exit_outworld
+
+
+52,84,0: home/Warped/Skemis/exit_from_outworld
+
+-135, 75, 0: home/Quakka/Abandoned Mines/exit_outworld
+
+-97,-28,0: common/outworld/shark_islet_sign
+-96,-26,0: common/outworld/shark_islet_sign
+-98,-26,0: common/outworld/shark_islet_sign

@@ -1,0 +1,19 @@
+
+Component: System
+ID: 0
+Methods: showErrorMessage (2), loginFailure (4), rawEval (5), loginAccepted (6)
+
+Component: Chat
+ID: 1
+Methods: message (1), tell (2)
+
+Component: Output
+ID: 2
+Methods: put(1)
+
+Component: State
+ID: 3
+Methods: update (1)
+
+Component: Battle
+ID: 4

@@ -1,0 +1,2 @@
+(prototype "golden arrow skill" true)
+(object "org.vermin.world.skills.GoldenArrowSkill")

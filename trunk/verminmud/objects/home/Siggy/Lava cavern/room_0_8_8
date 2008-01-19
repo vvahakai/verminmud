@@ -1,0 +1,21 @@
+
+  (object "org.vermin.mudlib.DefaultRoomImpl"
+    (field startExits (vector "home/Siggy/Lava cavern/exit_w_8_8_e_7_8_0" "home/Siggy/Lava cavern/exit_e_8_8_w_9_8_0" "home/Siggy/Lava cavern/exit_s_8_7_n_8_8_0"))
+    (field startItems (vector))
+    (field startMonsters (vector))
+    (field mapper null)
+    (field illumination (int 50))
+    (field outdoor (boolean false))
+    (field waterLevel (int 0))
+    (field lightModifiers null)
+    (field waterLevelModifiers null)
+    (field outdoorModifiers null)
+    (field id "home/Siggy/Lava cavern/room_0_8_8")
+    (field name "")
+    (field description "Cavern way flooding lava")
+    (field longDescription "This part of cavern is getting flooded with lava. The warmth is getting worse the deeper
+you go in the mountain. There is atleast a few feet of thick steam above you and you 
+barely can see the ceiling.
+")
+    (field aliases (vector))
+    (field parent null))

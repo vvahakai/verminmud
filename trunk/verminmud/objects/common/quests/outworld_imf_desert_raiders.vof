@@ -1,0 +1,9 @@
+
+(prototype "IMF desert raider quest" "true")
+
+(object "org.vermin.world.quest.OutworldBattleQuest"
+	(field killObjectives {"common/outworld/desert_raider": 3})
+	(field monsterDescriptions {"common/outworld/desert_raider": "vicious raider nomads of the desert"})
+	(field briefing "Violent and dangerous nomad tribes inhabit the Desert of Homo. They prey on the unwary travellers in the desert and nearby roads. Lately, the raiders have grown bolder, and have started attacking farms near Vermin city. They need to be taught a lesson.")
+	(field info "The evil raiders live in the Desert of Homo. The desert is located south from Vermin city, past the mountain range.")
+	(field debriefing "Excellent work, soldier! That should make the accursed towelheads understand the price they'll have to pay for attacking Imperial citizens."))

@@ -1,0 +1,3 @@
+
+(prototype "vacuum bolt skill" true)
+(object "org.vermin.world.skills.VacuumBoltSkill")

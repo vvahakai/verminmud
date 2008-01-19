@@ -1,0 +1,6 @@
+
+  (object "org.vermin.world.rooms.ElectricityMastersGuildRoom"
+    (field startExits (vector "Siggy/city/exit_battlemage_electricity"))
+    (field id "Siggy/city/battlemage_electricity")
+    (field illumination 50)
+    (field parent null))

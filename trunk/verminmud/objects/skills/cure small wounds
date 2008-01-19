@@ -1,0 +1,4 @@
+
+
+(prototype "cure small wounds skill" true)
+(object "org.vermin.world.skills.CureSmallWoundsSkill")

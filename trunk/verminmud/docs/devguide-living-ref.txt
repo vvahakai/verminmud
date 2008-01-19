@@ -1,0 +1,137 @@
+* VerminMUD Developer's Guide
+
+** Savefile reference for Livings
+
+This chapter is a reference of all available fields in Living classes.
+There are two Living classes that are used in content development: DefaultLivingImpl and DefaultMonster.
+
+** DefaultLivingImpl fields
+
+*** Naming and descriptions
+
+All game objects have a name nad human readable descriptions.
+Objects may also have a list of aliases that can also be used to refer
+to the object. 
+
+    ...
+    (field name "farmer")
+    (field description "A green-clad farmer.")
+    (field longDescription "A farmer in green clothing is doing his agricultural duties here.")
+    (field aliases ["man"])
+    ...
+
+*** Basic living stats
+
+These are the stats that affect a livings physical and mental characteristics.
+They are all integer values. Examples field use:
+
+    ...
+    (field physicalStr 75)
+    ...
+
+
+\bullets{
+\item{physicalStr}
+\item{mentalStr}
+\item{physicalCon}
+\item{mentalCon}
+\item{physicalDex}
+\item{mentalDex}
+\item{physicalCha}
+\item{mentalCha}
+}
+
+There are four stats: strength (str), constitution (con), dexterity (dex) and charisma (cha).
+All stats have a physical and mental side (eg. physicalDex vs. mentalDex).
+
+*** The race and living properties
+
+Common properties for living things are controlled by their race.
+Players and monsters can share races. For example both monsters and players
+can be humans.
+
+Most races, like player races, are defined as a path reference to the race
+savefile. Races are saved in the "races" path (eg. "races/human").
+
+There are some configurable races, like the QuadrupleRace that is used for
+many animal monsters. The QuadrupleRace is instantiated by using the
+quadruple-race factory which takes string arguments that control the race's
+characteristics (possible parameters are a combination of "JAWS", "PAWS", "TAIL", "HORNS" and "HOOVES").
+
+Example of using a saved race:
+
+    ...
+    (field race (ref "races/drow"))
+    ...
+
+Example of using the QuadrupleRace:
+
+    ...
+    (field race (factory "quadruple-race" "HOOVES" "TAIL"))
+    ...
+
+The race provides multiple characteristics for livings called LivingProperties.
+Living properties define attributes like FLIGHT (livings of this race can fly) and
+INFRAVISION (livings of this race can see warm objects without visible light).
+The living properties can also change in gameplay due to spells and so on.
+A single living can add to the race provided living properties by using the
+livingProperties field.
+
+An example of creating an undead monster by adding the UNDEAD living property
+to the race provided properties:
+
+    ...
+    (field livingProperties [UNDEAD])
+    ...
+
+*** Items and money
+
+Adding items like armour and weapons is done through the inventory.
+Monsters automatically try to wear and wield all items in their inventory.
+The inventory is a list of items. Items can be put into the inventory be
+writing a new object inline, referencing and object or using the factories.
+
+The armour and weapon factories are the most useful when creating monsters.
+The armour factory takes four arguments: comma separated list of possible materials,
+comma separated list of slots the armour occupies, craftmanship (quality) and size scale (1-4).
+
+The weapon factory takes three arguments: comma separated list of possible materials, 
+comma separated list of possible weapon types and craftmanship.
+
+Here is an example of an inventory with three armours and one weapon:
+
+    ...
+    (field inventory [
+       (factory "armour"
+          "steel"
+          "torso,arm,arm,leg,leg"
+          "90"
+          "2")
+       (factory "armour"
+          "steel"
+          "hand,hand"
+          "90"
+          "2")          
+       (factory "armour"
+          "steel"
+          "head"
+          "90"
+          "2")
+       (factory "weapon"
+          "steel"
+          "polearm"
+          "80")
+         ])
+    ...
+
+
+Adding money is done through the money field. The easiest way to create money
+is to use the money factory which takes a human readable description of money.
+The following example creates a money item that has the worth of 1-5 gold (random) and
+10 silver:
+
+    ...
+    (field money (factory "money" "1-5 gold, 10 silver"))
+    ...
+
+

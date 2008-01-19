@@ -1,0 +1,7 @@
+(object "org.vermin.mudlib.DefaultRoomImpl"
+ (field illumination 55)
+ (field outdoor true)
+ (field waterLevel 0)
+ (field description "a gateway leading to a small hamlet")
+ (field longDescription "This is a gateway leading to a small farming hamlet. The gate itself is wooden doorway probably designed to keep wild animals out. It wouldn't make a difference against an attacking orc tribe. The hamlet seems relatively peaceful and only a few people can be seen on the streets.")
+ )

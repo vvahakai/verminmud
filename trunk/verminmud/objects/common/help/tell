@@ -1,0 +1,7 @@
+Help on: tell
+
+You can contact players with this command.
+Usage: tell <player> <message>	- sends message
+       tell last 		- shows last tells
+
+See also: say

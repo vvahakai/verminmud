@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry sourcepath="/home/tadex/import/jscheme/src" kind="lib" path="libs/jscheme.jar"/>
+	<classpathentry kind="lib" path="libs/junit.jar"/>
+	<classpathentry kind="lib" path="libs/pg74.214.jdbc3.jar"/>
+	<classpathentry kind="lib" path="libs/xmlrpc-1.2-b1.jar"/>
+	<classpathentry kind="lib" path="libs/js.jar"/>
+	<classpathentry kind="lib" path="libs/foil.jar"/>
+	<classpathentry kind="lib" path="libs/bcel-5.1.jar"/>
+	<classpathentry kind="lib" path="libs/liveconnect.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

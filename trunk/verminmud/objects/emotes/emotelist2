@@ -1,0 +1,97 @@
+#emote:options:default adverb:default target:self message:spect message:target message
+#Options:
+# R=requires target
+# M=may target
+# A=adverb can be specified
+#
+# suluissa oleva teksti messagessa tulee vain jos targetti on 
+# annettu
+
+accuse:MA:steadfastly:everyone:You $adv$ accuse $tgt$.:$name$ $adv$ accuses $tgt$.:$nameÂ$$adv$ accuses you.
+agree:MA::everything:You $adv$ agree with $tgt$.:$name$ $adv$ agrees with $tgt$.:$name$ $adv$ agrees with you.
+aegry::::You go 'Voi itq ja aegry!'.:$name$ goes 'Voi itq ja aegry!'.:
+applaud:MA:::You $adv$ applaud $tgt$.:$name$ $adv$ applauds $tgt$.:$name$ $adv$ applauds you.
+aye::::You exclaim 'aye aye, sir!'.:$name$ exclaims 'aye aye, sir!'.:
+blame:MA::the system:You $adv$ blame $tgt$.:$name$ $adv$ blames $tgt$.:$name$ $adv$ blames you.
+blink:MA:::You $adv$ blink (at $tgt$).:$name$ $adv$ blinks (at $tgt$).:$name$ $adv$ blinks at you.
+blush:MA:::You $adv$ blush (at $tgt$).:$name$ $adv$ blushes (at $tgt$).:$name$ $adv$ blushes at you.
+boo:MA:angrily::You $adv$ boo (at $tgt$).:$name$ $adv$ boos (at $tgt$).:$name$ $adv$ boos at you.
+bow:MA:gracefully::You $adv$ bow (at $tgt$).:$name$ $adv$ bows (at $tgt$).:$name$ $adv$ bows at you.
+chant:A:::You $adv$ chant.:$name$ $adv$ chants.:
+cheer:MA:::You $adv$ cheer (at $tgt$).:$name$ $adv$ cheers (at $tgt$).:$name$ $adv$ cheers at you.
+comfort:RA:::You $adv$ comfort ($tgt$).:$name$ $adv$ comforts ($tgt$).:$name$ $adv$ comforts you.
+congratulate:RA:::You $adv$ congratulate ($tgt$).:$name$ $adv$ congratulates ($tgt$).:$name$ $adv$ congratulates you.
+console:RA:::You $adv$ console ($tgt$).:$name$ $adv$ consoles ($tgt$).:$name$ $adv$ consoles you.
+cough:MA:::You $adv$ cough (at $tgt$).:$name$ $adv$ coughs (at $tgt$).:$name$ $adv$ coughs at you.
+cry::::You burst into tears.:$name$ bursts into tears.:
+cuddle:RA:playfully::You $adv$ cuddle ($tgt$).:$name$ $adv$ cuddles ($tgt$).:$name$ $adv$ cuddles you.
+curse:MA::the heavens:You $adv$ curse $tgt$.:$name$ $adv$ curses $tgt$.:$name$ $adv$ curses you.
+dream:A:::You find yourself $adv$ dreaming.:$name$ is $adv$ daydreaming.:
+drool:MA:stupidly::You $adv$ drool (at $tgt$).:$name$ $adv$ drools (at $tgt$).:$name$ $adv$ drools at you.
+drunk:A:totally::You are $adv$ drunk.:$name$ is $adv$ drunk.:
+eek:A:bloodcurdlingly::You $adv$ scream 'Eeek!'.:$name$ $adv$ screams 'Eeek!'.:
+eenyhelevetti::::You exclaim 'Ee ny helevetti!'.:$name$ exclaims 'Ee ny helevetti!'.:
+embrace:RA:warmly:the nearest tree:You $adv$ embrace $tgt$.:$name$ $adv$ embraces $tgt$.:$name$ $adv$ embraces you.
+eye:RA:suspiciously:around:You $adv$ eye $tgt$.:$name$ $adv$ eyes $tgt$.:$name $adv$ eyes you.
+eyebrow:MA:coyly::You $adv$ raise an eyebrow (at $tgt$).:$name$ $adv$ raises an eyebrow (at $tgt$).:$name$ $adv$ raises an eyebrow at you.
+faint::::You suddenly faint.:$name$ suddenly faints.:
+fart:MA:loudly::You fart $adv$ (at $tgt$).:$name$ $adv$ farts (at $tgt$).:$name $adv$ farts at you.
+flex:MA:::You $adv$ flex your muscles (at $tgt$).:$name$ $adv$ flexes $possessive$ muscles (at $tgt$).:$name$ $adv$ flexes $possessive$ muscles at you.
+frown:MA:disappointedly::You frown (at $tgt) $adv$.:$name$ frowns (at $tgt$) $adv$.:$name$ frowns at you $adv$.
+gag::::You gag.:$name$ gags.:
+gasp:MA:painfully::You $adv$ gasp (at $tgt$).:$name$ $adv$ gasps (at $tgt$).:$name$ $adv$ gasÃps at you.
+glance:RA:sneakily::You $adv$ glance at $tgt$.:$name$ $adv$ glances at $tgt$.:$name$ $adv$ glances at you.
+greet:MA::everyone:You $adv$ greet ($tgt$).:$name$ $adv$ greets ($tgt$).:$name$ $adv$ greets you.
+grin:MA:evilly::You $adv$ grin (at $tgt$).:$name$ $adv$ grins (at $tgt$).:$name$ $adv$ grins at you.
+grunt:MA:::You $adv$ grunt (at $tgt$).:$name$ $adv$ grunts (at $tgt$).:$name$ $adv$ grunts at you.
+high-five:RA:::You $adv$ high-five with $tgt$.:$name$ $adv$ high-fives with $tgt$.:$name$ $adv$ high-fives with you.
+hmm:M:::You go 'hmm' (at $tgt$).:$name$ goes 'hmm' (at $tgt$).:$name$ goes 'hmm' at you.
+hug:RA:warmly::You $adv$ hug $tgt$.:$name$ $adv$ hugs $tgt$.:$name$ $adv$ hugs you.
+hum:A:innocently::You $adv$ hum a tune.:$name$ $adv$ hums a tune.:
+innocent::::You try to look innocent.:$name$ tries to look innocent.:
+kick:RA:::You $adv$ kick $tgt$.:$name$ $adv$ kicks $tgt$.:$name$ $adv$ kicks you.
+kiss:RA:lovingly::You $adv$ kiss $tgt$.:$name$ $adv$ kisses $tgt$.:$name$ $adv$ kisses you.
+kneel:MA:humbly::You $adv$ kneel (before $tgt$).:$name$ $adv$ kneels (before $tgt$).:$name$ $adv$ kneels before you.
+kyllaseonpaskaa::::You state 'Kylla se on paskaa' with great conviction.:$name$ states 'Kylla se on paskaa' with great conviction.:
+loom:RA:::You loom over $tgt$ $adv$.:$name$ looms over $tgt$ $adv$.:$name$ looms over you $adv$.
+moon:RA::the whole room:You moon $tgt$ $adv$:$name$ moons $tgt$ $adv$:$name$ moons at you $adv.
+muah::::You muah.:$name$ muahs.:
+mumble:A:incoherently::You mumble $adv$.:$name$ mumbles $adv$.:
+neds::::You go neds.:$name$ goes neds.:
+nirskaus:M:::You exclaim 'Aateltiin piquusen nirskauttaa ($tgt$ kanssa)':$name$ exclaims 'Aateltiin piquusen nirskauttaa ($tgt$ kanssa)':
+nod:MA:solemnly::You $adv$ nod (at $tgt$).:$name$ $adv$ nods (at $tgt$).:$name$ $adv nods at you.
+oops::::You go 'Oops'.:$name$ goes 'Oops'.:
+point:R:::You point at $tgt$.:$name$ points at $tgt$.:$name$ points at you.
+poke:RA:::You $adv$ poke $tgt$ in the ribs.:$name$ $adv$ pokes $tgt$ in the ribs.:$name$ $adv$ pokes you in the ribs.
+ponder:A:::You $adv$ ponder the situation.:$name$ seems to $adv$ ponder the situation.:
+praise:RA::the lord:You $adv$ praise $tgt$.:$name$ $adv$ praises $tgt$.:$name$ $adv$ praises you.
+puuh::::You PUUH.:$name$ skillfully executes a PUUH(tm).:
+roar:A:::You roar $adv$.:$name$ roars $adv$.:
+rpely::::You try to reply but fail miserably.:$name$ tries to reply but fails as Tommi does.:
+run:A:::You $adv$ run around the room.:$name$ $adv$ runs around the room.:
+salute:MA:smartly::You $adv$ salute $tgt$.:$name$ $adv$ salutes $tgt$.:$name$ $adv$ salutes you.
+seduce:R:::You try to seduce $tgt$.:$name$ tries to seduce $tgt$.:$name$ tries to seduce you.
+shake::::You shake your head.:$name$ shakes $possessive$ head.:
+shh:M:::You go 'shh' (at $tgt$):$name$ goes 'shh' (at $tgt$).:$name$ goes 'shh' at you.
+shiver::::You shiver.:$name$ shivers.:
+slap:RA:::You $adv$ slap $tgt$ around.:$name$ $adv$ slaps $tgt$Â around.:$name$ $adv$ slaps you around.
+slit:MA:meaningfully::You $adv$ slit your throat with your finger (while glaring at $tgt$).:$name$ $adv$ slits $possessive$ throat with $possessive$ finger (while glaring at $tgt$).:$name$ $adv$ slits $possessive$ throat with $possessive$ finger while glaring at you.
+smile:MA:happily::You $adv$ smile (at $tgt$).:$name$ $adv$ smiles (at $tgt$).:$name$ $adv$ smiles at you.
+smirk:MA:happily::You $adv$ smirk (at $tgt$).:$name$ $adv$ smirks (at $tgt$).:$name$ $adv$ smirks at you.
+snap:M:::You snap your fingers (at ÂÂ$tgt$).:$name$ snaps $possessive$ (at $tgt$).:$name$ snaps $possessive$ at you.
+sneeze::::You sneeze.:$name$ sneezes.:
+sniff:A:sadly::You sniff $adv$.:$name$ sniffs $adv$.:
+snore:A:loudly::You snore $adv$.:$name$ snores $adv$.:
+sob::::You sob uncontrollably.:$name$ sobs uncontrollably.:
+sorry::::You try to look sorry.:$name$ tries to look sorry.:
+stare:AM::nothing:You stare at $tgt$ $adv$.:$name$ stares at $tgt$ $adv$.:$name$ stares at you $advÂ$.
+taunt:AM:::You $adv$ taunt $tgt$.:$name$ $adv$ taunts $tgt$.:$name$ $adv$ taunts you.
+tease:RA:playfully::You $adv$ tease $tgt$.:$name$ $adv$ teases $tgt$.:$name$ $adv$ teases you.
+thank:RA:::You Â$advÂ$ thank Â$tgt$.:$Âname$Â $adv$ thanks $ÂtgtÂ$.:$name$ $advÂ$ thanks you.
+volunteer:MA:bravely::You $adv$ volunteer (at $tgt).:$name$ $adv$ volunteer (at $tgt$):$name$ $advÂ$ volunteers at you.
+wank:AM:furiously::You $adv$ wank (at $tgt$).:$name$ $adv$ wanks (in front of $tgt$):$name$ $adv$ wanks in front of you.
+wave:AM:happily:everybody:You $adv$ wave (to $tgt$).:$name$ $adv$ waves (to Â$tgt$.:$name$ $advÂ$ waveto you.
+wink:AM:::You $adv$ wink (at $tgt$).:$name$ $adv$ winks (at $tgt$).:$name$Â $adv$ winksat you.
+yawn:A:::You yawn $adv$.:$name$ yawns $adv$.:
+yell:AM:angrily:everyone:You yell $adv$ at $tgt$.:$name$ yells $adv$ at $tgt$.:$name$ yells $adv$ at you.
+yep:M:::You goes 'yep' (at $tgt$).:$name$ goes 'yep' (at $tgt$).:$name$ goes 'yep' at you.

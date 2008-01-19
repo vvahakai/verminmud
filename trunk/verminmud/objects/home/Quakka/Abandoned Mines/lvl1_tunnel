@@ -1,0 +1,9 @@
+(prototype "tunnel1" "false")
+
+(object "org.vermin.mudlib.DefaultRoomImpl"
+        (field description "Globe-lit tunnel")
+        (field longDescription "This tunnel is deep in the mines. It's not dark here however, as the tunnel is lit by strange glowing globes embedded to the walls at regular intervals. There are no signs of actual mining here, so this seems to be a transit tunnel of some kind.")
+        (field extendedDescription {"globe":"The globe is perfectly round and has a crystal-like surface. It glows with an eerie inner light. You have no idea what enchantment or other power keeps them glowing in this long abandoned mine"})
+	(field waterLevel 0)
+        (field illumination 60))
+

@@ -1,0 +1,3 @@
+
+(prototype "warcry skill" true)
+(object "org.vermin.world.skills.WarcrySkill")

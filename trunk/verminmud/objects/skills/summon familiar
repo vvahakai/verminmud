@@ -1,0 +1,2 @@
+(prototype "summon familiar skill" true)
+(object "org.vermin.members.vili.skills.SummonFamiliarSkill")

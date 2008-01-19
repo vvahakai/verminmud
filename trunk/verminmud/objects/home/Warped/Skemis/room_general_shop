@@ -1,0 +1,11 @@
+(object "org.vermin.world.rooms.DefaultShop"
+ (field startExits (vector "home/Warped/Skemis/exit_general_shop"))
+ (field illumination 55)
+ (field outdoor false)
+ (field waterLevel 0)
+ (field startItemCount 10)
+ (field startItemCraftmanship 25)
+ (field shopType [1])
+ (field description "a small store")
+ (field longDescription "a small general store selling supplies to passing by caravans and adventurers. It also supplies this small hamlet.")
+ )

@@ -1,0 +1,3 @@
+
+(prototype "summon greater spores skill" true)
+(object "org.vermin.world.skills.SummonGreaterSporesSkill")

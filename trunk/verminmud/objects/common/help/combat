@@ -1,0 +1,18 @@
+Help on: combat
+
+Fighting and defeating monsters is the main way of
+earning experience in VerminMUD. You can engage in
+combat with the command 'kill <target>', or using
+an offensive skill on them with the command 'use
+<skillname> at <target>'.
+
+You can observe the status of your opponent with
+the command 'scan' while in battle.
+
+If you have trouble following the battle messages,
+try turning the round markers with the command
+'set showrounds on'. For other helpful settings
+see 'help settings'.
+
+There are many guilds in Vermin which can train you
+to become a better fighter. See 'help guilds'.

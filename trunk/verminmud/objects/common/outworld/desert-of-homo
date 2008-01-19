@@ -1,0 +1,50 @@
+{
+ "Forest of Elm's Tailor": 
+   (object "org.vermin.mudlib.DefaultSpawningRuleImpl" 1
+     (field spawnEntries [
+        (object "org.vermin.mudlib.DefaultSpawningRuleImpl$DefaultSpawnEntry" 2
+	  (field entryProbability 10)
+          (field spawnMax 10)
+          (field rooms [])
+          (field spawnData [
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 3
+               (field id "common/outworld/anthill")
+               (field probability 100))
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 4
+               (field id "common/outworld/ant")
+               (field probability 100)) 
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 5
+               (field id "common/outworld/ant")
+               (field probability 50)) 
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 6
+               (field id "common/outworld/ant")
+               (field probability 50)) 
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 7
+               (field id "common/outworld/ant")
+               (field probability 50)) ]
+           )
+         ) ]
+      )
+   )
+
+ "Desert of Homo":
+    (object "org.vermin.mudlib.DefaultSpawningRuleImpl" 
+     (field spawnEntries [
+        (object "org.vermin.mudlib.DefaultSpawningRuleImpl$DefaultSpawnEntry" 
+	  (field entryProbability 10)
+          (field spawnMax 10)
+          (field rooms [])
+          (field spawnData [
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 
+               (field id "common/outworld/cameldriver")
+               (field probability 100))
+             (object "org.vermin.mudlib.DefaultSpawningRuleImpl$SpawnDataMapping" 
+               (field id "common/outworld/cameldriver")
+               (field probability 100)) 
+	     ]
+           )
+         ) ]
+      )
+   )
+
+}

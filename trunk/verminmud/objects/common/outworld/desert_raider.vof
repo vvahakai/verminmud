@@ -1,0 +1,40 @@
+(prototype "desert_raider" "false")
+(object "org.vermin.mudlib.DefaultMonster"
+  (field name "raider")
+  (field behaviours [
+	(object "org.vermin.world.behaviours.AmbushBehaviour"
+    (field owner (parent)))
+   (object "org.vermin.mudlib.behaviour.ScriptableBehaviour"
+      (field code 
+#| 
+(define (onBattleTick who)
+  (if (= 1 (org.vermin.mudlib.Dice.random 10))
+      (.notice (.getRoom who) who 
+	       (string-append 
+		"Raider yells \""
+		(case (org.vermin.mudlib.Dice.random 4)
+		  ((1) "Aharr! Welcome to the desert, offendi!")
+		  ((2) "Stand and deliver!")
+		  ((3) "The desert will drink your blood!")
+		  ((4) "Death to the hated enemy!"))
+		"\""))))
+|#))
+   ])
+ 
+  (field description "A desert raider")
+  (field longDescription "This is a tall and grim looking nomad of the desert. It's easy to see from the scars on his face and the sword in his hand, that he has opted to make a living by preying on the unwary travellers in this harsh land.")
+  (field aliases (vector "desert raider" "a raider" "nomad"))
+  (field inventory [ (factory "weapon" "" "sword" 30) ] )
+  (field aggressive (boolean false))
+  (field race (ref "races/human"))
+  (field skills {"fighting": 50})
+  (field physicalStr 70)
+  (field mentalStr  10)
+  (field physicalCon 40)
+  (field mentalCon 34)
+  (field physicalDex 25)
+  (field mentalDex 30)
+  (field physicalCha 12)
+  (field mentalCha 12)
+  (field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+)

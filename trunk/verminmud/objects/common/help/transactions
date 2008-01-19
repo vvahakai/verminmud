@@ -1,0 +1,5 @@
+Help on: transactions
+
+The command displays the latest transactions, default is maximum of 10 lines 
+
+Usage: transactions [transaction count]

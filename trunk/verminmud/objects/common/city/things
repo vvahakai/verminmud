@@ -1,0 +1,26 @@
+ -8,  -5  -   8,   6  : location(.)  = Market district
+  5, -24  -  37, -21  : location(P.) = North park recreational
+-12, -12  -  23,  -7  : location(.)  = Imperial district
+
+ 52,  -4: Siggy/city/exit_eastgate_outworld
+-25,   5: Siggy/city/exit_westgate_outworld
+ -3, -20: Siggy/city/exit_northgate_outworld
+-12,  21: Siggy/city/exit_southgate_outworld
+
+-11, -7: Siggy/city/exit_street_fighter
+  6, -6: Siggy/city/exit_street_healer
+
+-5, -1: Siggy/city/exit_street_mikhel
+
+-6, -12: Siggy/city/exit_street_bank
+
+3,1: Siggy/city/exit_street_luxury_shop
+3,-1: Siggy/city/exit_street_armour_shop
+-14,-6: Siggy/city/exit_street_food_shop
+
+31,-18: Siggy/city/exit_street_battlemage
+-3,17,0: home/Siggy/City walls/exit_from_outerworld
+-2,-13,0: home/Siggy/City walls/exit_to_outworld
+48,-21,0: home/Siggy/City walls/exit_outworld
+
+-3,1,0: common/city/plaque_room_exit

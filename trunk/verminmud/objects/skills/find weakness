@@ -1,0 +1,2 @@
+(prototype "find weakness skill" true)
+(object "org.vermin.mudlib.skills.Automatic")

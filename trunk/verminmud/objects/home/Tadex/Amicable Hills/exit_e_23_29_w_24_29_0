@@ -1,0 +1,5 @@
+(object "org.vermin.mudlib.DefaultExitImpl"
+(field id #48:home/Tadex/Amicable Hills/exit_e_23_29_w_24_29_0)
+(field rooms (array "java.lang.String" 1 "home/Tadex/Amicable Hills/room_0_23_29" "home/Tadex/Amicable Hills/room_0_24_29"))
+(field directions (array "java.lang.String" 1 "e" "w"))
+)

@@ -1,0 +1,12 @@
+(prototype "shark_islet_sign" "false")
+(object "org.vermin.mudlib.DefaultItemImpl"
+  (field size (int 20))
+  (field material "wood")
+  (field dp (int 20))
+  (field maxDp (int 20))
+  (field mayTake false)
+  (field name "sign")
+  (field aliases ["a sign" "warning sign"])
+  (field longDescription "It's an old wooden warning sign that reads: 'WARNING, volcanic mud pits nearby'")
+  (field description "A warning sign")
+)

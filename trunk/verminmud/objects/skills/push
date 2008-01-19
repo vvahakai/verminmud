@@ -1,0 +1,3 @@
+
+(prototype "push skill" true)
+(object "org.vermin.world.skills.PushSkill")

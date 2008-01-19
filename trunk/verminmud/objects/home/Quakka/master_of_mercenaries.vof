@@ -1,0 +1,28 @@
+(prototype "masterofmercenaries" "true")
+(object "org.vermin.mudlib.DefaultMonster"
+(field name "Master of Mercenaries")
+(field description "The Master of Mercenaries")
+(field behaviours [
+   (object "org.vermin.world.quest.IMFMasterBehaviour"
+   	(field quests [(ref "common/quests/outworld_imf_ants") (ref "common/quests/outworld_imf_desert_raiders")])
+      (field owner (parent)))
+ ])
+(field longDescription "This burly old soldier is sitting behind a huge mahogany desk. While his face seems harsh and is decorated by a couple of old battle scars, it also has an aura of charisma and rightfulness about it. A sign on the desk proclaims him to be the Master of Mercenaries of the Imperial Infantry, responsible for the recruitment of mercenary soldiers.")
+(field aliases (vector "master", "soldier", "mercenary"))
+(field aggressive (boolean false))
+(field race (singleton "org.vermin.world.races.HumanRace"))
+(field skills (map "java.util.TreeMap"
+(mapentry "fighting" (int 70))
+))
+(field physicalStr (int 50))
+(field mentalStr (int 25))
+(field physicalCon (int 70))
+(field mentalCon (int 45))
+(field physicalDex (int 40))
+(field mentalDex (int 36))
+(field physicalCha (int 2))
+(field mentalCha (int 30))
+(field resistance (array "int" 1 (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 0) (int 15) (int 0) (int 10) (int 0) (int 0)))
+(field style (object "org.vermin.mudlib.DefaultBattleStyle" (field owner (parent))))
+(field battleGroup (object "org.vermin.mudlib.SingleBattleGroup" (field owner (parent))))
+)

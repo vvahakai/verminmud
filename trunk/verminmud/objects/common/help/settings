@@ -1,0 +1,33 @@
+
+--[ Settings in Vermin Mud ] --
+
+   You can change your settings with the set command.
+   The command format is:
+
+   set <variable> <value>
+
+--[ Available variables ] --
+
+   .-----------------------------------------------------------.
+   | Variable   | Values   | Description                       |
+   |------------+----------+-----------------------------------|
+   | verbose    | on / off | Whether to show the long          |
+   |                       | description of rooms when moving. |
+   |------------+----------+-----------------------------------|
+   | idleprompt | on / off | Whether to display the prompt     |
+   |            |          | when idle (ie. every tick).       |
+   |------------+----------+-----------------------------------|
+   | showrounds | on / off | Whether to display notification   |
+   |            |          | when a new battle round begins.   |
+   |------------+----------+-----------------------------------|
+   | showexp    | on / off | Whether to display exp gains.     |
+   |------------+----------+-----------------------------------|
+   | prompt     | text     | The prompt to display.            |
+   |            |          | See also: prompt                  |
+   |------------+----------+-----------------------------------|
+   | surname    | text     | Set your surname.                 |
+   |            |          | NOTE: You can do this only once.  |
+   |------------+----------+-----------------------------------|
+   | title      | number   | Select a title from titles        |
+   |            |          | available to you.                 |
+   '-----------------------------------------------------------'
