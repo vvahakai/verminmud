@@ -64,9 +64,9 @@ public class Armageddon {
 							// sleep until 10 minutes to boot
 							Thread.sleep(timeToBoot - 10*60000);
 							info("The world is coming to an end in 10 minutes.");
-                            Iterator it = d.connectionListeners();
+                            Iterator<Service> it = d.connectionListeners();
                             while(it.hasNext())
-                                ((Service)it.next()).stopService();
+                                it.next().stopService();
 
 						} else if(minutes < 1) {
 
@@ -87,7 +87,7 @@ public class Armageddon {
 	}
 
 	private void info(String msg) {
-		Iterator it = World.getPlayers();
+		Iterator<Player> it = World.getPlayers();
 		while(it.hasNext()) {
 			Player p = (Player) it.next();
 			p.notice("[Armageddon] "+msg);

@@ -6,7 +6,6 @@ import org.vermin.mudlib.Damage;
 import org.vermin.mudlib.Dice;
 import org.vermin.mudlib.Living;
 import org.vermin.mudlib.MObject;
-import org.vermin.mudlib.Race;
 import org.vermin.mudlib.SkillType;
 import org.vermin.mudlib.SkillTypes;
 import org.vermin.mudlib.SkillUsageContext;
@@ -75,8 +74,8 @@ public class AssaultScreamSkill extends BaseSkill {
 			int maxdamage = getDamage(who,tgt);
 			int dices = Dice.random(who.getSkill("assault scream"));
 			
-			Race r = tgt.getRace();
-			String hitloc = r.getHitLocation(Dice.random()); // hitlocation
+			//Race r = tgt.getRace();
+			//String hitloc = r.getHitLocation(Dice.random()); // hitlocation
 			String message = new String();
 			String vmessage = new String();
 			if(dices < 25) {
@@ -95,7 +94,7 @@ public class AssaultScreamSkill extends BaseSkill {
 			
 			String msg = who.getName()+" hits "+tgt.getName()+" with "+who.getPossessive()+" fist.";
 			
-			Iterator en = who.getRoom().findByType(Types.TYPE_LIVING);
+			Iterator<MObject> en = who.getRoom().findByType(Types.TYPE_LIVING);
 			while(en.hasNext()) {
 				Living l = (Living) en.next();
 				if(l != who && l != tgt)

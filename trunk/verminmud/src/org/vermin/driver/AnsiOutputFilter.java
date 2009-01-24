@@ -27,8 +27,6 @@ public class AnsiOutputFilter extends OutputFilter {
 	protected static final int NINE         = 57;
 
 	
-	private StringBuffer sb = new StringBuffer();
-	
 	/* Called to get the appropriate codes to change output style */
 	protected void writeTo(ClientConnection ps, int attrib, int fgcolor, int bgcolor) {
 		// System.out.println("ATTR: "+attrib+", FG: "+fgcolor+", BG: "+bgcolor);

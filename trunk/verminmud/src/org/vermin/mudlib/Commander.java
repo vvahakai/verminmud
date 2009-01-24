@@ -14,7 +14,7 @@ public class Commander {
 	protected static Commander _playerInstance; 
 	protected static Commander _wizardInstance ;
 	
-	private Map commands;
+	private Map<String, Command> commands;
 	private Commander delegateTo;
 	
 	static {
@@ -26,12 +26,12 @@ public class Commander {
 	protected Commander(String commandSpec, Commander delegateTo) {
 		this.delegateTo = delegateTo;
 		try {
-			commands = (Map) World.get(commandSpec);
+			commands = (Map<String, Command>) World.get(commandSpec);
 			World.log("[Commander] Loaded with "+commands.size()+" commands");
 		} catch(Exception e) {
 			World.log("[Commander] No player commands ("+commandSpec+")... sucks to be them.");
 			e.printStackTrace();
-			commands = new HashMap();
+			commands = new HashMap<String, Command>();
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class Commander {
 	}
 	
 	public Command get(String name) {
-		Command c = (Command) commands.get(name);
+		Command c = commands.get(name);
 		return c != null 
 			? c 
 			: (delegateTo != null ? delegateTo.get(name) : null);
@@ -64,6 +64,6 @@ public class Commander {
     }
     public static void loadCommandDefinitions() {
         World.unload("common/commands/player-commands");
-        getInstance().commands = (Map) World.get("common/commands/player-commands");
+        getInstance().commands = (Map<String, Command>) World.get("common/commands/player-commands");
     }
 }

@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Vector;
 
 import org.vermin.driver.Factory;
+import org.vermin.mudlib.Damage.Type;
 
 public class ArmourFactory implements Factory
 {
@@ -77,7 +78,7 @@ public class ArmourFactory implements Factory
 		public int protection = 0;
 		public int methodPosition = PRE_POSITION;
 		// public int[] damageTypeModifiers = new int[] { 0, 0, 0, 0 };
-		public EnumMap<Damage.Type, Integer> damageTypeModifiers = new EnumMap(Damage.Type.class);
+		public EnumMap<Damage.Type, Integer> damageTypeModifiers = new EnumMap<Type, Integer>(Damage.Type.class);
 		public String[] materials = { "iron" , "steel" , "silver" , "bronze" , "copper" , "aluminium" , 
 	"brass" , "lead" , "nickel" , "platinum" , "tin" , "titanium" , "tungsten" , "zinc" , "agate" , 
 	"feldspar" , "opal" , "quartz" , "topaz", "leather", "wax", "cork", "rubber", "glass", "ice", "paper", "cloth" };
@@ -120,7 +121,7 @@ public class ArmourFactory implements Factory
 	public ArmourMethod[] hardMethods = new ArmourMethod[] {chainmail, ringmail, scalemail, platemail, brigandine, lamellar, finemesh, crude};
 	public ArmourMethod[] allMethods = new ArmourMethod[] {chainmail, ringmail, scalemail, platemail, brigandine, lamellar, finemesh, cuirbouilli, studded, soft, bezainted, woven, crude};
 
-	Hashtable slotTypes = new Hashtable();
+	Hashtable<String[], ArmourSubType[]> slotTypes = new Hashtable<String[], ArmourSubType[]>();
 
 	public String[][] slotChoices = new String[][] {};
 
@@ -247,7 +248,7 @@ public class ArmourFactory implements Factory
 		ArmourSubType type;
 		ArmourSubType[] types = null;
 		String[] slots = null;
-		Vector possibleMaterials = new Vector();
+		Vector<String> possibleMaterials = new Vector<String>();
 		String shortDesc;
 		String sizeDesc = new String();
 		String shortDescAlias;
@@ -267,11 +268,11 @@ public class ArmourFactory implements Factory
 		}
 			
 		// find subtypes for slot
-		Enumeration e = slotTypes.keys();
+		Enumeration<String[]> e = slotTypes.keys();
 		while(e.hasMoreElements())
 		{
 			int counter = 0;
-			String[] temptype = (String[]) e.nextElement();
+			String[] temptype = e.nextElement();
 			boolean[] usedTypes = new boolean[temptype.length];
 			if(slot.length != temptype.length) {
 				continue;
@@ -286,7 +287,7 @@ public class ArmourFactory implements Factory
 			}
 			if(counter == slot.length) {
 				slots = temptype;
-				types = (ArmourSubType[]) slotTypes.get(temptype);
+				types = slotTypes.get(temptype);
 				break;
 			}
 		}
@@ -333,7 +334,7 @@ public class ArmourFactory implements Factory
 			
 		//randomize material from possible materials
 		dicenum = ( Math.abs( dice.nextInt() ) % possibleMaterials.size() );
-		mat = MaterialFactory.createMaterial((String) (possibleMaterials.get(dicenum)));	
+		mat = MaterialFactory.createMaterial((possibleMaterials.get(dicenum)));	
 	
 		// luodaan descriptionit
 		if(vokaalit.indexOf(mat.getName().charAt(0)) != -1)

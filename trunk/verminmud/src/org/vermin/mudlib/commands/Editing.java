@@ -133,7 +133,7 @@ public class Editing extends RegexCommand {
 				sb.append(cn(m[i].getReturnType()) + " ");
 				sb.append(m[i].getName()+"(");
 				
-				Class[] p = m[i].getParameterTypes();
+				Class<?>[] p = m[i].getParameterTypes();
 				for(int j=0; j<p.length; j++) {
 					sb.append(cn(p[j]));
 					if(j < p.length-1) sb.append(", ");
@@ -160,7 +160,7 @@ public class Editing extends RegexCommand {
 			
 			sb.append("Listing implemented interfaces for class "+cn(who.getEditing().getClass())+":\n");
 			
-			Class[] iface = who.getEditing().getClass().getInterfaces();
+			Class<?>[] iface = who.getEditing().getClass().getInterfaces();
 			
 			for(int i=0; i<iface.length; i++) {
 				sb.append(cn(iface[i]));
@@ -174,14 +174,14 @@ public class Editing extends RegexCommand {
 	}
 	
 	/* Return class name */
-	private String cn(Class c) {
+	private String cn(Class<?> c) {
 		return c.getName();
 	}
 	
 	/* Find a method matching given name and parameter count.
 	 * If many methods match, the first one is returned.
 	 */
-	private Method findMethod(Class c, String name, int paramCount) {
+	private Method findMethod(Class<?> c, String name, int paramCount) {
 		Method[] m = c.getMethods();
 		
 		for(int i=0; i<m.length; i++) {
@@ -196,7 +196,7 @@ public class Editing extends RegexCommand {
 	/* Create typed parameters from string data and return them
 	 * as an object array.
 	 */
-	private Object[] makeParams(Class[] types, String[] data) {
+	private Object[] makeParams(Class<?>[] types, String[] data) {
 		if(types.length != data.length)
 			return null;
 			

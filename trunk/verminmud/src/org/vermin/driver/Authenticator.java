@@ -48,10 +48,10 @@ public class Authenticator implements AuthenticationProvider {
 	private String passwd;
 	
 	/* hashtable of (String name, PasswordRecord pw) as (key, value) */
-	private Hashtable record;
+	private Hashtable<String,PasswordRecord> record;
 	
 	public Authenticator(String passwd) {
-		record = new Hashtable();
+		record = new Hashtable<String, PasswordRecord>();
 		this.passwd = passwd;
 		try {
 			readPasswordList();
@@ -91,7 +91,7 @@ public class Authenticator implements AuthenticationProvider {
 		PrintWriter out =
 			new PrintWriter(new FileWriter(passwd));
 		
-		Enumeration keys = record.keys();
+		Enumeration<String> keys = record.keys();
 		while(keys.hasMoreElements()) {
 			String name = (String)keys.nextElement();
 			PasswordRecord pw = (PasswordRecord)record.get(name);

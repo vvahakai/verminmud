@@ -22,6 +22,7 @@ import org.vermin.driver.*;
 import static org.vermin.mudlib.Stat.*;
 import static org.vermin.mudlib.LivingProperty.*;
 
+import org.vermin.mudlib.Affliction.Type;
 import org.vermin.mudlib.minion.Leash;
 import org.vermin.mudlib.minion.Minion;
 import org.vermin.util.Arrays;
@@ -93,7 +94,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     protected int offensiveness;
     
     /* Modifier lists */
-    protected EnumMap<Stat,LinkedList> statModifiers;
+    protected EnumMap<Stat,LinkedList<Modifier>> statModifiers;
     protected LinkedList<Modifier> hpRegenModifiers;
     protected LinkedList<Modifier> spRegenModifiers;
     protected LinkedList<Modifier> maxHpModifiers;
@@ -291,7 +292,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
                     // the same as the race's: the safest thing to do is
                     // to unwear everything and reinitialize the array.
                     
-                    HashSet<Wearable> eq = new HashSet();
+                    HashSet<Wearable> eq = new HashSet<Wearable>();
                     for(Wearable w : worn) {
                         if(w != null)
                             eq.add(w);
@@ -358,56 +359,56 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
             return physicalStr;
         
         return DefaultModifierImpl.calculateInt(this, physicalStr,
-                (LinkedList) statModifiers.get(PHYS_STR)); 
+                statModifiers.get(PHYS_STR)); 
     }
     public int getMentalStrength() {
         if(statModifiers == null)
             return mentalStr;
         
         return DefaultModifierImpl.calculateInt(this, mentalStr,
-                (LinkedList) statModifiers.get(MENT_STR)); 
+                statModifiers.get(MENT_STR)); 
     }
     public int getPhysicalConstitution() {
         if(statModifiers == null)
             return physicalCon;
         
         return DefaultModifierImpl.calculateInt(this, physicalCon,
-                (LinkedList) statModifiers.get(PHYS_CON)); 
+                statModifiers.get(PHYS_CON)); 
     }
     public int getMentalConstitution() {
         if(statModifiers == null)
             return mentalCon;
         
         return DefaultModifierImpl.calculateInt(this, mentalCon,
-                (LinkedList) statModifiers.get(MENT_CON)); 
+                statModifiers.get(MENT_CON)); 
     }
     public int getPhysicalDexterity() {
         if(statModifiers == null)
             return physicalDex;
         
         return DefaultModifierImpl.calculateInt(this, physicalDex,
-                (LinkedList) statModifiers.get(PHYS_DEX)); 
+                statModifiers.get(PHYS_DEX)); 
     }
     public int getMentalDexterity() {
         if(statModifiers == null)
             return mentalDex;
         
         return DefaultModifierImpl.calculateInt(this, mentalDex,
-                (LinkedList) statModifiers.get(MENT_DEX)); 
+                statModifiers.get(MENT_DEX)); 
     }
     public int getPhysicalCharisma() {
         if(statModifiers == null)
             return physicalCha;
         
         return DefaultModifierImpl.calculateInt(this, physicalCha,
-                (LinkedList) statModifiers.get(PHYS_CHA)); 
+                statModifiers.get(PHYS_CHA)); 
     }
     public int getMentalCharisma() {
         if(statModifiers == null)
             return mentalCha;
         
         return DefaultModifierImpl.calculateInt(this, mentalCha,
-                (LinkedList) statModifiers.get(MENT_CHA)); 
+                statModifiers.get(MENT_CHA)); 
     }
     
     public int getPhysicalStrength(boolean p) {
@@ -545,9 +546,9 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     private Damage callDamageListeners(Damage amount, Living attacker, int loc) {
 
         if(damageListeners != null) {
-            Iterator it = damageListeners.listIterator();
+            Iterator<DamageListener> it = damageListeners.listIterator();
             while(it.hasNext()) {
-                DamageListener l = (DamageListener) it.next();
+                DamageListener l = it.next();
                 if(l.isActive()) {
                     Damage newD = l.onSubHp(amount, attacker, loc);
                     if(newD != null)
@@ -890,7 +891,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     
     protected void wieldAll() {
         ArrayList<Wieldable> al = new ArrayList<Wieldable>();
-        Iterator it = findByType(Types.TYPE_ITEM);
+        Iterator<MObject> it = findByType(Types.TYPE_ITEM);
         while(it.hasNext()) {
             Object wieldable = it.next();
             if(wieldable instanceof Wieldable)
@@ -907,8 +908,8 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
         if(worn == null)
             worn = new Wearable[getRace().getSlots().length];
         
-        Vector successfulWear = new Vector();
-        Enumeration en = inventory.elements();
+        Vector<Wearable> successfulWear = new Vector<Wearable>();
+        Enumeration<MObject> en = inventory.elements();
         
         while(en.hasMoreElements()) {
             Item it = (Item) en.nextElement();
@@ -960,12 +961,8 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
             }
         }
         
-        en = successfulWear.elements();
-        
-        while(en.hasMoreElements()) {
-            Wearable what = (Wearable) en.nextElement();
+        for(Wearable what : successfulWear)
             inventory.remove(what);
-        }
     }
     
     public boolean wear(Wearable what) {
@@ -1227,12 +1224,12 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
         }
     }
     
-    public Iterator findByType(Types type) {
+    public Iterator<MObject> findByType(Types type) {
         
         if(type != Types.TYPE_ITEM)
             return null;
         
-        HashSet items = new HashSet<Item>();
+        HashSet<MObject> items = new HashSet<MObject>();
         
         items.addAll(inventory);
         items.addAll(java.util.Arrays.asList(getWieldedItems(false)));
@@ -1343,7 +1340,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     public int getSize() {
         if(race == null) World.log("RACE is NULL");
         return DefaultModifierImpl.calculateInt(this, getRace().getSize() + size,
-                (LinkedList) sizeModifiers);
+                (LinkedList<Modifier>) sizeModifiers);
     }
     
     public Types getType() { return Types.TYPE_LIVING; }
@@ -1432,7 +1429,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
         
         case OFFENSIVENESS:
             if(offensivenessModifiers == null) {
-                offensivenessModifiers = new LinkedList();
+                offensivenessModifiers = new LinkedList<Modifier>();
             }
             offensivenessModifiers.add(m);
             break;
@@ -1441,11 +1438,11 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
         case STAT:
             Stat s = (Stat) m.getArguments()[0];
             if(statModifiers == null) {
-                statModifiers = new EnumMap(Stat.class);
+                statModifiers = new EnumMap<Stat, LinkedList<Modifier>>(Stat.class);
             }
-            LinkedList stat = (LinkedList) statModifiers.get(s);
+            LinkedList<Modifier> stat = statModifiers.get(s);
             if(stat == null) {
-                stat = new LinkedList();
+                stat = new LinkedList<Modifier>();
                 stat.add(m);
                 statModifiers.put(s, stat);
             } else {
@@ -1456,11 +1453,11 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
         case SKILL:
             String sk = (String) m.getArguments()[0];
             if(skillModifiers == null) {
-                skillModifiers = new Hashtable();
+                skillModifiers = new Hashtable<String, LinkedList<Modifier>>();
             }
-            LinkedList skill = (LinkedList) skillModifiers.get(sk);
+            LinkedList<Modifier> skill = skillModifiers.get(sk);
             if(skill == null) {
-                skill = new LinkedList();
+                skill = new LinkedList<Modifier>();
                 skill.add(m);
                 skillModifiers.put(sk, skill);
             } else {
@@ -1482,46 +1479,46 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
             
         case MAXHP:
             if(maxHpModifiers == null) {
-                maxHpModifiers = new LinkedList();
+                maxHpModifiers = new LinkedList<Modifier>();
             }
             maxHpModifiers.add(m);
             break;
             
         case MAXSP:
             if(maxSpModifiers == null) {
-                maxSpModifiers = new LinkedList();
+                maxSpModifiers = new LinkedList<Modifier>();
             }
             maxSpModifiers.add(m);
             break;
             
         case HPREGEN:
             if(hpRegenModifiers == null) {
-                hpRegenModifiers = new LinkedList();
+                hpRegenModifiers = new LinkedList<Modifier>();
             }
             hpRegenModifiers.add(m);
             break;
             
         case SPREGEN:
             if(spRegenModifiers == null) {
-                spRegenModifiers = new LinkedList();
+                spRegenModifiers = new LinkedList<Modifier>();
             }
             spRegenModifiers.add(m);
             break;
             
         case REGEN:
             if(hpRegenModifiers == null) {
-                hpRegenModifiers = new LinkedList();
+                hpRegenModifiers = new LinkedList<Modifier>();
             }
             hpRegenModifiers.add(m);
             if(spRegenModifiers == null) {
-                spRegenModifiers = new LinkedList();
+                spRegenModifiers = new LinkedList<Modifier>();
             }
             spRegenModifiers.add(m);
             break;
             
         case SIZE:
             if(sizeModifiers == null) {
-                sizeModifiers = new LinkedList();
+                sizeModifiers = new LinkedList<Modifier>();
             }
             sizeModifiers.add(m);
             break;
@@ -1533,7 +1530,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     public void addAffliction(Affliction a) {
         
         if(afflictions == null) {
-            afflictions = new EnumMap(Affliction.Type.class);
+            afflictions = new EnumMap<Type, Affliction>(Affliction.Type.class);
         }
         
         Affliction.Type type = a.getType();
@@ -1606,7 +1603,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     
     public void addProvider(PropertyProvider<LivingProperty> provider) {
         if(propertyProvider == null)
-            propertyProvider = new DefaultCompositePropertyProvider();
+            propertyProvider = new DefaultCompositePropertyProvider<LivingProperty>();
         propertyProvider.addProvider(provider);
     }
     
@@ -1627,7 +1624,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
      */
     public void addDamageListener(DamageListener listener) {
         if(damageListeners == null)
-            damageListeners = new LinkedList();
+            damageListeners = new LinkedList<DamageListener>();
         damageListeners.add(listener);
     }
 
@@ -1654,9 +1651,9 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
         behaviours.remove(b);
     }
 	public void removeBehaviour(Functional.Predicate<Behaviour> p) {
-		Iterator behaviours = this.behaviours.iterator();
+		Iterator<Behaviour> behaviours = this.behaviours.iterator();
 		while(behaviours.hasNext()) {
-			if(p.call((Behaviour)behaviours.next()))
+			if(p.call(behaviours.next()))
 				behaviours.remove();
 		}
 	}
