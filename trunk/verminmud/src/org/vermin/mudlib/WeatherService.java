@@ -196,7 +196,7 @@ public class WeatherService implements Weather {
 		
 		distance = (int) Math.sqrt(Math.pow(deltaX,2)+Math.pow(deltaY,2));
 		
-		World.log("WeatherService: calculateDistance == "+distance);
+		// World.log("WeatherService: calculateDistance == "+distance);
 		
 		return distance;
 	}
@@ -238,7 +238,7 @@ public class WeatherService implements Weather {
 		sunX = VerminCalendar.DAY_PER_YEAR*dayOfYear/MAP_LIMIT_X;
 		sunY = VerminCalendar.MIN_PER_DAY*minuteOfDay/MAP_LIMIT_Y;
 		
-		World.log("WeatherService: position of sun == "+sunX+","+sunY);
+		//World.log("WeatherService: position of sun == "+sunX+","+sunY);
 		
 		return new Point(sunX, sunY);
 	}

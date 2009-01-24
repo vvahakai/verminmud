@@ -88,8 +88,6 @@ public class TelnetConnection extends AbstractConnection {
 			while(!done) {
 				int in = input.read();
 				
-				// System.out.println("read int: "+in);
-
 				switch(in) {
 
 				  case IAC: 
@@ -103,7 +101,6 @@ public class TelnetConnection extends AbstractConnection {
 					  /* ignore linefeed and null */
 				  case LF: 
 				  case 0:
-					  System.out.println("LF or null character: "+in);
 					  break;
 
 				  case EOS:

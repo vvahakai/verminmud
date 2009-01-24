@@ -17,9 +17,10 @@ public class BootstrapDatabase {
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url);
 		
-			con.createStatement().executeUpdate("CREATE TABLE players (name varchar(32), password varchar(32), id varchar(255))");
+			con.createStatement().executeUpdate("CREATE TABLE players (name varchar(32), password varchar(32), id varchar(255), bank varchar(255))");
 			con.createStatement().executeUpdate("CREATE TABLE explore (player varchar(255), room varchar(255))");
 			con.createStatement().executeUpdate("CREATE TABLE plaque (type varchar(32), player varchar(32), value bigint)");
+			
 			con.close();
 		} catch(Exception e) {
 			e.printStackTrace();

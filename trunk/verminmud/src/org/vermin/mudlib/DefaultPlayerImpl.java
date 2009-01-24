@@ -108,7 +108,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 		hungerMessages.put(new Integer(0), "You are STARVING.");
 	}
 
-	private static String DEFAULT_PROMPT = "[Hp: $hp$ / $maxhp$] [Sp: $sp$ / $maxsp$] > ";
+	private static String DEFAULT_PROMPT = "[Hp: $hp$ / $maxhp$] [Sp: $sp$ / $maxsp$] [Exp: $exp$] > ";
 	
 	private transient boolean started;
 	public DefaultPlayerImpl() {

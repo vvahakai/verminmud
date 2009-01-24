@@ -38,4 +38,7 @@ public class HellRoom extends DefaultRoomImpl {
 	public boolean mayTeleport(Living who) {
 		return false;
 	}
+	
+	public void explore(Living explorer) {}
+
 }

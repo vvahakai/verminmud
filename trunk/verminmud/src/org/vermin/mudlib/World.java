@@ -206,32 +206,24 @@ public class World {
 		cc.notice("info", msg);
 	}
 
-	private static boolean explorableRoomDBCountAttempted = false;
 	public static int getExplorableRoomCount() {
-		if(!explorableRoomDBCountAttempted) { // try once to grab this data from the db
-			try {
-				Connection c = getDatabaseConnection();
-				PreparedStatement countExplorableRooms = c.prepareStatement("SELECT COUNT(DISTINCT room) AS roomcount FROM explore");
 
-				ResultSet rs = countExplorableRooms.executeQuery();
-				if(rs.next()) {
-					int count = rs.getInt(1);
-					if(count != 0) // if db is reset for some reason, we don't want the zero here
-						explorableRoomCount = count;
-				}
-			} catch (SQLException sqle) {
-				log("SQL exception while counting explorable rooms: "+sqle.getMessage());
-				resetDatabaseConnection();
-			} finally {
-				explorableRoomDBCountAttempted = true;
+		try {
+			Connection c = getDatabaseConnection();
+			PreparedStatement countExplorableRooms = c.prepareStatement("SELECT COUNT(DISTINCT room) AS roomcount FROM explore");
+
+			ResultSet rs = countExplorableRooms.executeQuery();
+			if(rs.next()) {
+				int count = rs.getInt(1);
+				return count == 0 ? 1 : count;
+			} else {
+				throw new IllegalStateException("SQL COUNT(...) query returned no rows! WTF?");
 			}
+		} catch (SQLException sqle) {
+			log("SQL exception while counting explorable rooms: "+sqle.getMessage());
+			resetDatabaseConnection();
+			return 1;
 		}
-
-		return explorableRoomCount;
-	}
-
-	public static void setExplorableRoomCount(int erc) {
-		explorableRoomCount = erc;
 	}
 
 	/**

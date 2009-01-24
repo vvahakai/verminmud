@@ -56,12 +56,6 @@ public class Main {
         
         initializeLogging();
         
-        int explorableRooms = 1953;
-        try {
-        	explorableRooms = Integer.parseInt(configuration.get("explorableRooms"));
-        } catch(Exception e) {}
-        
-        World.setExplorableRoomCount(explorableRooms);
         
         if(configuration.containsKey("dbURL"))
         	World.dbURL = configuration.get("dbURL");

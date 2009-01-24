@@ -15,7 +15,6 @@ public class WeatherObservationBehaviour extends BehaviourAdapter implements
 	
 	private String previousRoomId = "";
 	private int msgCount = 0;
-	private WeatherService weatherService = WeatherService.getInstance();
 	
 	public void onRegenTick(Living who) {
 		if(who.getRoom() instanceof OutworldRoom &&
@@ -33,6 +32,7 @@ public class WeatherObservationBehaviour extends BehaviourAdapter implements
 	}
 	
 	private void doMessage(Living who) {
+		WeatherService weatherService = WeatherService.getInstance();
 		String rainwerb = null;
 		if(weatherService.getTemperature(who.getRoom()) < 35) {
 			rainwerb = "snowing";
