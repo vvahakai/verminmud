@@ -30,7 +30,7 @@ public class QuestsCommand extends RegexCommand {
 	}
 	
 	public static ArrayList<QuestBehaviour> getQuestBehaviours(Living who) {
-		ArrayList<QuestBehaviour> qbs = new ArrayList();
+		ArrayList<QuestBehaviour> qbs = new ArrayList<QuestBehaviour>();
 		who.command("quest-behaviour-list", qbs);
 		return qbs;
 	}

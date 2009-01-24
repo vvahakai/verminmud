@@ -452,7 +452,7 @@ public class PartyCommand extends RegexCommand {
 		actor.notice("You have disbanded the party.");
 
 		String msg = actor.getName() + " has disbanded the party.";
-		ArrayList<Living> al = new ArrayList();
+		ArrayList<Living> al = new ArrayList<Living>();
 		for (Living member : pi.members())
 			al.add(member);
 

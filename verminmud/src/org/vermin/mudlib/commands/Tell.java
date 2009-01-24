@@ -66,7 +66,7 @@ public class Tell extends RegexCommand {
 		
 		String[] rcpts = recipients.split(",");
 		
-		ArrayList<Living> al = new ArrayList();
+		ArrayList<Living> al = new ArrayList<Living>();
 		for(int i=0; i<rcpts.length; i++) {
 			Living l = getPlayer(rcpts[i].trim());
 			if(l != null)

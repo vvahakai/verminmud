@@ -889,7 +889,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     }
     
     protected void wieldAll() {
-        ArrayList<Wieldable> al = new ArrayList();
+        ArrayList<Wieldable> al = new ArrayList<Wieldable>();
         Iterator it = findByType(Types.TYPE_ITEM);
         while(it.hasNext()) {
             Object wieldable = it.next();

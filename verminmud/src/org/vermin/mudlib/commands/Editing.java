@@ -103,7 +103,7 @@ public class Editing extends RegexCommand {
 	
 	private String[] tokenifyParams(String p) {
 		SExpTokenizer tokenizer = new SExpTokenizer(new StringReader(p));
-		ArrayList al = new ArrayList();
+		ArrayList<String> al = new ArrayList<String>();
 		try {
 			Object token = tokenizer.nextToken();
 			while(token != SExpTokenizer.STREAM_END) {
@@ -114,7 +114,7 @@ public class Editing extends RegexCommand {
 			// should not happen when reading from string data
 		}
 		
-		return (String[]) al.toArray(new String[al.size()]);
+		return al.toArray(new String[al.size()]);
 	}
 
 	public void list(Wizard who, String params) {

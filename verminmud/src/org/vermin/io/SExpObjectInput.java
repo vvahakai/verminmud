@@ -68,11 +68,11 @@ public class SExpObjectInput {
 	/* Nested class representing an S-Expression. */
 	public class SExp {
 		public MethodInfo func;
-		public List args;
+		public List<Object> args;
 		public int line, column;
 		public SExp() {
 			func = null;
-			args = new ArrayList();
+			args = new ArrayList<Object>();
 		}
 		
 		public void add(Object tok) {
@@ -124,15 +124,15 @@ public class SExpObjectInput {
 		indent++;
 		//System.out.println(sexp.func.method.getName()+" ("+indent+")");
 		
-		List pArgs = null;
+		List<Object> pArgs = null;
 		Dynvars d = new Dynvars();
 		d.parent = dynvars.parent;
 		
 		MethodInfo func = sexp.func;
 		
 		if(!func.special) {
-			pArgs = new LinkedList();
-			ListIterator it = sexp.args.listIterator();
+			pArgs = new LinkedList<Object>();
+			ListIterator<Object> it = sexp.args.listIterator();
 			while(it.hasNext()) {
 				Object arg = it.next();
 				if(arg instanceof SExp) {
@@ -142,7 +142,7 @@ public class SExpObjectInput {
 				}
 			}
 		} else {
-			pArgs = new ArrayList(sexp.args);
+			pArgs = new ArrayList<Object>(sexp.args);
 		}
 		
 		Object value = null;

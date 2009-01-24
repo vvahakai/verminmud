@@ -24,7 +24,7 @@ public interface Container extends Composite<MObject>, MObject {
      * @param type 
      * @return <code>Iterator</code> to the found objects
      */
-    public Iterator findByType(Types type);
+    public Iterator<MObject> findByType(Types type);
 
     /**
      * Find an object by name (or alias). 

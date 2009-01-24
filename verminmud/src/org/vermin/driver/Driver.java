@@ -22,16 +22,16 @@ public class Driver {
 	
 	private static Driver _instance = new Driver();
 	
-	private LinkedList<Service> connectionListeners = new LinkedList();
+	private LinkedList<Service> connectionListeners = new LinkedList<Service>();
 	private TickService tickService;
 	private Loader loader;
 	private AuthenticationProvider authenticator;
-	private HashMap services = new HashMap();
-	private ArrayList typoMessage = new ArrayList();
+	private HashMap<String, Service> services = new HashMap<String, Service>();
+	private ArrayList<String> typoMessage = new ArrayList<String>();
 	private ClassMapping classMapping;
     
-	private HashMap<String, Factory> objectFactories = new HashMap();
-	private HashMap loginActionFactories = new HashMap();
+	private HashMap<String, Factory> objectFactories = new HashMap<String, Factory>();
+	private HashMap<String, Factory> loginActionFactories = new HashMap<String, Factory>();
 
 	// private JS scheme = new JS();
 
@@ -70,7 +70,7 @@ public class Driver {
         if(typoMessage.size() == 0)
             return "What?";
         else
-            return (String) typoMessage.get(typo.nextInt(typoMessage.size()));
+            return typoMessage.get(typo.nextInt(typoMessage.size()));
 	}
 
 	public void addTypoMessage(String msg) {
@@ -78,7 +78,7 @@ public class Driver {
 	}
 
 	public Object getLoginAction(String name) {
-		Factory f = (Factory) loginActionFactories.get(name);
+		Factory f = loginActionFactories.get(name);
 		//System.out.println("GOT login action factory: "+f);
 		if(f == null)
 			return null;
@@ -103,7 +103,7 @@ public class Driver {
 		return authenticator;
 	}
 
-	public Iterator connectionListeners() {
+	public Iterator<Service> connectionListeners() {
 		return connectionListeners.iterator();
 	}
 
@@ -124,7 +124,7 @@ public class Driver {
 	}
 
 	public Service getService(String name, boolean forceStart) {
-		Service s = (Service) services.get(name);
+		Service s = services.get(name);
 		if(s != null && forceStart && !s.isActive())
 			s.startService();
 		return s;

@@ -66,7 +66,7 @@ public class RootBattleGroup extends AbstractBattleGroup {
 		if(branch.getType() != BRANCH)
 			throw new IllegalArgumentException("Wrapping group is not a branch.");
 
-		ArrayList<BattleGroup> al = new ArrayList();
+		ArrayList<BattleGroup> al = new ArrayList<BattleGroup>();
 		Iterator<BattleGroup> it = branch.children();
 		while(it.hasNext()) al.add(it.next());
 
