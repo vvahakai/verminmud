@@ -63,7 +63,7 @@ public class AreaOffensive extends BaseSkill {
 				}
 
 				Iterator en = who.getRoom().findByType(Types.TYPE_LIVING);
-				ArrayList<Living> targets = new ArrayList(); 
+				ArrayList<Living> targets = new ArrayList<Living>(); 
 				while(en.hasNext()) {
 					Living l = (Living) en.next();
 					if(l != who && !who.getBattleGroup().contains(l.getLeafBattleGroup()))

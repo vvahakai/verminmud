@@ -21,13 +21,13 @@ public class DefaultPartyImpl implements Party {
 		{ 2, 2 }
 	};
 		
-	private RingBuffer<String> messages = new RingBuffer(25);
+	private RingBuffer<String> messages = new RingBuffer<String>(25);
 		
 	// Name of the party	
 	private String name;
 
 	// Party members
-	private Map<Living,PartyMembership> members = Collections.synchronizedMap(new HashMap());
+	private Map<Living,PartyMembership> members = Collections.synchronizedMap(new HashMap<Living, PartyMembership>());
 
 	// Current party leader
 	private Living leader;
@@ -69,7 +69,7 @@ public class DefaultPartyImpl implements Party {
 	 */
 	public List<Living> membersInJoinOrder() {
 
-		ArrayList<Living> al = new ArrayList(members());
+		ArrayList<Living> al = new ArrayList<Living>(members());
 		Collections.sort(al, new Comparator<Living>() {
 				public int compare(Living m1, Living m2) {
 					if(members.get(m1).number < members.get(m2).number)
@@ -313,7 +313,7 @@ public class DefaultPartyImpl implements Party {
 	 * @param member the party member
 	 */
 	public void toggleFollow(Living member) {
-		PartyMembership pm = (PartyMembership) members.get(member);
+		PartyMembership pm = members.get(member);
 		if(pm == null)
 			throw new IllegalArgumentException("The given member is not a member.");
 		pm.follow = !pm.follow;
@@ -326,7 +326,7 @@ public class DefaultPartyImpl implements Party {
 	 * @returns true if the member is following leader, false otherwise
 	 */
 	public boolean isFollowing(Living member) {
-		PartyMembership pm = (PartyMembership) members.get(member);
+		PartyMembership pm = members.get(member);
 		if(pm == null)
 			throw new IllegalArgumentException("The given member is not a member.");
 		return pm.follow;
@@ -353,8 +353,8 @@ public class DefaultPartyImpl implements Party {
 						positions[row][col].doBattle();
 		}
 
-		public Iterator children() {
-			ArrayList al = new ArrayList();
+		public Iterator<BattleGroup> children() {
+			ArrayList<BattleGroup> al = new ArrayList<BattleGroup>();
 
 			for(int row=0; row<16;row++)
 				for(int col=0; col<16;col++)
@@ -427,7 +427,7 @@ public class DefaultPartyImpl implements Party {
 			
 			int[] pos = getPosition(branch);
 
-			ArrayList<BattleGroup> al = new ArrayList();
+			ArrayList<BattleGroup> al = new ArrayList<BattleGroup>();
 			Iterator it = branch.children();
 			while(it.hasNext()) al.add((BattleGroup) it.next());
 
@@ -595,7 +595,7 @@ public class DefaultPartyImpl implements Party {
 	}
 
 	public ArrayList<String> lastKills() {
-		ArrayList<String> al = new ArrayList();
+		ArrayList<String> al = new ArrayList<String>();
 		int ind = lastKillIndex+1;
 		for(int i=0; i<20; i++) {
 			if(kills[ind%20] != null)

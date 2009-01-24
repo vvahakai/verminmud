@@ -32,8 +32,8 @@ public class Hover extends BaseSkill {
 				((Living)suc.getTarget()).notice("You start hovering slightly above the ground.");
 			}
 			
-			final PropertyProvider<LivingProperty> provider = new AbstractPropertyProvider(){
-				public boolean provides(Enum property) {
+			final PropertyProvider<LivingProperty> provider = new AbstractPropertyProvider<LivingProperty>(){
+				public boolean provides(LivingProperty property) {
 					return property==LivingProperty.HOVER;
 				}
 			};

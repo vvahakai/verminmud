@@ -4,7 +4,6 @@
  */
 package org.vermin.mudlib;
 
-import java.util.ArrayList;
 import java.util.*;
 
 import static org.vermin.mudlib.BattleGroup.NodeType.*;
@@ -16,7 +15,7 @@ import org.vermin.mudlib.battle.AbstractBattleGroup;
  */
 public class BranchBattleGroup extends AbstractBattleGroup {
 
-	protected ArrayList<BattleGroup> children = new ArrayList();
+	protected ArrayList<BattleGroup> children = new ArrayList<BattleGroup>();
 
 	
 	public BattleGroup.NodeType getType() {
@@ -35,7 +34,7 @@ public class BranchBattleGroup extends AbstractBattleGroup {
 	}
 
 	public Living getCombatant(Room room) {
-		ArrayList<Living> al = new ArrayList();
+		ArrayList<Living> al = new ArrayList<Living>();
 		
 //		World.log("Finding combatant from BranchBattleGroup...");
 

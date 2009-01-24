@@ -11,7 +11,7 @@ import java.util.*;
 public class LineEditor implements ActionHandler<MObject>, Prompt {
 	
 	private boolean editDone = false;
-	private List<String> lines = new ArrayList();
+	private List<String> lines = new ArrayList<String>();
 	private Listener listener;
 	private int maxLines = -1;
 	private Player who;

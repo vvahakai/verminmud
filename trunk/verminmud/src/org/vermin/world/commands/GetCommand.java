@@ -55,9 +55,9 @@ public class GetCommand extends RegexCommand
                 
 
     public void loot(Living who) {
-        Iterator it = who.getRoom().findByType(Types.TYPE_ITEM);
+        Iterator<MObject> it = who.getRoom().findByType(Types.TYPE_ITEM);
         while(it.hasNext()) {
-            MObject item = (MObject) it.next();
+            MObject item = it.next();
             if(item.isAlias("corpse")) {
                 move(who, "all", item, who);
             }
@@ -65,7 +65,7 @@ public class GetCommand extends RegexCommand
     }
     
     public void move(Living who, String itemNames, MObject from, MObject to) {
-    	Vector got = new Vector();
+    	Vector<String> got = new Vector<String>();
     	
     	String[] items = itemNames.split(" *, *");
     	
@@ -112,7 +112,7 @@ public class GetCommand extends RegexCommand
     		who.notice("You "+(take?"take":"put")+" "+vectorToString(got, 0, ", ")+" "+(take?"from ":"in ")+
     				(take? (from instanceof Room ? "the ground" : from.getDescription()) :
     					(to instanceof Room ? "the ground" : to.getDescription())) + ".");
-	    	Iterator it = who.getRoom().findByType(Types.TYPE_LIVING);
+	    	Iterator<MObject> it = who.getRoom().findByType(Types.TYPE_LIVING);
 	    	while(it.hasNext()) {
 	    		Living spectator = (Living) it.next();
 	    		if(spectator != who) {
@@ -130,22 +130,22 @@ public class GetCommand extends RegexCommand
        
        if(item.equalsIgnoreCase("all")) {
                       
-           Iterator it = container.findByType(Types.TYPE_ITEM);
+           Iterator<MObject> it = container.findByType(Types.TYPE_ITEM);
            // Copy items to an arraylist to avoid concurrent modification exception
-           ArrayList al = new ArrayList();
-           while(it.hasNext()) al.add(it.next());
+           ArrayList<Item> al = new ArrayList<Item>();
+           while(it.hasNext()) al.add((Item) it.next());
            
            return al;
       } else {
-          HashSet<Item> items = new HashSet();
+          HashSet<Item> items = new HashSet<Item>();
           
           if(item.startsWith("all ")) {
               String alias = item.substring(4).trim();
-              Iterator it = container.findByType(Types.TYPE_ITEM);
+              Iterator<MObject> it = container.findByType(Types.TYPE_ITEM);
               while(it.hasNext()) {
-                  Item i = (Item) it.next();
+                  MObject i = it.next();
                   if(i.isAlias(alias))
-                      items.add(i);
+                      items.add((Item) i);
               }
           } else {
               Item i = (Item) container.findByNameAndType(item, Types.TYPE_ITEM);
@@ -156,7 +156,7 @@ public class GetCommand extends RegexCommand
       }
    }
 	
-	protected String vectorToString(Vector v, int start, String combiner) {
+	protected String vectorToString(Vector<String> v, int start, String combiner) {
 		StringBuffer sb = new StringBuffer();
 		for(int i=start; i<v.size(); i++) {
 			sb.append(v.get(i).toString().toLowerCase() + (i==v.size()-1 ? "" : combiner));

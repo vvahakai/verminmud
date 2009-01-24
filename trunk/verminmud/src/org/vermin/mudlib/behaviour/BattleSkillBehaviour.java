@@ -68,7 +68,7 @@ public class BattleSkillBehaviour extends BehaviourAdapter {
     
     protected void findSkills() {
     	// World.log("BattleSkillBehaviour.findSkills() called.");
-    	HashSet<String> availableSkills = new HashSet(owner.getSkillObject().getSkills().keySet());
+    	HashSet<String> availableSkills = new HashSet<String>(owner.getSkillObject().getSkills().keySet());
     	for(String skill : availableSkills) {
     		Skill sk = SkillObject.skillsProvider.get(skill);
         	World.log("BattleSkillBehaviour.findSkills() examining skill "+sk.getName()+".");
@@ -78,7 +78,7 @@ public class BattleSkillBehaviour extends BehaviourAdapter {
     				if(st[i] == SkillTypes.OFFENSIVE) {
     			    	World.log("BattleSkillBehaviour.findSkills() skill is valid.");
     			    	if(skillList == null) 
-    			    		skillList = new ArrayList();
+    			    		skillList = new ArrayList<String>();
     					skillList.add(sk.getName());
     					break;
     				}

@@ -167,7 +167,7 @@ public class SqlAuthenticationProvider implements AuthenticationProvider {
 			PreparedStatement stmt = connection.prepareStatement("SELECT name FROM players");
 		
 			ResultSet rs = stmt.executeQuery();
-			ArrayList<String> al = new ArrayList();
+			ArrayList<String> al = new ArrayList<String>();
 			while(rs.next())
 				al.add(rs.getString(1));
 		

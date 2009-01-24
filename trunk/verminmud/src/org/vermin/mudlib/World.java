@@ -59,7 +59,7 @@ public class World {
     /* HashMap of currently logged in players.
      * login name as key, the connection as value.
      */
-    private static HashMap players = new HashMap();
+    private static HashMap<String,Session> players = new HashMap<String,Session>();
     
     private static String objectRoot;
     
@@ -450,23 +450,23 @@ public class World {
 		}
     }
     
-    public static Iterator getPlayers() {
+    public static Iterator<Player> getPlayers() {
    
-        ArrayList v = new ArrayList();
+        ArrayList<Player> v = new ArrayList<Player>();
         
         AuthenticationProvider auth = Driver.getInstance().getAuthenticator();
         
-        Iterator it = getPlayerNames();
+        Iterator<String> it = getPlayerNames();
         while(it.hasNext()) {
-            String name = it.next().toString();
+            String name = it.next();
             Object p = get( auth.getIdForRecord(name) );
-            if(p != null) v.add(p);
+            if(p != null) v.add((Player) p);
         }
         return v.iterator();
         
     }
 
-    public static Iterator getPlayerNames() {
+    public static Iterator<String> getPlayerNames() {
         return players.keySet().iterator();
     }
     public static boolean isLoggedIn(String name) {

@@ -31,7 +31,7 @@ public class Skills extends RegexCommand {
 		
 		Map skills = p.getSkillObject().getSkills();
 		
-		ArrayList<String> al = new ArrayList(skills.keySet());
+		ArrayList<String> al = new ArrayList<String>(skills.keySet());
 		Collections.sort(al, String.CASE_INSENSITIVE_ORDER);
 		Iterator it = al.iterator();
 		while(it.hasNext()) {

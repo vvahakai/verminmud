@@ -28,7 +28,7 @@ public class FileLoader implements Loader {
 		
 		public String[] getFiles() {
 			String[] files = base.list();
-			ArrayList<String> al = new ArrayList(files.length);
+			ArrayList<String> al = new ArrayList<String>(files.length);
 			for(String f : files)
 				if(!f.endsWith(".backup"))
 					al.add(f);

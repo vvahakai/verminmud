@@ -325,7 +325,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 		if(getHp() < wimpyHp) {
 			Room r = getRoom();
 			Iterator e = r.findByType(Types.TYPE_EXIT);
-			ArrayList<Exit> al = new ArrayList();
+			ArrayList<Exit> al = new ArrayList<Exit>();
 			while(e.hasNext())
 				al.add((Exit) e.next());
 

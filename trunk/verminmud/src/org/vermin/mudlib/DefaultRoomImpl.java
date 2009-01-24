@@ -53,9 +53,9 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 	protected int waterLevel;
 	protected int vegetation;
 	
-	protected LinkedList waterLevelModifiers;
-	protected LinkedList outdoorModifiers;
-	protected LinkedList vegetationModifiers;
+	protected LinkedList<Modifier> waterLevelModifiers;
+	protected LinkedList<Modifier> outdoorModifiers;
+	protected LinkedList<Modifier> vegetationModifiers;
 
 	private long lastPlayerLeave; // timestamp of when a player last left.
 
@@ -130,22 +130,15 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 			
 			/* Roll for initiative */
 			// Dice(mental con + physical dex)... largest value goes first
-			ArrayList<Pair<Living,Integer>> iniative = new ArrayList();
+			ArrayList<Pair<Living,Integer>> iniative = new ArrayList<Pair<Living, Integer>>();
 			
-			boolean hasPlayers = false;
 			for(Living l : living) {
-				if(l instanceof Player)
-					hasPlayers = true;
-				
 				l.onBattleTick(l);
-				iniative.add(new Pair(l, Dice.random(l.getMentalConstitution()+l.getPhysicalDexterity())));
+				iniative.add(new Pair<Living, Integer>(l, Dice.random(l.getMentalConstitution()+l.getPhysicalDexterity())));
 			}
 			
-			Collections.sort(iniative, new Comparator() {
-				public int compare(Object arg0, Object arg1) {
-					Pair<Living,Integer> p1, p2;
-					p1 = (Pair) arg0;
-					p2 = (Pair) arg1;
+			Collections.sort(iniative, new Comparator<Pair<Living,Integer>>() {
+				public int compare(Pair<Living,Integer> p1, Pair<Living,Integer> p2) {
 					if(p1.second > p2.second)
 						return -1;
 					else if(p1.second < p2.second)
@@ -689,19 +682,19 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 		switch(m.getType()) {
 		  case WATERLEVEL:
 			  if(waterLevelModifiers == null)
-				  waterLevelModifiers = new LinkedList();
+				  waterLevelModifiers = new LinkedList<Modifier>();
 			  waterLevelModifiers.add(m);
 			  break;
 
 		  case OUTDOOR:
 			  if(outdoorModifiers == null) 
-				  outdoorModifiers = new LinkedList();
+				  outdoorModifiers = new LinkedList<Modifier>();
 			  outdoorModifiers.add(m);
 			  break;
 
 		  case VEGETATION:
 			  if(vegetationModifiers == null)
-				  vegetationModifiers = new LinkedList();
+				  vegetationModifiers = new LinkedList<Modifier>();
 			  vegetationModifiers.add(m);
 			  break;
 

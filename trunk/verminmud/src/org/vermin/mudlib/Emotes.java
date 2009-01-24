@@ -30,12 +30,12 @@ public class Emotes {
 
 	protected static Emotes _instance = new Emotes();
 
-	private HashMap<String,Emote> emotes = new HashMap();
+	private HashMap<String,Emote> emotes = new HashMap<String, Emote>();
 
 	// Adverbs mapped by their first 3 letters
 	// the value contains a list of the adverbs that start
 	// with the key
-	private HashMap<String,List<String>> adverbs = new HashMap();
+	private HashMap<String,List<String>> adverbs = new HashMap<String, List<String>>();
 	
 	protected Emotes() {
 		loadData();
@@ -65,7 +65,7 @@ public class Emotes {
 				String key = line.substring(0,3);
 				List<String> list = adverbs.get(key);
 				if(list == null) {
-					list = new ArrayList();
+					list = new ArrayList<String>();
 					adverbs.put(key, list);
 				}
 				list.add(line);
@@ -255,7 +255,7 @@ public class Emotes {
 		if(l == null)
 			return null;
 
-		ArrayList candidates = new ArrayList();
+		ArrayList<String> candidates = new ArrayList<String>();
 		for(String s : l) {
 			if(s.startsWith(adverb)) {
 				candidates.add(s);
