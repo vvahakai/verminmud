@@ -45,7 +45,7 @@ public class Main {
     static void preInitialize(Driver d, String[] args) throws Exception {
     	
     	try {
-    		configuration = (HashMap) new SExpObjectInput(new File(args[0])).deserialize();
+    		configuration = (HashMap<String, String>) new SExpObjectInput(new File(args[0])).deserialize();
     	} catch(Exception e) {
     		System.out.println("UNABLE TO READ CONFIGURATION: "+e.getMessage());
     		e.printStackTrace();
@@ -64,12 +64,14 @@ public class Main {
         
         World.log("<init> Creating outworld loader");
 
-        
+        String outworldPath = configuration.get("outworld");
+        if(outworldPath == null)
+        	outworldPath = "objects";
         
         OutworldLoader outworldLoader = 
             new OutworldLoader(
                     // path mapfile rowlength bytesPerEntry stride
-                    "objects/common/outworld", "bigmap", "things", 900, 2, 1,
+                    outworldPath+"/common/outworld", "bigmap", "things", 900, 2, 1,
 
                     // Id prefix  and  outworld room factory
                     "outworld", new DefaultOutworldRoomFactory(),
@@ -79,13 +81,17 @@ public class Main {
 
         DefaultLoader main = new DefaultLoader();
         main.addLoader(new SubLoader());
-        main.addLoader(new FileLoader("objects"));
+        
+        if(new File("local").isDirectory())
+        	main.addLoader(new FileLoader("local")); // Loader for local object files
+        main.addLoader(new FileLoader("objects")); // Loader for base Open Source VerminMUD objects
+        
         
         		
         World.log("<init> Creating city loader");
         OutworldLoader cityLoader =
             new OutworldLoader(
-                    "objects/common/city", "citymap", "things", 79, 1, 1,
+                    outworldPath+"/common/city", "citymap", "things", 79, 1, 1,
                     "city", new CityOutworldRoomFactory(),
                     26, 25);
         cityLoader.getMapper().setSuppressSpecials(true);
@@ -93,7 +99,7 @@ public class Main {
         World.log("<init> Creating city2 loader");
         OutworldLoader city2Loader =
             new OutworldLoader(
-                    "objects/common/city2", "city2map", "things", 55, 1, 1,
+            		outworldPath+"/common/city2", "city2map", "things", 55, 1, 1,
                     "city2", new CattlebridgeOutworldRoomFactory(),
                     26, 13);
         city2Loader.getMapper().setSuppressSpecials(true);

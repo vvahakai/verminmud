@@ -30,7 +30,7 @@ public class FileMapSource implements MapSource {
 			int bytesPerEntry, int stride) throws IOException {
 		
 		
-		mapLayers = new HashMap();
+		mapLayers = new HashMap<Integer, RandomAccessFile>();
 		
 		try {
 			File dir = new File(path);

@@ -30,6 +30,12 @@
 	 </javac>
   </target>
 
+  <target name="package" depends="compile">
+    <jar destfile="${build}/vermincore.jar"
+	 basedir="${build}"
+	 includes="org/**/*.class" />
+  </target>
+
   <target name="docs">
      <!-- create javadoc -->
      <mkdir dir="${docs}"/>

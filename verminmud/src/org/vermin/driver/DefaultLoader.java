@@ -18,14 +18,14 @@ public class DefaultLoader implements Loader {
 	private static Logger log = Logger.getLogger(DefaultLoader.class.getName());
 	
 	/* Registered loaders */
-	private LinkedList loaders;
+	private LinkedList<Loader> loaders;
 
 	/* Loaded prototypes */
-	private WeakHashMap prototypes;
+	private WeakHashMap<String, Prototype> prototypes;
 	
 	public DefaultLoader() {
-		loaders = new LinkedList();
-		prototypes = new WeakHashMap();
+		loaders = new LinkedList<Loader>();
+		prototypes = new WeakHashMap<String, Prototype>();
 	}
 
 	public void unload(String path) {
@@ -37,15 +37,15 @@ public class DefaultLoader implements Loader {
 		
 		path = path.replace('\\', '/');
 
-		Prototype p = (Prototype) prototypes.get(path);
+		Prototype p = prototypes.get(path);
 		if(p != null) return p;
 
-		LinkedList<LoadException> errors = new LinkedList();
+		LinkedList<LoadException> errors = new LinkedList<LoadException>();
 		
-		Iterator it = loaders.listIterator();
+		Iterator<Loader> it = loaders.listIterator();
 		while(it.hasNext()) {
 
-			Loader l = (Loader) it.next();
+			Loader l = it.next();
 			try {
 				p = l.load(path);
 
