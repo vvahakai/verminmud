@@ -10,11 +10,9 @@ import java.util.*;
  */
 public class BDecoder {
 
-    private InputStream source;
     private PeekReader in;
     
     public BDecoder(InputStream source) {
-        this.source = source;
         in = new PeekReader(source);
     }
         
@@ -88,9 +86,9 @@ public class BDecoder {
 	}
 	
     
-	private Vector decodeList() throws IOException  {
+	private Vector<Object> decodeList() throws IOException  {
 		in.read();
-		Vector l = new Vector();
+		Vector<Object> l = new Vector<Object>();
 		while(in.peek() != 'e') {
 			l.addElement(doDecode());
 		}
@@ -98,9 +96,9 @@ public class BDecoder {
 		return l;
 	}
 
-	private Hashtable decodeDictionary() throws IOException {
+	private Hashtable<String, Object> decodeDictionary() throws IOException {
 		in.read();
-		Hashtable m = new Hashtable();
+		Hashtable<String, Object> m = new Hashtable<String, Object>();
 		while(in.peek() != 'e') {
 			m.put(decodeString(), doDecode());
 		}

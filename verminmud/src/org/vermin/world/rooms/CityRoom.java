@@ -54,12 +54,12 @@ public class CityRoom extends DefaultRoomImpl {
 
 			// spawn a monster
 
-			int type = Dice.random(5);
+			//int type = Dice.random(5);
 			
 			Living monster = null;
 
 			// do a switch/case to select proper monster type
-		   monster = new Pigeon(); 
+			monster = new Pigeon(); 
 
 			add(monster);
 			monstersAlive++;

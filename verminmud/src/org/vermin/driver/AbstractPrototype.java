@@ -10,8 +10,6 @@ package org.vermin.driver;
 import java.io.File;
 import java.util.HashMap;
 
-import org.vermin.io.SExpObjectInput;
-
 public abstract class AbstractPrototype implements Prototype {
 
 	private Object UNIQUE = new Object();
@@ -26,10 +24,7 @@ public abstract class AbstractPrototype implements Prototype {
 	private String name;
 
 	/* Map of instances (null if unique) */
-	private HashMap instances; //FIXME: make these soft refs?
-	
-	/* The S-Expression that creates the object */
-	private SExpObjectInput.SExp sexp;
+	private HashMap<Object,Object> instances; //FIXME: make these soft refs?
 
 	/* Counter for instance name */
 	private int instanceCount = 0;
@@ -44,7 +39,7 @@ public abstract class AbstractPrototype implements Prototype {
 		this.unique = unique;
 		this.name = name;
 		
-		instances = new HashMap();
+		instances = new HashMap<Object,Object>();
 
 	}
 

@@ -8,7 +8,6 @@ import org.vermin.wicca.ClientOutput;
  */
 public abstract class AbstractTelnetComponent {
 
-	private String player;
 	private TelnetClientOutput clientOutput;
 	
 	public AbstractTelnetComponent(TelnetClientOutput co) {

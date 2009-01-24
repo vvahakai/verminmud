@@ -56,12 +56,12 @@ public class CentralBank {
 
 	public static class Account
 	{
-		public Vector transactions;
+		public Vector<String> transactions;
 		private String playerID;
 		
 		Account(String pid) {
 			playerID = pid;
-			transactions = new Vector();
+			transactions = new Vector<String>();
 		}
 		
 		public void setValue(DefaultMoneyImpl value) {

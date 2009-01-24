@@ -11,7 +11,7 @@ import org.vermin.util.Print;
 import java.util.*;
 
 import org.vermin.driver.*;
-import java.text.DateFormat;
+
 import java.text.*;
 
 
@@ -42,7 +42,7 @@ public class ChannelCommand extends RegexCommand {
 		
 		public Channel(String topic) {
 			last = new String[25];
-			ppl = new HashSet();
+			ppl = new HashSet<Maybe<Player>>();
 			lastPut = 0;
          this.topic = topic;
 		}
@@ -56,7 +56,7 @@ public class ChannelCommand extends RegexCommand {
 	protected HashMap<String,Channel> channels;
 	
 	public ChannelCommand() {
-		channels = new HashMap();
+		channels = new HashMap<String, Channel>();
 	}
 	
 	public void addChannel(String name, String topic) {
@@ -69,7 +69,7 @@ public class ChannelCommand extends RegexCommand {
 	}
 
 	public void join(Player who, String channel) {
-		Channel ch = (Channel) channels.get(channel);
+		Channel ch = channels.get(channel);
 		if(ch == null)
 			who.notice("No such channel: "+channel);
 		else
@@ -78,7 +78,7 @@ public class ChannelCommand extends RegexCommand {
 	}
 	
 	public void leave(Player who, String channel) {
-		Channel ch = (Channel) channels.get(channel);
+		Channel ch = channels.get(channel);
 		if(ch == null)
 			who.notice("No such channel: "+channel);
 		else
@@ -87,7 +87,7 @@ public class ChannelCommand extends RegexCommand {
 	}
 	
 	public void showListeners(Player who, String channel) {
-		Channel ch = (Channel) channels.get(channel);
+		Channel ch = channels.get(channel);
 		if(ch == null)
 			who.notice("No such channel: "+channel);
 		else
@@ -96,7 +96,7 @@ public class ChannelCommand extends RegexCommand {
 	}
 	
 	public void last(Player who, String channel) {
-		Channel ch = (Channel) channels.get(channel);
+		Channel ch = channels.get(channel);
 		if(ch == null)
 			who.notice("No such channel: "+channel);
 		else {
@@ -106,7 +106,7 @@ public class ChannelCommand extends RegexCommand {
 	}
 
 	public void say(Player who, String channel, String rest) {
-		Channel ch = (Channel) channels.get(channel);
+		Channel ch = channels.get(channel);
 		if(ch == null)
 			who.notice("No such channel: "+channel);
 		else
@@ -127,7 +127,7 @@ public class ChannelCommand extends RegexCommand {
 
    protected void showListeners(Player who, String chName, Channel ch) {
       
-		LinkedList<String> al = new LinkedList();
+		LinkedList<String> al = new LinkedList<String>();
 		int count=0;
 
 		for(Maybe<Player> maybe : ch.ppl) {
@@ -152,7 +152,7 @@ public class ChannelCommand extends RegexCommand {
 
 	
 	protected void removeFromChannel(Player who, String chName, Channel chan) {
-		Maybe<Player> m = new Maybe(who.getId());
+		Maybe<Player> m = new Maybe<Player>(who.getId());
 
 		if(chan.ppl.contains(m)) {
 			chan.ppl.remove(m);
@@ -169,7 +169,7 @@ public class ChannelCommand extends RegexCommand {
 	}
 
 	protected void addToChannel(Player who, String chName, Channel chan) {
-		Maybe<Player> m = new Maybe(who.getId());
+		Maybe<Player> m = new Maybe<Player>(who.getId());
 
 		if(chan.ppl.contains(m)) {
 			who.notice("You are already listening channel "+chName+".");
@@ -247,11 +247,11 @@ public class ChannelCommand extends RegexCommand {
 	}
 
 	public void showChannels(Player who) {
-		Maybe<Player> m = new Maybe(who.getId());
+		Maybe<Player> m = new Maybe<Player>(who.getId());
 
-		Iterator it = channels.keySet().iterator();
+		Iterator<String> it = channels.keySet().iterator();
 		while(it.hasNext()) {
-			String name = (String) it.next();
+			String name = it.next();
 			if(channels.get(name).ppl.contains(m))
 				who.notice(name+" on");
 			else

@@ -51,7 +51,7 @@ public class DefaultQuestImpl extends DefaultPersistentImpl implements Quest {
 		qb.setOwner(who);
 	}
 
-	protected Predicate thisQuest() {
+	protected Predicate<Behaviour> thisQuest() {
 		final Quest thisQuest = this;
 		return new Predicate<Behaviour>() { public boolean call(Behaviour o) {
 			return (o instanceof QuestBehaviour &&
@@ -167,11 +167,11 @@ public class DefaultQuestImpl extends DefaultPersistentImpl implements Quest {
 		
 		public void command(Object ... args) {
 			if(args != null && args.length == 2 && "quest-behaviour-list".equals(args[0]))
-				((Collection)args[1]).add(this);
+				((Collection<QuestBehaviour>)args[1]).add(this);
 		}
 	}
 	
-	public static Quest getQuestByClass(Player p, final Class c) {
+	public static Quest getQuestByClass(Player p, final Class<?> c) {
 		QuestBehaviour qb = (QuestBehaviour) p.findBehaviour(new Predicate<Behaviour>() {
 			@Override
 			public boolean call(Behaviour arg) {

@@ -23,7 +23,7 @@ import org.vermin.mudlib.*;
  */
 public abstract class AbstractBattleGroup implements BattleGroup {
 
-	protected transient Set<BattleGroup> hostiles = Collections.synchronizedSet(new HashSet());
+	protected transient Set<BattleGroup> hostiles = Collections.synchronizedSet(new HashSet<BattleGroup>());
 	protected static Random r = new Random();
 
 	public void addHostileGroup(BattleGroup bg) {
@@ -104,7 +104,7 @@ public abstract class AbstractBattleGroup implements BattleGroup {
 	public abstract void doBattle();
 
 	// do NOT use in game code
-	public Set debugGetHostiles() {
+	public Set<BattleGroup> debugGetHostiles() {
 		return hostiles;
 	}
 
@@ -117,7 +117,7 @@ public abstract class AbstractBattleGroup implements BattleGroup {
 	 * @return the parent of the given battlegroup
 	 */
 	public BattleGroup searchParent(BattleGroup child) {
-		Iterator it = children();
+		Iterator<BattleGroup> it = children();
 		while(it.hasNext()) {
 			BattleGroup bg = (BattleGroup) it.next();
 			if(child == bg)

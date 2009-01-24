@@ -241,7 +241,7 @@ public class Bank extends DefaultRoomImpl
 		who.notice("Your last " + lines + " transactions.");
 		for(int i=0; i < lines; i++)
 		{
-			String line = (String) acc.transactions.get(i);
+			String line = acc.transactions.get(i);
 			who.notice(line);
 		}
 		return true;

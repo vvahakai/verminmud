@@ -40,10 +40,10 @@ public class BEncoder {
 			encodeString((String) obj);
 		else if(obj instanceof Integer)
 			encodeInt((Integer) obj);
-		else if(obj instanceof Vector)
-			encodeList((Vector) obj);
-		else if(obj instanceof Hashtable)
-			encodeDictionary((Hashtable) obj);
+		else if(obj instanceof List)
+			encodeList((List<Object>) obj);
+		else if(obj instanceof Map)
+			encodeDictionary((Map<String,Object>) obj);
         out.flush();
 	}
 
@@ -53,18 +53,15 @@ public class BEncoder {
 		out.write('e');
 	}
 
-	public void encodeList(Vector l) throws IOException {
+	public void encodeList(List<Object> l) throws IOException {
 		out.write('l');
-        for(int i=0; i<l.size(); i++) 
-            encode(l.elementAt(i));
+		for(Object o : l) encode(o);
 		out.write('e');
 	}
 
-	public void encodeDictionary(Hashtable m) throws IOException {
+	public void encodeDictionary(Map<String,Object> m) throws IOException {
 		out.write('d');
-		Enumeration it = m.keys();
-		while(it.hasMoreElements()) {
-			String key = (String) it.nextElement();
+		for(String key : m.keySet()) {
 			encodeString(key);
 			encode(m.get(key));
 		}

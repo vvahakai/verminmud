@@ -52,7 +52,7 @@ public class Client {
 			throw new IllegalStateException("This client has already been closed.");
 
 		try {
-			Vector l = new Vector(args.length+1);
+			Vector<Object> l = new Vector<Object>(args.length+1);
 			l.addElement(method);
 			for(int i=0; i<args.length; i++)
 				l.addElement(args[i]);
