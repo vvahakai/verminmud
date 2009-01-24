@@ -22,6 +22,7 @@
 		  <pathelement location="../org.eclipse.jdt.core_3.1.1.jar"/>
 		  <pathelement location="${libs}/jscheme.jar"/>
 		  <pathelement location="${libs}/xmlrpc-1.2-b1.jar"/>
+		  <pathelement location="${libs}/js.jar"/>
 		  <pathelement location="${libs}/junit.jar"/>
 		  <pathelement location="${libs}/liveconnect.jar"/>
 		  <pathelement location="${libs}/bcel-5.1.jar"/>
