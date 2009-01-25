@@ -23,7 +23,7 @@ public class RazeHeresySkill extends BaseSkill {
        	Living who = suc.getActor();
     	int resorbSanctity = 1;
     	
-		Iterator en = who.getRoom().findByType(Types.TYPE_ITEM);
+		Iterator en = who.getRoom().findByType(Types.ITEM);
 		Set<CorpseItem> remove = new HashSet();
 		while(en.hasNext()) {
 			Item l = (Item) en.next();
@@ -39,7 +39,7 @@ public class RazeHeresySkill extends BaseSkill {
 				resorbSanctity = 2;
 			}
 			
-			TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.TYPE_ITEM);
+			TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.ITEM);
 			p.setVirtue((int) (p.getVirtue()+(m.getExperienceWorth()/100*resorbSanctity)));
 			((Room) corpse.getParent()).remove(corpse);
 		}

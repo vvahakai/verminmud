@@ -77,7 +77,7 @@ public class Dodge {
    
    private static int calculateWeightModifier(Living defender) {
 	  if(defender == null) { return 0; }
-      Iterator inventory = defender.findByType(Types.TYPE_ITEM);
+      Iterator inventory = defender.findByType(Types.ITEM);
       if(inventory == null) { return 0; }
       
       int weight = 0;

@@ -223,7 +223,7 @@ public class Emotes {
 	private void renderEmote(Player who, Emote emote, String adverb, String target, MObject tgtObject) {
 
 		Room r = who.getRoom();
-		Iterator it = r.findByType(Types.TYPE_LIVING);
+		Iterator it = r.findByType(Types.LIVING);
 
 		String spectMessage = renderMessage(who, emote.spectatorMessage, adverb, target);
 

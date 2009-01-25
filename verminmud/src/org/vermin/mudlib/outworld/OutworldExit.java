@@ -149,7 +149,7 @@ public class OutworldExit extends DefaultObjectImpl implements Exit {
 		return null;
 	}
 	
-	public Types getType() { return Types.TYPE_ROOM; }
+	public Types getType() { return Types.ROOM; }
 	
 	public void addBarrierModifier(String roomId, Modifier m) {
 		if(barrierModifiers == null) 

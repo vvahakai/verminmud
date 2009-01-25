@@ -37,7 +37,7 @@ public class SummonSkeletonSkill extends BaseSkill {
 		skeleton.setStatsToMax();
 		skeleton.setObjective("to kill and destroy summoner's enemies.");
 		suc.getActor().getRoom().add(skeleton);
-		Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.ITEM);
 		if(l == null) {
 			l = new Leash();
 			suc.getActor().add(l);

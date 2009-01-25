@@ -28,7 +28,7 @@ public class GuildsCommand extends RegexCommand {
 	}
 
 	public void guilds(Player actor) {
-		Iterator items = actor.findByType(Types.TYPE_ITEM);
+		Iterator items = actor.findByType(Types.ITEM);
 		boolean hadGuilds = false;
 		
 		Table t = new Table();

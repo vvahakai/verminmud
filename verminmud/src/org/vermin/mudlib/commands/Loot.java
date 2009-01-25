@@ -20,7 +20,7 @@ public class Loot implements Command {
 
 	public boolean action(Living who, String cmd) {
 		GetCommand gc = (GetCommand) Commander.getInstance().get("get");
-		Iterator en = who.getRoom().findByType(Types.TYPE_ITEM);
+		Iterator en = who.getRoom().findByType(Types.ITEM);
 		boolean taken=false;
 		while(en.hasNext()) {
 			MObject corpse = (MObject) en.next();

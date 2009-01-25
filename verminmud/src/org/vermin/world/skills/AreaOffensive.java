@@ -62,7 +62,7 @@ public class AreaOffensive extends BaseSkill {
 						suc.getActor().notice(suc.getSkillEffectModifierMessage());
 				}
 
-				Iterator<MObject> en = who.getRoom().findByType(Types.TYPE_LIVING);
+				Iterator<MObject> en = who.getRoom().findByType(Types.LIVING);
 				ArrayList<Living> targets = new ArrayList<Living>(); 
 				while(en.hasNext()) {
 					Living l = (Living) en.next();

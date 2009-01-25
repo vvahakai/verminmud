@@ -130,10 +130,10 @@ public class GolemCreationSkill extends BaseSkill {
 	}
 	
 	public boolean processChunks(SkillUsageContext suc) {
-		MObject obj = suc.getActor().getRoom().findByNameAndType("golem workbench", Types.TYPE_ITEM);
+		MObject obj = suc.getActor().getRoom().findByNameAndType("golem workbench", Types.ITEM);
 		if (obj instanceof GolemWorkbench) {
 			GolemWorkbench bench = (GolemWorkbench) obj;
-			Iterator it = bench.findByType(Types.TYPE_ITEM);
+			Iterator it = bench.findByType(Types.ITEM);
 			while (it.hasNext()) {
 				Item item  = (Item) it.next();
 				if(!(item instanceof MaterialChunk))
@@ -237,7 +237,7 @@ public class GolemCreationSkill extends BaseSkill {
 			golem.addCommand("loot");
 			golem.addCommand("stats");			
 			suc.getActor().getParent().add(golem);
-			Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+			Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.ITEM);
 			if(l == null) {
 				l = new Leash();
 				suc.getActor().add(l);				

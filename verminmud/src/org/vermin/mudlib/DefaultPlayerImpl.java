@@ -324,7 +324,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 		int wimpyHp = wimpyPercent * getMaxHp() / 100;
 		if(getHp() < wimpyHp) {
 			Room r = getRoom();
-			Iterator e = r.findByType(Types.TYPE_EXIT);
+			Iterator e = r.findByType(Types.EXIT);
 			ArrayList<Exit> al = new ArrayList<Exit>();
 			while(e.hasNext())
 				al.add((Exit) e.next());
@@ -805,7 +805,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 	
 	/* Move to a room */
 	public boolean move(String cmd) {
-		Exit to = (Exit) getRoom().findByNameAndType(cmd, Types.TYPE_EXIT);
+		Exit to = (Exit) getRoom().findByNameAndType(cmd, Types.EXIT);
 
 		if(to == null)
 			return false;
@@ -826,7 +826,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 
 	/* Move to a room (if the description matches) */
 	private boolean moveIfDescription(String cmd, String desc) {
-		Exit to = (Exit) getRoom().findByNameAndType(cmd, Types.TYPE_EXIT);
+		Exit to = (Exit) getRoom().findByNameAndType(cmd, Types.EXIT);
 
 		if(to == null)
 			return false;
@@ -896,7 +896,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
         String[] items = what.split(" *, *");
         boolean weld = false;
         for(String item : items) {
-			Item i = (Item) findByNameAndType(item, Types.TYPE_ITEM);
+			Item i = (Item) findByNameAndType(item, Types.ITEM);
 			if(i instanceof Wieldable) {
 			    Wieldable w = (Wieldable) i;
                 weld = true;
@@ -940,7 +940,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
         boolean worn = false;
         for(String item : items) {
             
-            Item i = (Item) findByNameAndType(item, Types.TYPE_ITEM);
+            Item i = (Item) findByNameAndType(item, Types.ITEM);
             if(i instanceof Wearable) { 
 				Wearable w = (Wearable) i;
                 worn = true;
@@ -1190,7 +1190,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 					old.notice(this, getName()+" plummets downwards.");
 					old.remove(this);
 					
-					Exit e = (Exit) old.findByNameAndType("d", Types.TYPE_EXIT);
+					Exit e = (Exit) old.findByNameAndType("d", Types.EXIT);
 					String target = e.getTarget(getId());
 					
 					Room newRoom = (Room) World.get(target);

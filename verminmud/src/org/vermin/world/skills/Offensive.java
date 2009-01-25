@@ -69,7 +69,7 @@ public class Offensive extends BaseSkill {
 				tgt.notice(who.getName()+" chants '"+spellWords+"' and hits you with "+who.getPossessive()+" "+name+".");
 				String msg = who.getName()+" chants '"+spellWords+"' and hits "+tgt.getName()+" with "+who.getPossessive()+" "+name+".";
 			
-				Iterator en = who.getRoom().findByType(Types.TYPE_LIVING);
+				Iterator en = who.getRoom().findByType(Types.LIVING);
 				while(en.hasNext()) {
 					Living l = (Living) en.next();
 					if(l != who && l != tgt)

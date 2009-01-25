@@ -62,7 +62,7 @@ public class FriendsCommand extends RegexCommand {
 						String idleTime = (c.getIdleTime()<1000) ? "Not idle" : formatTime(c.getIdleTime());
 						StringBuffer sb = new StringBuffer();
 
-						if(tgt.findByNameAndType("_party", Types.TYPE_ITEM) != null) sb.append('P');
+						if(tgt.findByNameAndType("_party", Types.ITEM) != null) sb.append('P');
 						else sb.append(' ');
 						if(isIdle(tgt)) sb.append('I');
 						else sb.append(' ');

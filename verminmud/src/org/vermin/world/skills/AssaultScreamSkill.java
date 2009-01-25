@@ -94,7 +94,7 @@ public class AssaultScreamSkill extends BaseSkill {
 			
 			String msg = who.getName()+" hits "+tgt.getName()+" with "+who.getPossessive()+" fist.";
 			
-			Iterator<MObject> en = who.getRoom().findByType(Types.TYPE_LIVING);
+			Iterator<MObject> en = who.getRoom().findByType(Types.LIVING);
 			while(en.hasNext()) {
 				Living l = (Living) en.next();
 				if(l != who && l != tgt)

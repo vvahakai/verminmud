@@ -20,7 +20,7 @@ public class ExitsCommand extends RegexCommand {
     }
 
     public void exits(Living who) {
-    	Iterator it = who.getRoom().findByType(Types.TYPE_EXIT); 
+    	Iterator it = who.getRoom().findByType(Types.EXIT); 
     	
     	if(it == null || !it.hasNext()) {
     		who.notice("There are no obvious exits.\n");

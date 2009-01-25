@@ -601,7 +601,7 @@ public abstract class GenericBattleStyle implements BattleStyle {
 	}
 
 	protected void noticeOthers(String msg, Living excl1, Living excl2) {
-		Iterator en = excl1.getRoom().findByType(Types.TYPE_LIVING);
+		Iterator en = excl1.getRoom().findByType(Types.LIVING);
 		while(en.hasNext()) {
 			Living l = (Living) en.next();
 			if(l != excl1 && l != excl2)

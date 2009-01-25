@@ -229,7 +229,7 @@ public class GuildRoom extends DefaultRoomImpl {
 	}
 	
 	public boolean tryJoin(org.vermin.mudlib.DefaultPlayerImpl who) {
-		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.TYPE_ITEM);
+		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.ITEM);
 		
 		if(gi != null) {
 			who.notice("You are already a member of the "+guildName+" guild.");
@@ -242,7 +242,7 @@ public class GuildRoom extends DefaultRoomImpl {
 		}
 		
 		for(Map.Entry<String, Integer> e : joinGuildRequirements.entrySet()) {
-			GuildItem reqItem = (GuildItem) who.findByNameAndType(e.getKey()+"_guild_object", Types.TYPE_ITEM);
+			GuildItem reqItem = (GuildItem) who.findByNameAndType(e.getKey()+"_guild_object", Types.ITEM);
 			if(reqItem == null) {
 				who.notice("You need to be at least level "+e.getValue()+" in guild "+e.getKey());				
 				return false;
@@ -268,7 +268,7 @@ public class GuildRoom extends DefaultRoomImpl {
 	}
 	
 	public boolean tryAdvance(org.vermin.mudlib.DefaultPlayerImpl who) {
-		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.TYPE_ITEM);
+		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.ITEM);
 		
 		if(gi == null) {
 			who.notice("You are not a member of the "+guildName+" guild.");
@@ -317,7 +317,7 @@ public class GuildRoom extends DefaultRoomImpl {
 	
 	public void advance(org.vermin.mudlib.DefaultPlayerImpl who) {
 	
-		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.TYPE_ITEM);
+		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.ITEM);
 		
 		if(gi == null) {
 			System.out.println("[GuildRoom] This is impossible!");
@@ -347,13 +347,13 @@ public class GuildRoom extends DefaultRoomImpl {
 	}
 
    private GuildItem getGuildItem(org.vermin.mudlib.DefaultPlayerImpl who) {
-		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.TYPE_ITEM);
+		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.ITEM);
       return gi;
    }
    
    
 	protected boolean tryTrain(org.vermin.mudlib.DefaultPlayerImpl who, String name) {
-		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.TYPE_ITEM);
+		GuildItem gi = (GuildItem) who.findByNameAndType(guildName+"_guild_object", Types.ITEM);
       if(gi == null) {
          who.notice("You are not a member of the "+guildName+" guild.");
       }

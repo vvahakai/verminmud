@@ -770,7 +770,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
 	protected void moveFollowers(Exit to, Room oldRoom) {
 		// move following minions
 		
-		Leash leash = (Leash) this.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash leash = (Leash) this.findByNameAndType("_minion_leash", Types.ITEM);
 		if(leash != null) {
 			leash.followMaster(to, oldRoom);
 		}		
@@ -891,7 +891,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     
     protected void wieldAll() {
         ArrayList<Wieldable> al = new ArrayList<Wieldable>();
-        Iterator<MObject> it = findByType(Types.TYPE_ITEM);
+        Iterator<MObject> it = findByType(Types.ITEM);
         while(it.hasNext()) {
             Object wieldable = it.next();
             if(wieldable instanceof Wieldable)
@@ -1226,7 +1226,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     
     public Iterator<MObject> findByType(Types type) {
         
-        if(type != Types.TYPE_ITEM)
+        if(type != Types.ITEM)
             return null;
         
         HashSet<MObject> items = new HashSet<MObject>();
@@ -1241,11 +1241,11 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     }
     
     public MObject findByName(String name) {
-        return findByNameAndType(name, Types.TYPE_ITEM);
+        return findByNameAndType(name, Types.ITEM);
     }
     
     public MObject findByName(String name, int index) {
-        return findByNameAndType(name, index, Types.TYPE_ITEM);
+        return findByNameAndType(name, index, Types.ITEM);
     }	
     
     public MObject findByNameAndType(String name, Types type) {
@@ -1256,7 +1256,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
             findByNameAndType(m.group(1), Integer.parseInt(m.group(2)), type);
         }
         
-        if(type == Types.TYPE_ITEM) {
+        if(type == Types.ITEM) {
             for(int i=0; i<inventory.size(); i++) {
                 if(((MObject) inventory.get(i)).isAlias(name))
                     return (MObject) inventory.get(i);
@@ -1281,7 +1281,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     /* Find the index:th object contained */
     public MObject findByNameAndType(String name, int index, Types type) {
         int originalIndex = index;
-        if(type == Types.TYPE_ITEM) {
+        if(type == Types.ITEM) {
             for(int i=0; i<inventory.size(); i++) {
                 if(((MObject) inventory.get(i)).isAlias(name)) {
                     if(index == 1) {
@@ -1343,7 +1343,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
                 (LinkedList<Modifier>) sizeModifiers);
     }
     
-    public Types getType() { return Types.TYPE_LIVING; }
+    public Types getType() { return Types.LIVING; }
     
     public BattleGroup getBattleGroup() {
         return rootBattleGroup;

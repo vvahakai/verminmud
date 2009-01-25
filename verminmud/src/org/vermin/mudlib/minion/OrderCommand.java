@@ -25,49 +25,49 @@ public class OrderCommand extends RegexCommand {
     }
 	
 	public boolean follow(Living actor, String target) {
-		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.ITEM);
 		if(l != null)
 			return l.follow(target);
 		return false;		
 	}
 
 	public boolean unfollow(Living actor, String target) {
-		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.ITEM);
 		if(l != null)
 			return l.unfollow(target);
 		return false;		
 	}	
 	
     public boolean order(Living actor, String target, String command, String action) {
-		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.ITEM);
 		if(l != null)
 			return l.order(target,command,action);
 		return false;
     }
 	
 	public boolean minions(Living actor) {
-		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.ITEM);
 		if(l != null)
 			return l.minions((Player) actor);
 		return false;
 	}	
 	
 	public boolean name(Living actor, Living target, String name) {
-		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.ITEM);
 		if(l != null)
 			return l.name(target,name);
 		return false;		
 	}
 	
 	public boolean moveToFront(Living actor, Living target) {
-		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.ITEM);
 		if(l != null)
 			return l.moveToFront(target);
 		return false;	
 	}
 	
 	public boolean listCommands(Living actor, Living target) {
-		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+		Leash l = (Leash) actor.findByNameAndType("_minion_leash", Types.ITEM);
 		if(l != null)
 			return l.listCommands(target);
 		return false;	

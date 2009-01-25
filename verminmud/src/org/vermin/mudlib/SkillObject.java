@@ -189,7 +189,7 @@ public class SkillObject implements ActionHandler<MObject> {
         
         /* Notify others in the room that we start using a skill */
         // PENDING: How to implement concealed usage?
-        Iterator en = p.getRoom().findByType(Types.TYPE_LIVING);
+        Iterator en = p.getRoom().findByType(Types.LIVING);
         while(en.hasNext()) {
             ((Living) en.next()).startsUsing(p, null);
         }
@@ -206,7 +206,7 @@ public class SkillObject implements ActionHandler<MObject> {
         BattleGroup grp = p.getBattleGroup();
         
         String tgtName = Print.vectorToString(params, " ", 0);
-        target = p.getRoom().findByNameAndType(tgtName, Types.TYPE_LIVING);
+        target = p.getRoom().findByNameAndType(tgtName, Types.LIVING);
         
         if(target == null) {
             p.notice(tgtName+" is not present.");

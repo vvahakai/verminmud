@@ -328,7 +328,7 @@ public class PartyCommand extends RegexCommand {
 	}
 
 	public void join(Player actor) {
-		Iterator en = actor.findByType(Types.TYPE_ITEM);
+		Iterator en = actor.findByType(Types.ITEM);
 		PartyInvitation pi = null;
 
 		while (en.hasNext()) {

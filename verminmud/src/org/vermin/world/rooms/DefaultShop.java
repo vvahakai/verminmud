@@ -237,7 +237,7 @@ public class DefaultShop extends DefaultRoomImpl
 
 	private void valueItem(Living who, String what)
 	{
-		Item eq = (Item) who.findByNameAndType(what, Types.TYPE_ITEM);
+		Item eq = (Item) who.findByNameAndType(what, Types.ITEM);
 		if(eq != null && eq.isVisible())
 		{
 	        long cost = calculateCost(eq) / 2;	// Tämä on sitä paljon puhuttua tunetusta
@@ -323,7 +323,7 @@ public class DefaultShop extends DefaultRoomImpl
 	private void sellAll(Living who, String what)
 	{
 		Vector soldItems = new Vector();
-		Iterator e = who.findByType(Types.TYPE_ITEM);
+		Iterator e = who.findByType(Types.ITEM);
 		while(e.hasNext())
 		{
 			Item i = (Item) e.next();
@@ -356,7 +356,7 @@ public class DefaultShop extends DefaultRoomImpl
 
 	private void sellItem(Living who, String what)
 	{
-		Item eq = (Item) who.findByNameAndType(what, Types.TYPE_ITEM);
+		Item eq = (Item) who.findByNameAndType(what, Types.ITEM);
 		boolean eqWornOrWielded = false;
 
 		for(Wieldable weapon : who.getWieldedItems(false)) {

@@ -27,7 +27,7 @@ public class Tinning extends BaseSkill {
 			}
 
 			TinningKit kit = null;
-			Iterator it = p.findByType(Types.TYPE_ITEM);
+			Iterator it = p.findByType(Types.ITEM);
 			while(it.hasNext()) {
 				MObject obj = (MObject) it.next();
 				if(obj instanceof TinningKit) {

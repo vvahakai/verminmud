@@ -55,7 +55,7 @@ public class GetCommand extends RegexCommand
                 
 
     public void loot(Living who) {
-        Iterator<MObject> it = who.getRoom().findByType(Types.TYPE_ITEM);
+        Iterator<MObject> it = who.getRoom().findByType(Types.ITEM);
         while(it.hasNext()) {
             MObject item = it.next();
             if(item.isAlias("corpse")) {
@@ -112,7 +112,7 @@ public class GetCommand extends RegexCommand
     		who.notice("You "+(take?"take":"put")+" "+vectorToString(got, 0, ", ")+" "+(take?"from ":"in ")+
     				(take? (from instanceof Room ? "the ground" : from.getDescription()) :
     					(to instanceof Room ? "the ground" : to.getDescription())) + ".");
-	    	Iterator<MObject> it = who.getRoom().findByType(Types.TYPE_LIVING);
+	    	Iterator<MObject> it = who.getRoom().findByType(Types.LIVING);
 	    	while(it.hasNext()) {
 	    		Living spectator = (Living) it.next();
 	    		if(spectator != who) {
@@ -130,7 +130,7 @@ public class GetCommand extends RegexCommand
        
        if(item.equalsIgnoreCase("all")) {
                       
-           Iterator<MObject> it = container.findByType(Types.TYPE_ITEM);
+           Iterator<MObject> it = container.findByType(Types.ITEM);
            // Copy items to an arraylist to avoid concurrent modification exception
            ArrayList<Item> al = new ArrayList<Item>();
            while(it.hasNext()) al.add((Item) it.next());
@@ -141,14 +141,14 @@ public class GetCommand extends RegexCommand
           
           if(item.startsWith("all ")) {
               String alias = item.substring(4).trim();
-              Iterator<MObject> it = container.findByType(Types.TYPE_ITEM);
+              Iterator<MObject> it = container.findByType(Types.ITEM);
               while(it.hasNext()) {
                   MObject i = it.next();
                   if(i.isAlias(alias))
                       items.add((Item) i);
               }
           } else {
-              Item i = (Item) container.findByNameAndType(item, Types.TYPE_ITEM);
+              Item i = (Item) container.findByNameAndType(item, Types.ITEM);
               if(i != null)
                   items.add(i);
           }

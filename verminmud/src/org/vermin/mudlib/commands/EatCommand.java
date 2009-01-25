@@ -26,7 +26,7 @@ public class EatCommand extends RegexCommand {
 	}
 	
 	public void eat(Living actor, String what) {
-		Item food = (Item) actor.findByNameAndType(what, Types.TYPE_ITEM);
+		Item food = (Item) actor.findByNameAndType(what, Types.ITEM);
 		
 		if(food == null) {
 			actor.notice("You don't have any '"+what+"'.");

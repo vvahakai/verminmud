@@ -44,7 +44,7 @@ public class Supermap implements Command {
 		visited[x][y] = true;
 
 		// visit directions with exits, mark other directions as wall 
-		Iterator en = r.findByType(Types.TYPE_EXIT);
+		Iterator en = r.findByType(Types.EXIT);
 		boolean[] exit = new boolean[8];
 
 		while(en.hasNext()) {

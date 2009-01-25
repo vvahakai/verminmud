@@ -13,7 +13,7 @@ public class FlowOfVirtueSkill extends BaseSkill {
 			suc.getActor().notice("Flow virtue at what?");
 			return;
 		}
-		TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.TYPE_ITEM);
+		TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.ITEM);
 		if(name.equalsIgnoreCase("morale")) {
 			if(nextLevel(p, p.getMorale(), name.toLowerCase())) {
 				p.increaseMorale();
@@ -77,7 +77,7 @@ public class FlowOfVirtueSkill extends BaseSkill {
 	}
 
 	public boolean tryUse(Living actor, MObject target) {
-		Object obj = actor.findByNameAndType("templar_guild_object", Types.TYPE_ITEM);
+		Object obj = actor.findByNameAndType("templar_guild_object", Types.ITEM);
 		if(obj != null && obj instanceof TemplarPendant)
 			return true;
 		else {

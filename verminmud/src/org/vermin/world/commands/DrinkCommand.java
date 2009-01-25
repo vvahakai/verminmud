@@ -22,7 +22,7 @@ public class DrinkCommand extends RegexCommand {
 	}
 	
 	public void drink(Living actor, String what) {
-		Item drink = (Item) actor.findByNameAndType(what, Types.TYPE_ITEM);
+		Item drink = (Item) actor.findByNameAndType(what, Types.ITEM);
 		
 		if(drink == null) {
 			actor.notice("You don't have any '"+what+"'.");

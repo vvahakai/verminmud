@@ -18,7 +18,7 @@ public class PowerGolemBehaviour extends BehaviourAdapter {
 	public void onBattleTick(Living who) {
 		super.onBattleTick(who);
 		if(!owner.inBattle()) {
-			Iterator it = owner.getRoom().findByType(Types.TYPE_LIVING);
+			Iterator it = owner.getRoom().findByType(Types.LIVING);
 			while(it.hasNext()) {
 				Living l = (Living) it.next();
 				if(l instanceof Player) {

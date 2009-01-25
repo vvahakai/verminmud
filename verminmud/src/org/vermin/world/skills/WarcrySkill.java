@@ -82,7 +82,7 @@ public class WarcrySkill extends BaseSkill {
 			tgt.notice(who.getName()+" shouts a powerful warcry and attacks you.");
 			String msg = who.getName()+" shouts a powerful warcry and attacks "+tgt.getName()+".";
 			
-			Iterator en = who.getRoom().findByType(Types.TYPE_LIVING);
+			Iterator en = who.getRoom().findByType(Types.LIVING);
 			while(en.hasNext()) {
 				Living l = (Living) en.next();
 				if(l != who && l != tgt)

@@ -146,7 +146,7 @@ public class ShelterSkill extends BaseSkill {
 			room.add(ff);
 
 			Exit e;
-			Iterator it = room.findByType(Types.TYPE_EXIT);
+			Iterator it = room.findByType(Types.EXIT);
 			while(it.hasNext()) {
 				e = (Exit) it.next();				
 				ExitBlockingModifier ebm = new ExitBlockingModifier(room.getId(), ff, str);

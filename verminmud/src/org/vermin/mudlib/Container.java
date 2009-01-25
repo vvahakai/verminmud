@@ -66,6 +66,8 @@ public interface Container extends Composite<MObject>, MObject {
      */
     public MObject findByNameAndType(String name, Types type);
     
+    //public <T extends MObject> T findByNameAndType(String name, Class<T> type);
+    
     /**
      * Find the index:th object by name and type. 
      * Indexed version of <code>findByNameAndType</code>.
