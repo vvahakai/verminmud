@@ -59,7 +59,7 @@ public class ForceGlobeSkill extends BaseSkill {
 					room.remove(this);
 					return false;
 			   }
-			   Iterator en = room.findByType(Types.TYPE_LIVING);
+			   Iterator en = room.findByType(Types.LIVING);
 			   while(en.hasNext()) {
 					Living l = (Living) en.next();
 					Damage dam = new Damage();

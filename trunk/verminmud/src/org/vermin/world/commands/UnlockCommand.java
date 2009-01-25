@@ -17,7 +17,7 @@ public class UnlockCommand extends TokenizedCommand {
 			who.notice("Usage: unlock <direction>");
 		} else {
 			String dir = params.get(1).toString();
-			Exit exit = (Exit) who.getRoom().findByNameAndType(dir, Types.TYPE_EXIT);
+			Exit exit = (Exit) who.getRoom().findByNameAndType(dir, Types.EXIT);
 
 			if(exit instanceof LockableDoor) {
 
@@ -30,7 +30,7 @@ public class UnlockCommand extends TokenizedCommand {
 				
 				boolean haveKeys = false;
 				boolean properKey = false;
-				Iterator items = who.findByType(Types.TYPE_ITEM);
+				Iterator items = who.findByType(Types.ITEM);
 				while(items.hasNext()) {
 					Item item = (Item) items.next();
 					if(item instanceof Key) {

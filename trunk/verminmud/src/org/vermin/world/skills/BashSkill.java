@@ -73,7 +73,7 @@ public class BashSkill extends BaseSkill {
 			tgt.notice(who.getName()+" bashes you.");
 			String msg = who.getName()+" bashes "+tgt.getName()+".";
 			
-			Iterator en = who.getRoom().findByType(Types.TYPE_LIVING);
+			Iterator en = who.getRoom().findByType(Types.LIVING);
 			while(en.hasNext()) {
 				Living l = (Living) en.next();
 				if(l != who && l != tgt)

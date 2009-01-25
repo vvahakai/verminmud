@@ -41,7 +41,7 @@ public class MaterialProcessingSkill extends BaseSkill {
 			suc.getActor().notice("You process the materials successfully.");
 			Vector chunks = new Vector();
 			Vector removables = new Vector();
-			Iterator it = suc.getActor().getParent().findByType(Types.TYPE_ITEM);
+			Iterator it = suc.getActor().getParent().findByType(Types.ITEM);
 			
 			while(it.hasNext()) {
 				boolean found = false;

@@ -37,7 +37,7 @@ public class OneWayExit extends DefaultObjectImpl implements Exit {
 	}
 
 	public Types getType() {
-		return Types.TYPE_EXIT;
+		return Types.EXIT;
 	}
 		
 }

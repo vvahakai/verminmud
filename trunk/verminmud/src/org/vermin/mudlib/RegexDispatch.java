@@ -132,15 +132,15 @@ public class RegexDispatch {
         } else if(type.equalsIgnoreCase("room")) {
             return who.getRoom();
 		} else if(type.equalsIgnoreCase("inventory")) { // Get item from inventory
-			return who.findByNameAndType(value, Types.TYPE_ITEM);
+			return who.findByNameAndType(value, Types.ITEM);
 		} else if(type.equalsIgnoreCase("living")) { // Get living from room
-			return who.getRoom().findByNameAndType(value, Types.TYPE_LIVING);
+			return who.getRoom().findByNameAndType(value, Types.LIVING);
 		} else if(type.equalsIgnoreCase("ground")) { // Get item from ground
-			return who.getRoom().findByNameAndType(value, Types.TYPE_ITEM);
+			return who.getRoom().findByNameAndType(value, Types.ITEM);
 		} else if(type.equalsIgnoreCase("item")) { // Get item from ground or inventory
-			MObject item = who.findByNameAndType(value, Types.TYPE_ITEM);
+			MObject item = who.findByNameAndType(value, Types.ITEM);
 			if(item == null)
-				item = who.getRoom().findByNameAndType(value, Types.TYPE_ITEM);
+				item = who.getRoom().findByNameAndType(value, Types.ITEM);
 			return item;
 		} else if(type.equalsIgnoreCase("any")) { // any item/living/exit we can find
 			MObject item = who.findByName(value);

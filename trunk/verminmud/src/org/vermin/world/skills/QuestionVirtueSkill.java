@@ -21,7 +21,7 @@ public class QuestionVirtueSkill extends BaseSkill {
 		}
 	public void use(SkillUsageContext suc) {
             
-            TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.TYPE_ITEM);
+            TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.ITEM);
             
             virtue = p.getVirtue();
             morale = p.getMorale();
@@ -39,7 +39,7 @@ public class QuestionVirtueSkill extends BaseSkill {
     }
 	
     public boolean tryUse(Living actor, MObject target) {
-        Object p = actor.findByNameAndType("templar_guild_object", Types.TYPE_ITEM);
+        Object p = actor.findByNameAndType("templar_guild_object", Types.ITEM);
         if(p == null || !(p instanceof TemplarPendant)) {
             actor.notice("You must have the sacred pendant to use this skill.");
             return false;

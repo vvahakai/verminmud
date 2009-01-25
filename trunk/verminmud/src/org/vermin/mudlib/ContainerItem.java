@@ -79,7 +79,7 @@ public class ContainerItem extends DefaultItemImpl implements Container, Purse {
 	}
 
 	public Iterator findByType(Types type) {
-		if(type == Types.TYPE_ITEM) {
+		if(type == Types.ITEM) {
 			return items.iterator();
 		}
 		return null;
@@ -121,14 +121,14 @@ public class ContainerItem extends DefaultItemImpl implements Container, Purse {
 			findByNameAndType(m.group(1), Integer.parseInt(m.group(2)), type);
 		}		
 		
-		if(type != Types.TYPE_ITEM)
+		if(type != Types.ITEM)
 			return null;
 		
 		return findByName(name);
 	}
 
 	public MObject findByNameAndType(String name, int index, Types type) {
-		if(type != Types.TYPE_ITEM)
+		if(type != Types.ITEM)
 			return null;
 		
 		return findByName(name, index);

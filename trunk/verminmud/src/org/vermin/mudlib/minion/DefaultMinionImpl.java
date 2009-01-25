@@ -185,7 +185,7 @@ public class DefaultMinionImpl extends DefaultMonster implements Minion {
 		super.dies(vic, killer);
 		if(vic == this) {
 			gbg.getParent().unwrap(gbg);
-			Leash l = (Leash) master.findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+			Leash l = (Leash) master.findByNameAndType("_minion_leash", Types.ITEM);
 			if(l != null) {
 				l.removeMinion(this);
 			}

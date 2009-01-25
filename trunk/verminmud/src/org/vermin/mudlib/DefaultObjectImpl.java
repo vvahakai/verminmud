@@ -68,7 +68,7 @@ public abstract class DefaultObjectImpl extends DefaultPersistentImpl implements
 
 	/* Return the downcast type for this object. */
 	public Types getType() {
-		return Types.TYPE_OBJECT;
+		return Types.OBJECT;
 	}
 	
 	public boolean tick(Queue type) {

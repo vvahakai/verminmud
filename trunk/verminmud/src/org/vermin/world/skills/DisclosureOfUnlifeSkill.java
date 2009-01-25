@@ -36,7 +36,7 @@ public class DisclosureOfUnlifeSkill extends BaseSkill {
 	}
 	
 	public void use(Living actor, int skillSuccess) {
-		Iterator en = actor.getRoom().findByType(Types.TYPE_LIVING);
+		Iterator en = actor.getRoom().findByType(Types.LIVING);
 		if(skillSuccess>0) {
 		while(en.hasNext()) {
 			Living l = (Living) en.next();

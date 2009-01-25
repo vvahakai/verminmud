@@ -52,7 +52,7 @@ public class Look extends RegexCommand {
 				sb.append(currentRoom.getLongDescription()+"\n");
 			}
 		
-			Iterator en = currentRoom.findByType(Types.TYPE_EXIT);
+			Iterator en = currentRoom.findByType(Types.EXIT);
 		
 			boolean first = true;
 			while(en.hasNext()) {
@@ -78,7 +78,7 @@ public class Look extends RegexCommand {
 					sb.append(".\n");
 			}
 		
-			en = currentRoom.findByType(Types.TYPE_ITEM);
+			en = currentRoom.findByType(Types.ITEM);
 		
 			first = true;
 			if(!currentRoom.getMoney().isEmpty()) {
@@ -106,7 +106,7 @@ public class Look extends RegexCommand {
 			}
 			if(!first) sb.append(".\n");
 		
-			en = currentRoom.findByType(Types.TYPE_LIVING);
+			en = currentRoom.findByType(Types.LIVING);
 			BattleGroup bg = who.getBattleGroup();
 			while(en.hasNext()) {
 				Living l = (Living) en.next();
@@ -138,7 +138,7 @@ public class Look extends RegexCommand {
 	}
 	
 	protected String illuminatedExits(Room currentRoom, Living who) {
-		Iterator en = currentRoom.findByType(Types.TYPE_EXIT);
+		Iterator en = currentRoom.findByType(Types.EXIT);
 		
 		StringBuffer sb = new StringBuffer();
 		

@@ -29,7 +29,7 @@ public class QuestDeathBehaviour extends BehaviourAdapter {
 	}
 	public void dies(Living victim, Living killer) {
 		if(victim == owner) {
-			Iterator it = killer.findByType(Types.TYPE_ITEM);
+			Iterator it = killer.findByType(Types.ITEM);
 //World.log("AAARGH! An ant has died. It was "+Print.capitalize(killer.getName())+"!");
 			while(it.hasNext()) {
 //World.log("Searching for quest journal...");

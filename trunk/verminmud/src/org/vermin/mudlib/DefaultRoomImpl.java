@@ -101,9 +101,9 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 	}
 	
 	public boolean contains(MObject obj) {
-		if(obj.getType() == Types.TYPE_LIVING)
+		if(obj.getType() == Types.LIVING)
 			return living.contains(obj);
-		else if(obj.getType() == Types.TYPE_EXIT)
+		else if(obj.getType() == Types.EXIT)
 			return exits.contains(obj);
 		else 
 			return items.contains(obj);
@@ -294,7 +294,7 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 			if(l != exclude) l.notice(what);
 	}
 
-	public Types getType() { return Types.TYPE_ROOM; }
+	public Types getType() { return Types.ROOM; }
 	
 	/* composite methods */
 	public void add(MObject child) {
@@ -424,11 +424,11 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 		}	
 
 	public Iterator findByType(Types type) {
-		if(type == Types.TYPE_LIVING)
+		if(type == Types.LIVING)
 			return living.iterator();
-		else if(type == Types.TYPE_ITEM)
+		else if(type == Types.ITEM)
 			return items.iterator();
-		else if(type == Types.TYPE_EXIT)
+		else if(type == Types.EXIT)
 			return exits.iterator();
 		else
 			return null;
@@ -446,13 +446,13 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 			index = Integer.parseInt(m.group(2));
 		}
 		
-		if(type == Types.TYPE_EXIT)
+		if(type == Types.EXIT)
 			return getExitByName(exits, index, name);
 			
-		else if(type == Types.TYPE_LIVING)
+		else if(type == Types.LIVING)
 			haystack = living;
 			
-		else if(type == Types.TYPE_ITEM)
+		else if(type == Types.ITEM)
 			haystack = items;
 
 		if(haystack == null)
@@ -465,13 +465,13 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 	public MObject findByNameAndType(String name, int index, Types type) {
 		Collection haystack = null;
 		
-		if(type == Types.TYPE_EXIT)
+		if(type == Types.EXIT)
 			return getExitByName(exits, index, name);
 			
-		else if(type == Types.TYPE_LIVING)
+		else if(type == Types.LIVING)
 			haystack = living;
 			
-		else if(type == Types.TYPE_ITEM)
+		else if(type == Types.ITEM)
 			haystack = items;
 
 		if(haystack == null)
@@ -712,7 +712,7 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 
 
 	public BattleGroup getBattleGroup(String name) {
-		Iterator en = findByType(Types.TYPE_LIVING);
+		Iterator en = findByType(Types.LIVING);
 		while(en.hasNext()) {
 			Living l = (Living) en.next();
 			if(l.getBattleGroup().getName().equalsIgnoreCase(name))

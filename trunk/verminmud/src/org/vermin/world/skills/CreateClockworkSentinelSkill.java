@@ -78,7 +78,7 @@ public class CreateClockworkSentinelSkill extends BaseSkill {
 			sentinel.addCommand("loot");
 			sentinel.addCommand("stats");			
 			suc.getActor().getParent().add(sentinel);
-			Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.TYPE_ITEM);
+			Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.ITEM);
 			if(l == null) {
 				l = new Leash();
 				suc.getActor().add(l);				

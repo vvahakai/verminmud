@@ -50,7 +50,7 @@ public class WebSkill extends Offensive {
 			   tgt.notice(Print.capitalize(who.getName())+" chants '"+spellWords+"' and a volley of sticky webs fly towards you from "+who.getPossessive()+" hands.");
 			   String msg = Print.capitalize(who.getName())+" chants '"+spellWords+"' and a volley of sticky webs fly towards "+tgt.getName()+" from "+who.getPossessive()+" hands.";
 			
-			   Iterator en = who.getRoom().findByType(Types.TYPE_LIVING);
+			   Iterator en = who.getRoom().findByType(Types.LIVING);
 			   while(en.hasNext()) {
 				   Living l = (Living) en.next();
 				   if(l != who && l != tgt)

@@ -52,7 +52,7 @@ public class LastRitesSkill extends BaseSkill {
         DefaultMonster m = corpse.getMonster();
         
         if(suc.getActor().getRoom().contains(corpse)) {
-            TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.TYPE_ITEM);
+            TemplarPendant p = (TemplarPendant) suc.getActor().findByNameAndType("templar_guild_object", Types.ITEM);
             
             p.setVirtue((int) (p.getVirtue()+(m.getExperienceWorth()/100*resorbSanctity)));
             ((Room) corpse.getParent()).remove(corpse);
@@ -65,7 +65,7 @@ public class LastRitesSkill extends BaseSkill {
     }
 
     public boolean tryUse(Living actor, MObject target) {
-        Object p = actor.findByNameAndType("templar_guild_object", Types.TYPE_ITEM);
+        Object p = actor.findByNameAndType("templar_guild_object", Types.ITEM);
         if(target == null || !(target instanceof CorpseItem) || ((CorpseItem) target).getMonster() == null) {
             actor.notice("You can only use last rites on a corpse.");
             return false;

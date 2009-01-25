@@ -25,7 +25,7 @@ public class IgniteCommand implements Command {
 		} else {
  
 			MObject torch;
-			torch = who.findByNameAndType(m.group(2), Types.TYPE_ITEM);
+			torch = who.findByNameAndType(m.group(2), Types.ITEM);
 
 			if(torch != null) {
 				torch.action(who,command);
