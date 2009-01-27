@@ -21,10 +21,6 @@ public class StatCommand extends RegexCommand {
 	public void train(Player who, String what) {
 		Stat s = parseStat(what);
 		if(s != null) {
-			if(who.getStat(s, false) >= who.getMaxStat(s)) {
-				who.notice("You are already at your racial maximum.");
-				return;
-			}
 			int cost = who.getStatPointCost(s);			
 			if(cost > who.getFreeStatPoints()) {
 				who.notice("You don't have enough free stat points for that. (Cost:"+cost+", Available:"+who.getFreeStatPoints()+")");
@@ -47,7 +43,7 @@ public class StatCommand extends RegexCommand {
 		sb.append("Mental Strength, "+who.getStatPointCost(Stat.MENT_STR)+"\n");
 		sb.append("Mental Dexterity, "+who.getStatPointCost(Stat.MENT_DEX)+"\n");
 		sb.append("Mental Constitution, "+who.getStatPointCost(Stat.MENT_CON)+"\n");
-		sb.append("Mental Charisma, "+who.getStatPointCost(Stat.MENT_CHA));
+		sb.append("Mental Charisma, "+who.getStatPointCost(Stat.MENT_CHA)+"\n");
 		sb.append("Free stat points: "+who.getFreeStatPoints()+"\n");		
 		who.notice(sb.toString());
 	}
