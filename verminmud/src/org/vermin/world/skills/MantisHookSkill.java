@@ -1,4 +1,4 @@
-package org.vermin.world.skills;
+package org.vermin.world.skills; //tuned by Matti 
 
 import org.vermin.mudlib.*;
 import org.vermin.mudlib.skills.*;
@@ -104,6 +104,8 @@ public class MantisHookSkill extends BaseSkill {
 			dam.damage = (maxdamage / 2 ) + ( (maxdamage * dices / 100) / 2);
 			dam.type = Damage.Type.CRUSHING;
 			tgt.subHp(dam, who);
+			
+			MonkSkills.pressurePointManipulation(who, tgt); // Str-based monk guilds (tiger, dragon, mantis)
 		}
 		tgt.addAttacker(who);
 	}
