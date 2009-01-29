@@ -427,7 +427,9 @@ public class SExpObjectInput {
 			// execute field with object class as a dynamic variable
 			Object[] field = null;
 			try {
-				field = (Object[]) s.execute(d);
+				Object executed = s.execute(d);
+				if(executed != null && executed instanceof Object[])
+					field = (Object[]) executed;
 			} catch(Exception re) {
 				if(re instanceof ExecutionException)
 					throw (ExecutionException) re;
@@ -486,6 +488,36 @@ public class SExpObjectInput {
 	/* Function that returns the file the object is being loaded from. */
 	@handler(name="this-file") Object handleThisFile(List args, Dynvars dynvars) {
 		return currentFile;
+	}
+	
+	/* Function to call a method on the object being constructed.
+	 * Puts dynvars so the arguments can be lists and are automatically made the right type.
+	 */
+	@handler(name="=>",special=true) Object handleCall(List args, Dynvars dynvars) throws Exception {
+		
+		Object invocationTarget = dynvars.parent.object; // the object to invoke the call on
+		String methodName = eval(args.get(0), dynvars).toString();		
+		int argCount = args.size()-1;
+		Method method = ReflectHelper.findMethod(invocationTarget.getClass(), methodName, argCount);
+		
+		Object[] invocationArgs = new Object[argCount];
+		Class[] argTypes = method.getParameterTypes();
+		Type[] genericArgTypes = method.getGenericParameterTypes();
+		Annotation[][] argAnnotations = method.getParameterAnnotations();
+		for(int i=0; i<args.size()-1; i++) {
+			Object arg = args.get(i+1);
+			if(arg instanceof SExp) {
+				Dynvars d = new Dynvars();
+				d.parent = dynvars.parent;
+				d.type = argTypes[i];
+				d.genericType = genericArgTypes[i];
+				invocationArgs[i] = executeSExp((SExp) arg, d);
+			} else {
+				invocationArgs[i] = coerce(arg, argTypes[i]);
+			}
+		}
+		
+		return method.invoke(invocationTarget, invocationArgs);
 	}
 	
 	/* Function to create a dictionary of the given type.
