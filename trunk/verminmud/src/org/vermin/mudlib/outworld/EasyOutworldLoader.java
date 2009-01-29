@@ -48,13 +48,16 @@ public class EasyOutworldLoader implements Loader, Persistent  {
 	
 	private HashMap<String,OutworldRoomFactory.ExitStrategy> exitStrategy;
 	
+	private String[][] mapLegend;
+	
 	public EasyOutworldLoader() {
 	}
 	
 	public void start() {
 		
 		prf = new PrototypeRoomFactory(roomTypes, mapDisplay, exitStrategy);
-	
+		prf.setMapLegend(mapLegend);
+		
 		StringMapSource sms = new StringMapSource(map);
 		map = null;
 		

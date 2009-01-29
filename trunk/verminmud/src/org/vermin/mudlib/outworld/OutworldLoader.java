@@ -232,10 +232,10 @@ public class OutworldLoader implements Loader {
 				
 				
 				public String getMap(String room) {
-					return render(9, 7, room);
+					return render(19, 11, room);
 				}
 				public String getLargeMap(String room) {
-					return render(source.getWidth() < 27 ? source.getWidth() : 27 , 
+					return render(source.getWidth() < 35 ? source.getWidth() : 35 , 
 							source.getHeight() < 21 ? source.getHeight() : 21, room);
 				}
 
@@ -243,31 +243,31 @@ public class OutworldLoader implements Loader {
 					
 					int[] xsizes = null;
 					/* FIXME: These are hard-coded */
-					if(ysize == 7) {
-						xsizes = new int[] { 3, 5, 7, 9, 7, 5, 3 };
+					if(ysize == 11) {
+						xsizes = new int[] { 7, 11, 15, 17, 19, 19, 19, 17, 15, 11, 7 };
 					} else if(ysize == 21) {
 						xsizes = new int[] {
-								3,   // 1
-								7,   // 2
-								11,   // 3
-								13,   // 4
-								15,  // 5
-								17,  // 6
-								19,  // 7
-								21,  // 8
-								23,  // 9
-								25, // 10
-								27, // 11
-								25, // 12
-								23,  // 13
-								21,  // 14
-								19,  // 15
-								17,  // 16
-								15,  // 17
-								13,  // 18								    
-								11,  // 19
-								7,  // 20
-								3  // 21
+								11,   // 1
+								17,   // 2
+								21,   // 3
+								25,   // 4
+								27,  // 5
+								29,  // 6
+								31,  // 7
+								33,  // 8
+								33,  // 9
+								35, // 10
+								35, // 11
+								35, // 12
+								33,  // 13
+								33,  // 14
+								31,  // 15
+								29,  // 16
+								27,  // 17
+								25,  // 18								    
+								21,  // 19
+								17,  // 20
+								11  // 21
 						};
 					}
 					
