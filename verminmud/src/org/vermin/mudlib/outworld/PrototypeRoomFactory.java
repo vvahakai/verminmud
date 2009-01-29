@@ -20,6 +20,9 @@ public class PrototypeRoomFactory implements OutworldRoomFactory {
 	/* Maps room type to exit strategy */
 	private HashMap<String,OutworldRoomFactory.ExitStrategy> exitStrategy;
 	
+	/* Map legend information, see OutworldRoomFactory getMapLegend() */
+	private String[][] mapLegend = new String[0][0];
+	
 	public PrototypeRoomFactory(HashMap<String,String> types, HashMap<String,String> mapDisplay,
 			HashMap<String,ExitStrategy> exitStrategy) {
 		this.types = types;
@@ -63,8 +66,12 @@ public class PrototypeRoomFactory implements OutworldRoomFactory {
 		return disp == null ? " " : disp;
 	}
 
+	public void setMapLegend(String[][] ml) {
+		mapLegend = ml;
+	}
+	
 	public String[][] getMapLegend() {
-		return new String[0][0];
+		return mapLegend;
 	}
 
 	public boolean needToFly(byte[] type) {
