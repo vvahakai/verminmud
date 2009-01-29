@@ -11,11 +11,12 @@ public class SubLoader implements Loader {
 		
 		if(idx != -1) {
 			String loaderPath = path.substring(0, idx);
+			String subPath = path.substring(idx+1);
 			//System.out.println("SubLoader :: Trying to load subloader: "+loaderPath);
 			Loader l = (Loader) Driver.getInstance().getLoader().get(loaderPath);
 			if(l != null) {
-				//System.out.println("SubLoader :: trying to load: "+path);
-				return l.load(path);
+				System.out.println("SubLoader :: trying to load: "+path);
+				return l.load(subPath);
 			}
 			
 			if(l == null)
