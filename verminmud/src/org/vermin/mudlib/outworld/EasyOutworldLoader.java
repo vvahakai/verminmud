@@ -150,8 +150,12 @@ public class EasyOutworldLoader implements Loader, Persistent  {
 	/**
 	 * Add a room type. This can be called from savefile to add a room type
 	 * with the map character, room id and display character.
+	 * 
+	 * @param mapChar the character in the map data
+	 * @param displayChar the character to display in the map shown to user
+	 * @param id the id of the room prototype
 	 */
-	public void roomType(String mapChar, String displayChar, String id) {
+	public void defineRoomType(String mapChar, String displayChar, String id) {
 		roomTypes.put(mapChar, id);
 		mapDisplay.put(mapChar, displayChar);
 	}
