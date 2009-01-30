@@ -64,6 +64,8 @@ public class SExpObjectInput {
 		}
 	}
 	
+	/* The no operation method, this is used when the first position in a list is not any function */
+	public static MethodInfo NOP = new MethodInfo(true, null);
 	
 	/* Nested class representing an S-Expression. */
 	public class SExp {
@@ -77,7 +79,12 @@ public class SExpObjectInput {
 		
 		public void add(Object tok) {
 			if(func == null) {
-				func = getFunction(tok.toString());
+				if(tok instanceof SExp) {
+					// this is a list where the first place is not a function, but another list
+					func = NOP;
+					args.add(tok);
+				} else 
+					func = getFunction(tok.toString());
 				
 				if(func == null)
 					throw new RuntimeException("No handler for SExp function: "+tok.toString());
@@ -129,6 +136,10 @@ public class SExpObjectInput {
 		d.parent = dynvars.parent;
 		
 		MethodInfo func = sexp.func;
+		
+		if(func == NOP) {
+			throw new IllegalStateException("Cannot execute NOP");
+		}
 		
 		if(!func.special) {
 			pArgs = new LinkedList<Object>();
@@ -518,6 +529,25 @@ public class SExpObjectInput {
 		}
 		
 		return method.invoke(invocationTarget, invocationArgs);
+	}
+	
+	/* Function to call a method multiple times with different argument lists.
+	 * This is just a convenience wrapper to call => many times.
+	 * 
+	 * Returns null every time so this is useful for calling methods that produce
+	 * side effects on the object.
+	 */
+	@handler(name="=>*",special=true) Object handleCallStar(List args, Dynvars dynvars) throws Exception {
+		
+		Object methodName = args.get(0);
+		for(int i=1; i<args.size(); i++) {
+			ArrayList argList = new ArrayList();
+			argList.add(methodName);
+			argList.addAll( ((SExp) args.get(i)).args );
+			handleCall(argList, dynvars);
+		}
+		
+		return null;
 	}
 	
 	/* Function to create a dictionary of the given type.
