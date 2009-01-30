@@ -1,6 +1,8 @@
 package org.vermin.io;
 
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -38,6 +40,31 @@ public class SExpObjectInputTest {
 			this.message = sb.toString();
 		}
 	}
+	
+	public static class SomePrimitives {
+		private int theInteger;
+		private long theLong;
+		private boolean theBoolean;
+		private byte theByte;
+		private double theDouble;
+	}
+	
+	public static class Item {
+		private String value;
+		public void withValue(String v) {
+			this.value = "|"+v+"|";
+		}
+	}
+	public static class Container {
+		ArrayList<Item> items = new ArrayList<Item>();
+		public void addItem(Item i) {
+			items.add(i);
+		}
+		public void addItems(Collection<Item> items) {
+			this.items.addAll(items);
+		}
+	}
+	
 	private Object in(String data) throws Exception {
 		return new SExpObjectInput(new StringReader(data)).deserialize();
 	}
@@ -52,5 +79,46 @@ public class SExpObjectInputTest {
 		assertEquals(17, ct.value);
 		assertEquals(170, ct.result);
 		assertEquals("Hello Erno, Pentti, Tatu", ct.message);
+	}
+	
+	@Test
+	public void testOldStylePrimitives() throws Exception {
+		SomePrimitives sp = (SomePrimitives) in("(object \"org.vermin.io.SExpObjectInputTest$SomePrimitives\""+
+				" (field theInteger (int 77)) "+
+				" (field theLong (long 112)) "+
+				" (field theBoolean (boolean true)) "+
+				" (field theByte (byte 100)) "+
+				" (field theDouble (double 10.7)))");
+		assertEquals(77, sp.theInteger);
+		assertEquals(112, sp.theLong);
+		assertTrue(sp.theBoolean);
+		assertEquals(100, sp.theByte);
+		assertTrue(sp.theDouble > 10.6);
+		assertTrue(sp.theDouble < 10.8);
+	}
+	
+	@Test 
+	public void testNewStylePrimitives() throws Exception {
+		SomePrimitives sp = (SomePrimitives) in("(object \"org.vermin.io.SExpObjectInputTest$SomePrimitives\""+
+				" (=! theInteger 42) (=! theLong 911) (=! theBoolean false) (=! theByte 64) (=! theDouble 3.1415) )");
+		assertEquals(42, sp.theInteger);
+		assertEquals(911, sp.theLong);
+		assertFalse(sp.theBoolean);
+		assertEquals(64, sp.theByte);
+		assertTrue(sp.theDouble > 3.1);
+		assertTrue(sp.theDouble < 3.2);
+	}
+	
+	@Test
+	public void testCallWithComplexParameter() throws Exception {
+		Container c = (Container) in("(object \"org.vermin.io.SExpObjectInputTest$Container\""+
+				" (=> addItem (object \"org.vermin.io.SExpObjectInputTest$Item\" (=! value \"first\"))) "+
+				" (=> addItems [(object \"org.vermin.io.SExpObjectInputTest$Item\" (=> withValue \"second\"))" +
+				"               (object \"org.vermin.io.SExpObjectInputTest$Item\" (=! value \"third\"))]) )");
+		assertEquals(3, c.items.size());
+		assertEquals("first", c.items.get(0).value);
+		assertEquals("|second|", c.items.get(1).value);
+		assertEquals("third", c.items.get(2).value);
+		
 	}
 }
