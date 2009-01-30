@@ -424,6 +424,13 @@ public class SExpObjectInput {
 			} catch(NumberFormatException nfe) {}
 		}
 		
+		Iterator it = args.listIterator(argStart);
+		
+		return executeInObjectContext(obj, it, dynvars);
+	}
+
+	private Object executeInObjectContext(Object obj, Iterator expressions,
+			Dynvars dynvars) {
 		Dynvars d = new Dynvars();
 		d.parent = new Parent();
 		d.parent.object = obj;
@@ -431,9 +438,9 @@ public class SExpObjectInput {
 		
 		d.type = obj.getClass();
 		
-		Iterator it = args.listIterator(argStart);
-		while(it.hasNext()) {
-			SExp s = (SExp) it.next();
+		
+		while(expressions.hasNext()) {
+			SExp s = (SExp) expressions.next();
 			
 			// execute field with object class as a dynamic variable
 			Object[] field = null;
@@ -461,6 +468,14 @@ public class SExpObjectInput {
 		}
 		
 		return obj;
+	}
+	
+	@handler(name="with",special=true) Object handleWith(List args, Dynvars dynvars) throws Exception {
+		// Create object by executing the first argument
+		Object obj = executeSExp((SExp) args.get(0), dynvars);
+		
+		// Execute rest of the args in object context
+		return executeInObjectContext(obj, args.listIterator(1), dynvars);
 	}
 	
 	/* Function to create field setters (used inside object function)
