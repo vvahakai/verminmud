@@ -481,7 +481,7 @@ public class SExpObjectInput {
 		// we need to calculate it here in any
 	}
 	
-	@handler(name=":=",special=true) Object handleFieldAbbr(List args, Dynvars dynvars) throws Exception {
+	@handler(name="=!",special=true) Object handleFieldAbbr(List args, Dynvars dynvars) throws Exception {
 		return handleField(args, dynvars);
 	}
 	
