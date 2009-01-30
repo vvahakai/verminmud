@@ -5,6 +5,8 @@
  */
 package org.vermin.util;
 
+import java.util.ArrayList;
+import java.util.Stack;
 import java.util.Vector;
 import java.util.List;
 
@@ -110,5 +112,79 @@ public class Print
 			World.log("Print.humanReadablesta loppui suffixit.");
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * Format two arrays of strings as the left and right columns and return a single
+	 * array of resultant lines.
+	 * 
+	 * @param leftLines the lines on the left column
+	 * @param leftWidth the width of the left column
+	 * @param rightLines the lines on the right column
+	 * @param rightWidth the width of the right column
+	 * @return
+	 */
+	public static String[] columnize(String[] leftLines, int leftWidth, String[] rightLines, int rightWidth) {
+		ArrayList<String> result = new ArrayList<String>();
+		
+		Stack<String> left = new Stack<String>();
+		Stack<String> right = new Stack<String>();
+		Arrays.fill(left, Arrays.reverseCopy(leftLines));
+		Arrays.fill(right, Arrays.reverseCopy(rightLines));
+		
+		while(!left.isEmpty() || !right.isEmpty()) {
+			String nextLeft = left.isEmpty() ? null : left.pop();
+			String nextRight = right.isEmpty() ? null : right.pop();
+			int ll = 0, rl = 0; // right and left lengths
+			StringBuilder line = new StringBuilder();
+			
+			// left side of the line
+			if(nextLeft != null) {
+				if(nextLeft.length() > leftWidth) {
+					line.append(nextLeft.substring(0, leftWidth));
+					left.push(nextLeft.substring(leftWidth));
+					ll = leftWidth;
+				} else {
+					line.append(nextLeft);
+					ll = nextLeft.length();
+				}
+			}
+			while(ll < leftWidth) {
+				line.append(" ");
+				ll++;
+			}
+			
+			// right side of the line
+			if(nextRight != null) {
+				if(nextRight.length() > rightWidth) {
+					int boundary = findPreviousWordBoundary(nextRight, rightWidth);
+					if(boundary == -1) boundary = rightWidth; // if word is longer than line, just cut it
+					line.append(nextRight.substring(0, boundary));
+					right.push(nextRight.substring(boundary == rightWidth ? boundary : boundary+1));
+					rl = rightWidth;
+				} else {
+					line.append(nextRight);
+					rl = nextRight.length();
+				}
+			}
+			// no need to pad right side of the line	
+			
+			result.add(line.toString());
+		}
+		return result.toArray(new String[result.size()]);
+	}
+	
+	/**
+	 * Find previous word boundary (white space character) within the given string
+	 * starting backwards from the given position.
+	 * 
+	 * @param line the line to search
+	 * @param startingPos position to start at 
+	 * @return boundary position or -1 if not found
+	 */
+	public static int findPreviousWordBoundary(String line, int startingPos) {
+		while(startingPos > 0 && !Character.isWhitespace(line.charAt(startingPos)))
+			startingPos--;
+		return startingPos < 1 ? -1 : startingPos;
 	}
 }

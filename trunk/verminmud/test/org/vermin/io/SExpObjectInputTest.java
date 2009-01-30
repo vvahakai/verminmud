@@ -1,5 +1,10 @@
 package org.vermin.io;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -8,9 +13,6 @@ import java.util.List;
 
 import org.junit.Test;
 import org.vermin.io.Executable.Dynvars;
-import org.vermin.io.SExpObjectInput.MethodInfo;
-
-import static org.junit.Assert.*;
 
 public class SExpObjectInputTest {
 
