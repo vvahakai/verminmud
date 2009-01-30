@@ -121,4 +121,23 @@ public class SExpObjectInputTest {
 		assertEquals("third", c.items.get(2).value);
 		
 	}
+	
+	@Test
+	public void testCallStar() throws Exception {
+		Container c = (Container) in("(object \"org.vermin.io.SExpObjectInputTest$Container\""+
+				" (=>* addItem ((object \"org.vermin.io.SExpObjectInputTest$Item\" (=! value \"first\"))) "+
+				"              ((object \"org.vermin.io.SExpObjectInputTest$Item\" (=! value \"second\")))) )");
+		assertEquals(2, c.items.size());
+		assertEquals("first", c.items.get(0).value);
+		assertEquals("second", c.items.get(1).value);
+		
+	}
+	
+	@Test(expected=IllegalStateException.class)
+	public void testCallingNopFails() throws Exception {
+		/* If the first position is not a callable function but a list, 
+		 * the call must fail. NOP cannot be executed.
+		 */
+		in("((object \"org.vermin.io.SExpObjectInputTest$Container\") 1 2)");
+	}
 }

@@ -30,16 +30,16 @@ public class EasyOutworldLoader implements Loader, Persistent  {
 
 	private int rowLength;
 
-	private HashMap<String,String> roomTypes;
-	private HashMap<String,List<String>> things;
+	private HashMap<String,String> roomTypes = new HashMap<String, String>();
+	private HashMap<String,List<String>> things = new HashMap<String, List<String>>();
 	
 	
 	private PrototypeRoomFactory prf;
 	private String id;
 	
-	private HashMap<String,String> mapDisplay;
+	private HashMap<String,String> mapDisplay = new HashMap<String, String>();
 	
-	private LinkedList<SpawningRule> spawningRules;
+	private LinkedList<SpawningRule> spawningRules = new LinkedList<SpawningRule>();
 	
 	private Area area;
 	
@@ -147,5 +147,12 @@ public class EasyOutworldLoader implements Loader, Persistent  {
 		return false;
 	}
 
-	
+	/**
+	 * Add a room type. This can be called from savefile to add a room type
+	 * with the map character, room id and display character.
+	 */
+	public void roomType(String mapChar, String displayChar, String id) {
+		roomTypes.put(mapChar, id);
+		mapDisplay.put(mapChar, displayChar);
+	}
 }
