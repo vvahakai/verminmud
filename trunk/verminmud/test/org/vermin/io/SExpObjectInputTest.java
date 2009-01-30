@@ -1,10 +1,15 @@
 package org.vermin.io;
 
+import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.junit.Test;
+import org.vermin.io.Executable.Dynvars;
+import org.vermin.io.SExpObjectInput.MethodInfo;
+
 import static org.junit.Assert.*;
 
 public class SExpObjectInputTest {
@@ -139,5 +144,58 @@ public class SExpObjectInputTest {
 		 * the call must fail. NOP cannot be executed.
 		 */
 		in("((object \"org.vermin.io.SExpObjectInputTest$Container\") 1 2)");
+	}
+	
+	@Test
+	public void testWith() throws Exception {
+		Container c = (Container) in("(with (object \"org.vermin.io.SExpObjectInputTest$Container\")"+
+				" (=> addItem (object \"org.vermin.io.SExpObjectInputTest$Item\" (=! value \"foobar\"))) )");
+		assertNotNull(c);
+	}
+	
+	@Test
+	public void testAugmentedFunction() throws Exception {
+		AugmentedObjectInput aoi = new AugmentedObjectInput(new StringReader("(with (make-it-so \"Picard\") (=> engage \"Enterprise\"))"));
+		ScifiReference sr = (ScifiReference) aoi.deserialize();
+		assertEquals("Captain Picard commanding the Enterprise", sr.toString());
+	}
+	
+	class ScifiReference {
+		private String captain;
+		private String vessel;
+		ScifiReference(String c) {
+			this.captain = c;
+		}
+		public void engage(String v) {
+			this.vessel = v;
+		}
+		public String toString() {
+			return "Captain "+captain+" commanding the "+vessel;
+		}
+	}
+	
+	class AugmentedObjectInput extends SExpObjectInput {
+
+		public AugmentedObjectInput(Reader in) {
+			super(in);
+		}
+
+		@Override
+		protected MethodInfo getAugmentedFunction(String name) {
+			if(name.equals("make-it-so")) {
+				try {
+					return new MethodInfo(false, this.getClass().getDeclaredMethod("makeItSo", List.class, Dynvars.class));
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
+			return super.getAugmentedFunction(name);
+		}
+		
+		public ScifiReference makeItSo(List args, Executable.Dynvars d) {
+			String captain = args.get(0).toString();
+			return new ScifiReference(captain);
+		}
+		
 	}
 }
