@@ -31,7 +31,7 @@ public class Arrays {
 	 * @param as
 	 */
 	public static <T> void reverse(T[] as) {
-		if(as.length == 0) return;
+		if(as.length < 2) return;
 		int first = 0;
 		int last = as.length-1;
 		boolean odd = as.length%2 == 1;

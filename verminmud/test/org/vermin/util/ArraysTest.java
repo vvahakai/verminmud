@@ -37,5 +37,9 @@ public class ArraysTest {
 		assertEquals("222222", map[4]);
 		assertEquals("111111", map[5]);
 		
+		// test contains method also
+		assertTrue(Arrays.contains(map, "444444"));
+		assertFalse(Arrays.contains(map, "123123"));
+		
 	}
 }
