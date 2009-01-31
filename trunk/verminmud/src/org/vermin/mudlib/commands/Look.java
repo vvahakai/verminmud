@@ -81,7 +81,7 @@ public class Look extends RegexCommand {
 			
 			// if there is a map, output a small map columnized with the desc
 			Area area = currentRoom.getArea();
-			if(area != null) {
+			if(verbose && area != null) {
 				Mapper mapper = area.getMapper();
 				if(mapper != null) {
 					String[] map = mapper.getSmallMap(currentRoom.getId()).split("\n");
