@@ -32,10 +32,16 @@ public class Arrays {
 	 */
 	public static <T> void reverse(T[] as) {
 		if(as.length == 0) return;
-		T first = as[0];
-		for(int i=0; i<as.length; i++) 
-			as[i] = as[as.length-1-i];
-		as[as.length-1] = first;
+		int first = 0;
+		int last = as.length-1;
+		boolean odd = as.length%2 == 1;
+		
+		while( first < last ) {
+			T tmp = as[first];
+			as[first] = as[last];
+			as[last] = tmp;
+			first++; last--;
+		}
 	}
 	
 	/**

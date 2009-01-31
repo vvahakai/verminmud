@@ -77,6 +77,20 @@ public class Look extends RegexCommand {
 				else
 					sb.append(".\n");
 			}
+			
+			
+			// if there is a map, output a small map columnized with the desc
+			Area area = currentRoom.getArea();
+			if(area != null) {
+				Mapper mapper = area.getMapper();
+				if(mapper != null) {
+					String[] map = mapper.getSmallMap(currentRoom.getId()).split("\n");
+					String[] desc = sb.toString().split("\n");
+					sb = new StringBuffer();
+					for(String line : Print.columnize(map, 6, desc, 63))
+						who.notice(line);
+				}
+			}
 		
 			en = currentRoom.findByType(Types.ITEM);
 		

@@ -140,19 +140,23 @@ public class Print
 			
 			// left side of the line
 			if(nextLeft != null) {
-				if(nextLeft.length() > leftWidth) {
+				if(printableLength(nextLeft) > leftWidth) {
 					line.append(nextLeft.substring(0, leftWidth));
 					left.push(nextLeft.substring(leftWidth));
 					ll = leftWidth;
 				} else {
 					line.append(nextLeft);
-					ll = nextLeft.length();
+					ll = printableLength(nextLeft);
 				}
 			}
+			
+			line.append("&;"); // reset coloring
 			while(ll < leftWidth) {
 				line.append(" ");
 				ll++;
 			}
+			
+			
 			
 			// right side of the line
 			if(nextRight != null) {
@@ -186,5 +190,19 @@ public class Print
 		while(startingPos > 0 && !Character.isWhitespace(line.charAt(startingPos)))
 			startingPos--;
 		return startingPos < 1 ? -1 : startingPos;
+	}
+	
+	/**
+	 * Calculate the number of printable characters in the given string.
+	 * The string may contain control codes that affect color. The control
+	 * codes are not counted against the total length.
+	 * 
+	 * @param stringWithControlCodes the string
+	 * @return number of printable characters in the string
+	 */
+	public static int printableLength(String stringWithControlCodes) {
+		if(stringWithControlCodes == null)
+			throw new IllegalArgumentException("Null is not a valid printable string");
+		return stringWithControlCodes.replaceAll("&[^%]{0,3};", "").length();
 	}
 }

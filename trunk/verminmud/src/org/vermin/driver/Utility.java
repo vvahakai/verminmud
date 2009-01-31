@@ -9,7 +9,7 @@ public class Utility {
 
 	public static void save(Persistent obj, String path) {
 		
-		File f = new File("objects", path.replace('\\','/'));
+		File f = new File(World.getSavePath(), path.replace('\\','/'));
 		
 		System.out.println("SAVING TO: "+f.getAbsolutePath());
 		

@@ -25,4 +25,17 @@ public class ArraysTest {
 		assertEquals("quux", reversed[0]);
 		assertEquals("foo", reversed[3]);
 	}
+	
+	@Test
+	public void testReverseMap() {
+		String[] map = Arrays.reverseCopy(new String[] { "111111", "222222", "333333", "444444", "555555", "666666" });
+		assertEquals(6, map.length);
+		assertEquals("666666", map[0]);
+		assertEquals("555555", map[1]);
+		assertEquals("444444", map[2]);
+		assertEquals("333333", map[3]);
+		assertEquals("222222", map[4]);
+		assertEquals("111111", map[5]);
+		
+	}
 }

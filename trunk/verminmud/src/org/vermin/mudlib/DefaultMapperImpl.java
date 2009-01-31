@@ -6,6 +6,11 @@
 
 package org.vermin.mudlib;
 
+/**
+ * 
+ * @deprecated DO NOT USE, this is old (FIXME: this class should be removed)
+ *
+ */
 public class DefaultMapperImpl implements Mapper {
 
 	private static class MapNode  {
@@ -90,5 +95,9 @@ public class DefaultMapperImpl implements Mapper {
 
 	public boolean isSuppressSpecials() {
 		return suppressSpecials;
+	}
+
+	public String getSmallMap(String currentPosition) {
+		return getMap(currentPosition);
 	}
 }
