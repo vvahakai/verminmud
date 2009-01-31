@@ -79,15 +79,19 @@ public class SExpObjectInput {
 		
 		public void add(Object tok) {
 			if(func == null) {
-				if(tok instanceof SExp) {
-					// this is a list where the first place is not a function, but another list
+				
+				// If this is a string, we are looking at a possible function
+				if(tok instanceof String) {
+					func = getFunction(tok.toString());
+				}
+				
+				// Not a function, use as data (FIXME: implement proper tokenizing with Symbols, numbers, keywords)
+				if(func == null) {
+					// this is a list where the first place is not a function, but some other value
 					func = NOP;
 					args.add(tok);
-				} else 
-					func = getFunction(tok.toString());
+				} 
 				
-				if(func == null)
-					throw new RuntimeException("No handler for SExp function: "+tok.toString());
 			}
 			else
 				args.add(tok);

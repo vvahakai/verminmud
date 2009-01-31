@@ -17,7 +17,7 @@ public class SubLoader implements Loader {
 			// give the full path for the subloader also
 			Loader l = (Loader) Driver.getInstance().getLoader().get(loaderPath);
 			if(l != null) {
-				System.out.println("SubLoader :: trying to load: "+path);
+				//System.out.println("SubLoader :: trying to load: "+path);
 				return l.load(path);
 			}
 			
