@@ -238,6 +238,9 @@ public class OutworldLoader implements Loader {
 					return render(source.getWidth() < 35 ? source.getWidth() : 35 , 
 							source.getHeight() < 21 ? source.getHeight() : 21, room);
 				}
+				public String getSmallMap(String room) {
+					return render(5, 5, room);
+				}
 
 				private String render(int xsize, int ysize, String room) {
 					

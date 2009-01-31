@@ -84,7 +84,11 @@ public class Main {
         
         if(new File("local").isDirectory())
         	main.addLoader(new FileLoader("local")); // Loader for local object files
-        main.addLoader(new FileLoader("objects")); // Loader for base Open Source VerminMUD objects
+        
+        String objectsPath = configuration.get("objects");
+        if(objectsPath == null) objectsPath = "objects";
+        World.setSavePath(objectsPath);
+        main.addLoader(new FileLoader(objectsPath)); // Loader for base Open Source VerminMUD objects
         
         
         		

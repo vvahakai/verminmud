@@ -36,7 +36,29 @@ public class PrintTest {
 		String[] lines = Print.columnize(left, 6, right, 34);
 		assertNotNull(lines);
 		assertEquals(6, lines.length);
-		assertTrue(lines[5].startsWith("      ")); // at this point the left column is empty
+		assertTrue(lines[5].startsWith("&;     ")); // at this point the left column is empty
 		for(String line : lines) System.out.println("LINE: "+line);
+	}
+	
+	@Test
+	public void testPrintableLength() {
+		assertEquals(6, Print.printableLength("&B2;12&3;3456&;")); // 123456 without control codes
+	}
+	
+	@Test
+	public void testColumnizeColors() {
+		/* test that columnize does the right thing and does
+		 * not include color control codes in width calculations.
+		 */
+		String[] left = new String[] {
+				"&2;XX&B;YYYY&;" // length is 6 (XXYYYY without the controls)
+		};
+		String[] right = new String [] {
+				"This is some nice &4;colored&; text" // length is 30 without controls 
+		};
+		String[] lines = Print.columnize(left, 7, right, 20);
+		assertEquals(2, lines.length);
+		assertTrue("left column of second line is 'empty'", lines[1].startsWith("&;       "));
+		
 	}
 }

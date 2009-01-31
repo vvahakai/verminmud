@@ -56,6 +56,11 @@ public class World {
     private static PrintStream logstream = System.out;
     private static PrintStream exceptionStream = System.err;
     
+    /* The folder files are saved by default.
+     * This should be set to the local objects folder.
+     */
+    private static String savePath = "objects";
+    
     /* HashMap of currently logged in players.
      * login name as key, the connection as value.
      */
@@ -65,10 +70,17 @@ public class World {
     
     /* The plaque object */
     private static Plaque plaque;
-    
+
+    public static void setSavePath(String p) {
+    	savePath = p;
+    }
+    public static String getSavePath() {
+    	return savePath;
+    }
     public static java.sql.Connection getDatabaseConnection() {
     	return verminDB;
     }
+
 
     private static void loadPlayableRaces() {
     	if(playableRaces != null)
