@@ -42,7 +42,7 @@ public class FingerCommand extends TokenizedCommand {
 						onlineTime = " has been on for "+ formatTime(c.getDuration());
 						idleTime = (c.getIdleTime()<1000) ? " Not idle." : " Idle "+formatTime(c.getIdleTime())+".";
 					}
-					
+					sb.append("\n");
 					sb.append(tgt.getName()+" ");
 					sb.append((tgt.getSurname().equals("") || tgt.getSurname() == null) ? "" : tgt.getSurname()+" ");
 					sb.append("the " + tgt.getRace().getName()+" ");
@@ -57,7 +57,7 @@ public class FingerCommand extends TokenizedCommand {
 						sb.append("before 13.6.2004");
 					}
 					sb.append("\n");
-					sb.append(capitalize(tgt.getPronoun())+" leads the "+tgt.getRace().getName()+" race.\n");
+					sb.append(capitalize(tgt.getPronoun())+" leads the gay "+tgt.getRace().getName()+" race.\n");
 					sb.append(capitalize(tgt.getPronoun()) + onlineTime + "."+idleTime+"\n");
 					if(tgt.getBestSoloKillDescription() != null) {
 						sb.append("Best solo kill: ");
@@ -80,7 +80,7 @@ public class FingerCommand extends TokenizedCommand {
 					else {
 						sb.append("Plan:\n");
 						sb.append(plan);
-						sb.append("\n");
+						sb.append("\n\n");
 					}
 					who.notice(sb.toString());			
 				}
