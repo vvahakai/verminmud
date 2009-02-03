@@ -449,8 +449,6 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 	 */
 	public boolean clientCommand(String command) {
 		
-		command = command.trim();
-
 		/* Allhandler is checked before alias expansion.
 		 * This is essential for the line editor.
 		 * The allhandler should not be used for 'normal' game commands.
@@ -459,6 +457,8 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 			if(allHandler.action(this, command))
 				return true;
 		}
+		
+		command = command.trim();
 		
 		// handle the alias command as a special case (before alias expansion)
 		if(ALIAS_REGEX.matcher(command).matches()) {
