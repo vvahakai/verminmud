@@ -45,7 +45,7 @@ public class FingerCommand extends TokenizedCommand {
 					sb.append("\n");
 					sb.append(tgt.getName()+" ");
 					sb.append((tgt.getSurname().equals("") || tgt.getSurname() == null) ? "" : tgt.getSurname()+" ");
-					sb.append("the " + tgt.getRace().getName()+" ");
+					sb.append("the " + capitalize(tgt.getRace().getName())+" ");
 					sb.append((tgt.getTitle().equals("") || tgt.getTitle() == null) ? "\n" : tgt.getTitle()+"\n");
 					Date d = tgt.getCreated();
 
@@ -57,7 +57,7 @@ public class FingerCommand extends TokenizedCommand {
 						sb.append("before 13.6.2004");
 					}
 					sb.append("\n");
-					sb.append(capitalize(tgt.getPronoun())+" leads the gay "+tgt.getRace().getName()+" race.\n");
+					
 					sb.append(capitalize(tgt.getPronoun()) + onlineTime + "."+idleTime+"\n");
 					if(tgt.getBestSoloKillDescription() != null) {
 						sb.append("Best solo kill: ");
@@ -76,13 +76,13 @@ public class FingerCommand extends TokenizedCommand {
 					
 					String plan = tgt.getPlan();
 					if(plan == null)
-						sb.append("No plan.\n");
+						sb.append("No plan.");
 					else {
 						sb.append("Plan:\n");
 						sb.append(plan);
-						sb.append("\n\n");
 					}
-					who.notice(sb.toString());			
+					who.notice(sb.toString());
+					who.notice("\n");
 				}
 			} catch (LoadException e) {
 				e.printStackTrace(System.out);
