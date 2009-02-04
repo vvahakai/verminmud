@@ -158,6 +158,13 @@ public class UndeadRace implements Race
 	public int getMentalCharismaCost() { return old.getMentalCharismaCost(); }
 	public int getPhysicalDexterityCost() { return old.getPhysicalDexterityCost(); }
 	public int getMentalDexterityCost() { return old.getMentalDexterityCost(); }
+	
+	public String getLeader() {
+		return null;
+	}
+	public String getLeaderDescription() {
+		return null;
+	}
 		
 	
 }

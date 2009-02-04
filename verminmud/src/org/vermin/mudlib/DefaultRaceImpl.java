@@ -32,6 +32,7 @@ public class DefaultRaceImpl implements Race {
    protected int minimumVisibleIlluminationLevel;
    protected int maximumVisibleIlluminationLevel = 100;
    protected int alignmentProgress, alignmentLife;
+   protected String leader, leaderDescription;
    
    protected transient GoreMessageProvider goreMessageProvider;
 
@@ -42,6 +43,7 @@ public class DefaultRaceImpl implements Race {
    private HashMap<String, Integer> intrinsicSkills = new HashMap<String, Integer>();
    private EnumSet<LivingProperty> raceProperties = EnumSet.noneOf(LivingProperty.class);
    private EnumSet<GoreProperty> goreFlags = EnumSet.of(GoreProperty.HAS_BLOOD);
+   
    
    
    public DefaultRaceImpl() {
@@ -412,6 +414,14 @@ public class DefaultRaceImpl implements Race {
 			return intrinsicSkills.get(skillname);
         else
             return 0;
+	}
+
+	public String getLeader() {
+		return leader;
+	}
+
+	public String getLeaderDescription() {
+		return leaderDescription;
 	}
 
 }
