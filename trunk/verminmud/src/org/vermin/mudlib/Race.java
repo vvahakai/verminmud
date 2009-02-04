@@ -297,6 +297,25 @@ public interface Race extends Alignment {
 	 * Get race gore message flags.
 	 * @see GoreMessageProvider org.vermin.battle.GoreMessageProvider
 	 */
-	
 	public EnumSet<GoreProperty> getGoreFlags();
+	
+	/**
+	 * Get the id of the player (or other persistent Living).
+	 * If the race has no current leader, return null.
+	 * 
+	 * @return id of leader or null if no leader
+	 */
+	public String getLeader();
+	
+	/**
+	 * Get a human readable description of the current race leader.
+	 * The description should be one line at maximum and contain the leader's
+	 * name. The description can contain other things as well (like title).
+	 * 
+	 * Use the description when showing race leader. The description should
+	 * be stored and be retrievable without loading the leader object.
+	 * 
+	 * @return a short description of the leader
+	 */
+	public String getLeaderDescription();
 }

@@ -57,7 +57,9 @@ public class FingerCommand extends TokenizedCommand {
 						sb.append("before 13.6.2004");
 					}
 					sb.append("\n");
-					
+					if(id.equals(tgt.getRace().getLeader())) 
+						sb.append(capitalize(tgt.getPronoun())+" leads the "+tgt.getRace().getName()+" race.\n");
+
 					sb.append(capitalize(tgt.getPronoun()) + onlineTime + "."+idleTime+"\n");
 					if(tgt.getBestSoloKillDescription() != null) {
 						sb.append("Best solo kill: ");

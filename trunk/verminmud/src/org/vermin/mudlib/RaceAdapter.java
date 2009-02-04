@@ -138,4 +138,12 @@ public abstract class RaceAdapter implements Race {
    public String[] getGenders() {
 	  return delegate.getGenders();
    }
+   
+   public String getLeader() {
+	   return delegate.getLeader();
+   }
+   public String getLeaderDescription() {
+	   return delegate.getLeaderDescription();
+   }
+   
 }
