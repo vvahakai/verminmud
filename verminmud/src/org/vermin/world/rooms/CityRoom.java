@@ -31,6 +31,12 @@ public class CityRoom extends DefaultRoomImpl {
 		spawn();
 	}
 
+	
+	@Override
+	public void save() {
+		// city room cannot be saved
+	}
+
 	public boolean action(MObject actor, String cmd) {
 		if(type == 'C' && cmd.equalsIgnoreCase("reinc")) {
 			Player p = (Player) actor;
