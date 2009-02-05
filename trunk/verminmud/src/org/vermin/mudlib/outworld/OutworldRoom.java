@@ -300,5 +300,10 @@ public class OutworldRoom extends DefaultRoomImpl
 		}
 		return super.getIllumination();
 	}
+
+	@Override
+	public void save() {}
+	
+	
 	
 }
