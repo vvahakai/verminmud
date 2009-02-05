@@ -4,6 +4,7 @@
 package org.vermin.mudlib;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author Jaakko Pohjamo
@@ -12,10 +13,22 @@ public class DefaultAreaImpl implements Area {
 	private Mapper mapper;
 	private Weather weather;
 	private String name;
-	private LinkedList<SpawningRule> spawningRules;
+	private List<SpawningRule> spawningRules;
 	private Area parent;
 	
-	public DefaultAreaImpl(Mapper mapper, Weather weather, String name, LinkedList<SpawningRule> rules) {
+	/**
+	 * Instantiate a new default area.
+	 * Using this constructor automatically uses the default weather service.
+	 * 
+	 * @param mapper
+	 * @param name
+	 * @param rules
+	 */
+	public DefaultAreaImpl(Mapper mapper, String name, List<SpawningRule> rules) {
+		this(mapper, WeatherService.getInstance(), name, rules);
+	}
+	
+	public DefaultAreaImpl(Mapper mapper, Weather weather, String name, List<SpawningRule> rules) {
 		this.mapper = mapper;
 		this.weather = weather;
 		this.name = name;
