@@ -8,26 +8,18 @@ package org.vermin.world.items;
 
 import org.vermin.mudlib.*;
 
-public class FimirTail extends DefaultWieldableImpl
-{
+public class FimirTail extends DefaultWieldableImpl {
 	
 	private static final String OBJECT_HIT_VERBOSE = "sneakily swing your $weapon$";
 	private static final String SUBJECT_HIT_VERBOSE = "sneakily swings $his$ $weapon$";
-
-	private static Damage[] dmg = null;
 	
 	public boolean isWeapon() { return true; }
 	
-	public Damage[] getHitDamage(Living target)
-	{
-		if(dmg == null)
-		{
-			dmg = new Damage[1];
-			dmg[0] = new Damage();
-			dmg[0].type = Damage.Type.CRUSHING;
-			dmg[0].damage = 15;
-		}
-		
+	public Damage[] getHitDamage(Living target) {
+		Damage[] dmg = new Damage[1];
+		dmg[0] = new Damage();
+		dmg[0].type = Damage.Type.CRUSHING;
+		dmg[0].damage = 15;
 		return dmg;
 	}
 

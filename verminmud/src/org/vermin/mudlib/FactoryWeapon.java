@@ -8,10 +8,7 @@ package org.vermin.mudlib;
 
 import java.util.EnumSet;
 
-public class FactoryWeapon extends DefaultWieldableImpl 
-{	
-	private static Damage[] dmg = null;
-	private static Damage[] projectileDmg = null;
+public class FactoryWeapon extends DefaultWieldableImpl {	
 	
 	private Damage.Type[] damageTypes = { Damage.Type.PHYSICAL };
 
@@ -26,36 +23,30 @@ public class FactoryWeapon extends DefaultWieldableImpl
 	private WeaponType type; // new enum weapon type.
 	
 	public Damage[] getHitDamage(Living target) {
-		if(dmg == null)
-		{
-			dmg = new Damage[damageTypes.length];
-			for(int i = 0; i < damageTypes.length; i++) {
-				dmg[i] = new Damage();
-				dmg[i].damage = this.weaponClass/damageTypes.length;
-				dmg[i].type = damageTypes[i];
-			}
+		Damage[] dmg = new Damage[damageTypes.length];
+		for(int i = 0; i < damageTypes.length; i++) {
+			dmg[i] = new Damage();
+			dmg[i].damage = this.weaponClass/damageTypes.length;
+			dmg[i].type = damageTypes[i];
 		}	
 		return dmg;	
 	}
 	
 	public Damage[] getProjectileDamage() {
-		if(projectileDmg == null)
-		{
-			Damage.Type damType = Damage.Type.PIERCING ;
-			for(int i = 0; i < damageTypes.length; i++) {
-				if(damageTypes[i].equals(Damage.Type.CRUSHING)) {
-					damType = Damage.Type.CRUSHING;
-				}
-				if(damageTypes[i].equals(Damage.Type.CHOPPING)) {
-					damType = Damage.Type.CHOPPING;
-				}				
+		Damage.Type damType = Damage.Type.PIERCING ;
+		for(int i = 0; i < damageTypes.length; i++) {
+			if(damageTypes[i].equals(Damage.Type.CRUSHING)) {
+				damType = Damage.Type.CRUSHING;
 			}
+			if(damageTypes[i].equals(Damage.Type.CHOPPING)) {
+				damType = Damage.Type.CHOPPING;
+			}				
+		}
 			
-			projectileDmg = new Damage[1];
-			projectileDmg[1] = new Damage();
-			projectileDmg[1].damage = this.projectileClass;
-			projectileDmg[1].type = damType;
-		}	
+		Damage[] projectileDmg = new Damage[1];
+		projectileDmg[1] = new Damage();
+		projectileDmg[1].damage = this.projectileClass;
+		projectileDmg[1].type = damType;	
 		return projectileDmg;		
 	}
 	

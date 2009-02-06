@@ -9,7 +9,7 @@ import java.util.Random;
 public class Dice
 {
 
-	public static Random rng = new Random();
+	public final static Random rng = new Random();
 
 	public static int random() {
 		return random(100);
