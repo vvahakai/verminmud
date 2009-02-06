@@ -56,7 +56,7 @@ public class PushSkill extends BaseSkill {
 			int maxdamage = getDamage(who,tgt);
 			int dices = Dice.random();
 
-			String message = new String();
+			String message = "";
 			message = "You gather your strength and push " + tgt.getName();
 			if(dices < 25)
 				message = message + ", making " + tgt.getObjective() + " sway.";

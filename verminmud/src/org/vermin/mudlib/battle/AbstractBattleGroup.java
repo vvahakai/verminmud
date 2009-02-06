@@ -24,7 +24,7 @@ import org.vermin.mudlib.*;
 public abstract class AbstractBattleGroup implements BattleGroup {
 
 	protected transient Set<BattleGroup> hostiles = Collections.synchronizedSet(new HashSet<BattleGroup>());
-	protected static Random r = new Random();
+	protected final static Random r = new Random();
 
 	public void addHostileGroup(BattleGroup bg) {
 		if(bg == this)

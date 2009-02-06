@@ -75,7 +75,7 @@ public class ArenaRoom extends DefaultRoomImpl {
 		l.look(loser.getLiving(), true);
 		
 		loser.getLiving().notice("&B2;You have left the arena.&;");
-		participants.remove(loser);
+		participants.remove(victim);
 		
 		// TODO: perhaps give a trophy of some kind to the winner?
 		if(participants.size() == 1) {

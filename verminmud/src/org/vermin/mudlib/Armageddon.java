@@ -1,32 +1,26 @@
 package org.vermin.mudlib;
 
-import org.vermin.driver.*;
-
 import java.util.Iterator;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
-import java.util.Calendar;
-import java.util.Date;
+import org.vermin.driver.Driver;
+import org.vermin.driver.Service;
 
 public class Armageddon {
 
 	private static Armageddon _instance;
 
 	private Long when = 0l; // when is the time to reboot
-	private ArmageddonThread thread;
+	private ScheduledExecutorService executor;
 	private Driver d = Driver.getInstance();
 
+	private int notifiedMinutes = 0;
+	
 	private Armageddon() {
-		thread = new ArmageddonThread();
-
-		// boot at midnight
-		Calendar c = Calendar.getInstance();
-		c.setTime(new Date());
-		c.set(Calendar.HOUR_OF_DAY, 23);
-		c.set(Calendar.MINUTE, 59);
-		c.set(Calendar.SECOND, 59);
-		when = c.getTime().getTime();
-
-		thread.start();
+		executor = Executors.newSingleThreadScheduledExecutor();
+		executor.scheduleWithFixedDelay(armageddon, 60, 60, TimeUnit.SECONDS);
 	}
 
 	public synchronized static Armageddon getInstance() {
@@ -36,56 +30,38 @@ public class Armageddon {
 		return _instance;
 	}
 
-	public void setTime(long millis) {
-		synchronized(when) {
+	public synchronized void setTime(long millis) {
 			when = millis;
-		}
 	}
 
-	private class ArmageddonThread extends Thread {
-		public void run() {
-
-
-			while(true) {
-				try {
-
-					if(when == 0l) {
-						synchronized(when) {
-							when.wait();
-						}
-					}
-					else {
+	private Runnable armageddon = new Runnable(){
+		public synchronized void run() {
+			if(when == 0l) {
+				return;
+			} else {
 						
-						long timeToBoot = when - System.currentTimeMillis();
-						long minutes = timeToBoot/60000;
+				long timeToBoot = when - System.currentTimeMillis();
+				long minutes = timeToBoot/60000;
 
-						if(minutes > 10) {
-
-							// sleep until 10 minutes to boot
-							Thread.sleep(timeToBoot - 10*60000);
-							info("The world is coming to an end in 10 minutes.");
-                            Iterator<Service> it = d.connectionListeners();
-                            while(it.hasNext())
-                                it.next().stopService();
-
-						} else if(minutes < 1) {
-
-							info("The world is ending NOW!");
-							System.exit(1); // World will save player upon exit
-							
-						} else {
-						    World.log("Armageddon: sleeping for "+timeToBoot+" msecs.");
-							Thread.sleep(timeToBoot);
-
-						}
-					}
-
-				} catch(InterruptedException ie) {}
-			}
-
-		}
-	}
-
+				if(minutes == 10 && notifiedMinutes != 10) {
+					notifiedMinutes = 10;
+					info("The world is coming to an end in 10 minutes.");
+					Iterator<Service> it = d.connectionListeners();
+					while(it.hasNext())
+						it.next().stopService();
+					return;
+				}
+				if(minutes <= 2 && notifiedMinutes != 2) {
+					notifiedMinutes = 2;
+					info("The end of the world is imminent!");
+					return;
+				}
+				if(minutes < 1)
+					info("The world is ending NOW!");
+					System.exit(1); // World will save player upon exit
+				}		
+		}};
+			
 	private void info(String msg) {
 		Iterator<Player> it = World.getPlayers();
 		while(it.hasNext()) {

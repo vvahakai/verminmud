@@ -14,12 +14,12 @@ public class SkillUsageContext {
 
 	//skill cost modifier (absolute modifier, -100 lowers cost by 100 etc.)
 	private int skillCostModifier = 0;
-	private String skillCostModifierMessage = new String();
+	private String skillCostModifierMessage = "";
 
 	//skill effect modifier (percentage, 200 doubles effect, 50 halves effect)
 	//skill can use this
 	private int skillEffectModifier = 100;
-	private String skillEffectModifierMessage = new String();
+	private String skillEffectModifierMessage = "";
 
 	public SkillUsageContext(Living a, MObject t, Skill s) {
 		skill = s;

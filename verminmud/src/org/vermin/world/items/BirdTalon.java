@@ -8,23 +8,15 @@ package org.vermin.world.items;
 
 import org.vermin.mudlib.*;
 
-public class BirdTalon extends DefaultWieldableImpl
-{
-	
-	private static Damage[] dmg = null;
+public class BirdTalon extends DefaultWieldableImpl {
 	
 	public boolean isWeapon() { return true; }
 	
-	public Damage[] getHitDamage(Living target)
-	{
-		if(dmg == null)
-		{
-			dmg = new Damage[1];
-			dmg[0] = new Damage();
-			dmg[0].type = Damage.Type.SLASHING;
-			dmg[0].damage = 6;
-		}
-		
+	public Damage[] getHitDamage(Living target) {
+		Damage[] dmg = new Damage[1];
+		dmg[0] = new Damage();
+		dmg[0].type = Damage.Type.SLASHING;
+		dmg[0].damage = 6;
 		return dmg;
 	}
 

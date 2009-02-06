@@ -31,17 +31,11 @@ public class Bank extends DefaultRoomImpl
 	}
 
 	public boolean action(Living who, Vector cmd) {
-		if(!(who instanceof org.vermin.mudlib.DefaultPlayerImpl))
+		if(who == null || !(who instanceof org.vermin.mudlib.DefaultPlayerImpl))
 			return false;
 
-		Player p;
-		if(who instanceof Player) {
-			p = (Player) who;
-		}
-		else {
-			return false;
-		}
-
+		Player p = (Player) who;
+		
 		String command = (String) cmd.get(0);
 		
 		if(command.equalsIgnoreCase("deposit")) {
@@ -139,7 +133,7 @@ public class Bank extends DefaultRoomImpl
 			who.notice("You don't have enough cash.");
 		else
 		{
-			acc.transactions.add(new String(time() + ": Deposit of " + transferedCash.getWorth() + "."));
+			acc.transactions.add(time() + ": Deposit of " + transferedCash.getWorth() + ".");
 			who.notice("You deposit cash worth " + transferedCash.getWorth() + ".");
 		}
 		World.log("Bank money deposit ready at time:"+System.currentTimeMillis());		
@@ -164,8 +158,8 @@ public class Bank extends DefaultRoomImpl
 			who.notice("You don't have enough cash.");
 		else
 		{
-			source.transactions.add(new String(time() + ": Transfer of " + transferedCash.getWorth() + " to " + targetPlayer + "."));
-			target.transactions.add(new String(time() + ": Transfer of " + transferedCash.getWorth() + " from " + who.getName() + "."));
+			source.transactions.add(time() + ": Transfer of " + transferedCash.getWorth() + " to " + targetPlayer + ".");
+			target.transactions.add(time() + ": Transfer of " + transferedCash.getWorth() + " from " + who.getName() + ".");
 			who.notice("You transfer cash worth " + transferedCash.getWorth() + " to " + targetPlayer + ".");
 		}
 		return true;
@@ -189,7 +183,7 @@ public class Bank extends DefaultRoomImpl
 			who.notice("You don't have enough cash in your account.");
 		else
 		{
-			acc.transactions.add(new String(time() + ": Withdraw of " + transferedCash.getWorth() + "."));
+			acc.transactions.add(time() + ": Withdraw of " + transferedCash.getWorth() + ".");
 			who.notice("You withdraw cash worth " + transferedCash.getWorth() + ".");
 		}
 

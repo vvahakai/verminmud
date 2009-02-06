@@ -11,17 +11,12 @@ import java.util.Map;
 
 public class Commander {
 
-	protected static Commander _playerInstance; 
-	protected static Commander _wizardInstance ;
+	protected final static Commander _playerInstance = new Commander("common/commands/player-commands", null); 
+	protected final static Commander _wizardInstance = new Commander("common/commands/wizard-commands", _playerInstance);
 	
 	private Map<String, Command> commands;
 	private Commander delegateTo;
 	
-	static {
-		_playerInstance = new Commander("common/commands/player-commands", null);
-		_wizardInstance = new Commander("common/commands/wizard-commands", 
-				_playerInstance);
-	}
 	
 	protected Commander(String commandSpec, Commander delegateTo) {
 		this.delegateTo = delegateTo;

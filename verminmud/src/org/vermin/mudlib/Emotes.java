@@ -176,7 +176,7 @@ public class Emotes {
 		return true;
 	}
 
-	private String AMBIGUOUS = new String();
+	private String AMBIGUOUS = "";
 	private void doEmote(Player who, Emote e, String adverb, String target) {
 		
 		Object advo = null;

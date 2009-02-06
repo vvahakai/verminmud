@@ -20,7 +20,7 @@ public class Automatic extends BaseSkill {
 	private static SkillType[] types = new SkillType[] { AUTOMATIC };
 
 	public SkillType[] getTypes() {
-		return types;
+		return types.clone();
 	}
 
 	public String getName() {

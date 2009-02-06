@@ -31,7 +31,7 @@ public class AmbushBehaviour extends BehaviourAdapter {
 	private boolean ambushing = false;
 	private Living ambushed;
 	
-	private class AmbushProvider extends AbstractPropertyProvider<LivingProperty> {
+	private static class AmbushProvider extends AbstractPropertyProvider<LivingProperty> {
 		public boolean provides(LivingProperty lp) {
 			return lp == LivingProperty.IMMOBILIZED;
 		}
@@ -84,7 +84,7 @@ public class AmbushBehaviour extends BehaviourAdapter {
     	ambushed = null;
     }
     
-    public void onBattleTick(Living who) {
+    public synchronized void onBattleTick(Living who) {
     	if(!ambushing) { return; }
     	if(testEscapeDex(ambushed)) {
     		ambushed.notice("&B2;Your nimbleness allows you to break free of "+Print.capitalize(owner.getName())+"'s ambush.&;");
@@ -100,17 +100,17 @@ public class AmbushBehaviour extends BehaviourAdapter {
     
     // if ambusher or ambushed somehow manages to leave,
     // we have to stop. anything else is just silly.
-    public void leaves(Living who) { 
+    public synchronized void leaves(Living who) { 
     	if(who == ambushed || who == owner) {
     		stopAmbush();
     	}
     }
-    public void leaves(Living who, Exit e) {
+    public synchronized void leaves(Living who, Exit e) {
     	if(who == ambushed || who == owner) {
     		stopAmbush();
     	}
     }
-    public void dies(Living victim, Living killer) {
+    public synchronized void dies(Living victim, Living killer) {
     	if(victim == owner || victim == ambushed) {
     		stopAmbush();
     	}
