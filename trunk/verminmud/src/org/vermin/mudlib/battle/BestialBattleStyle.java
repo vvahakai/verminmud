@@ -141,61 +141,60 @@ public class BestialBattleStyle extends DefaultBattleStyle {
 
 			String hitloc = subject.getRace().getHitLocation(attack.hitLocation);
 			String weapon = attack.weapon.getName();
-			String Attacker = Print.capitalize(attack.attacker.getName());
-			String attacker = attack.attacker.getName();
+			String attacker = Print.capitalize(attack.attacker.getName());
 			String hits = attack.weapon.getSubjectHitVerb(dt.mainDamage.type);
 			String hit = attack.weapon.getObjectHitVerb(dt.mainDamage.type);
 			String its = attack.attacker.getPossessive();
 			
 			if(d < 10) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" "+hits+" you with "+its+" "+weapon+".";
+				msgs[1] = attacker+" "+hits+" you with "+its+" "+weapon+".";
 			} else if(d < 20) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" swiftly charges at you, connecting "+its+" "+weapon+" with your "+hitloc+".";
+				msgs[1] = attacker+" swiftly charges at you, connecting "+its+" "+weapon+" with your "+hitloc+".";
 			} else if(d < 30) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" strikes at your "+hitloc+" with blinding quickness.";
+				msgs[1] = attacker+" strikes at your "+hitloc+" with blinding quickness.";
 			} else if(d < 40) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" crouches, then lunges at you sinking "+its+" "+weapon+" into your "+hitloc+".";
+				msgs[1] = attacker+" crouches, then lunges at you sinking "+its+" "+weapon+" into your "+hitloc+".";
 			} else if(d < 50) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" hisses and splutters, flailing "+its+" "+weapon+" at your "+hitloc+".";
+				msgs[1] = attacker+" hisses and splutters, flailing "+its+" "+weapon+" at your "+hitloc+".";
 			} else if(d < 60) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" charges roaring, "+its+" "+weapon+" into your "+hitloc+".";
+				msgs[1] = attacker+" charges roaring, "+its+" "+weapon+" into your "+hitloc+".";
 			} else if(d < 70) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" bares "+its+" teeth and aims a quick "+hit+" at you.";
+				msgs[1] = attacker+" bares "+its+" teeth and aims a quick "+hit+" at you.";
 			} else if(d < 80) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" crouches, then lunges at you sinking "+its+" "+weapon+" into your "+hitloc+".";
+				msgs[1] = attacker+" crouches, then lunges at you sinking "+its+" "+weapon+" into your "+hitloc+".";
 			} else if(d < 90) {
 				msgs[0] = "";
-				msgs[1] = Attacker+" attacks you with a quick successsion of "+hits+".";
+				msgs[1] = attacker+" attacks you with a quick successsion of "+hits+".";
 			} else {
 				msgs[0] = "";
-				msgs[1] = Attacker+"'s "+weapon+" connects your "+hitloc+" with surprising strenght.";
+				msgs[1] = attacker+"'s "+weapon+" connects your "+hitloc+" with surprising strenght.";
 			}
 
 			String berserkMessage = "";
 			if(isBerserk && Dice.random(5) == 1) {
 				switch(Dice.random(3)) {
 				case 1:
-					berserkMessage = Attacker+" rages and foams!\n";
+					berserkMessage = attacker+" rages and foams!\n";
 					break;
 				case 2:
-					berserkMessage = Attacker+" roars in berserk fury!\n";
+					berserkMessage = attacker+" roars in berserk fury!\n";
 					break;
 				case 3:
-					berserkMessage = Attacker+" shudders with wild rage!\n";
+					berserkMessage = attacker+" shudders with wild rage!\n";
 					break;
 				}
 			}
 			msgs[0] = berserkMessage+msgs[0]+"\n"+dt.attackerGore;
 			msgs[1] = berserkMessage+msgs[1]+"\n"+dt.targetGore;
-			msgs[2] = berserkMessage+Attacker+" is in melee with "+subject.getName()+".";
+			msgs[2] = berserkMessage+attacker+" is in melee with "+subject.getName()+".";
 		}
 
 		return msgs;

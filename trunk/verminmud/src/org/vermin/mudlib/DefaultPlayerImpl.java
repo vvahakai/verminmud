@@ -1139,6 +1139,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 				notice("..But alas there is no heaven or hell so you have nowhere to go to.");
 				notice("Please report this as a bug.");
 				notice(World.getBugTrackerURL());
+				return;
 			}
 			
 			Room oldRoom = getRoom();

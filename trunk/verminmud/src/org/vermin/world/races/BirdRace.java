@@ -26,26 +26,26 @@ public class BirdRace extends DefaultRaceImpl implements Singleton
 
 	private static BirdBeak beak = new BirdBeak();
 	
-	protected static BirdRace _instance = null;
+	private static BirdRace _instance = null;
 
 
-	private int size = 10;
+	protected int size = 10;
 
-	private int physicalstr = 10;
+	protected int physicalstr = 10;
 
-	private int mentalstr = 10;
+	protected int mentalstr = 10;
 
-	private int physicalcon = 7;
+	protected int physicalcon = 7;
 
-	private int mentalcon = 10;
+	protected int mentalcon = 10;
 
-	private int physicaldex = 15;
+	protected int physicaldex = 15;
 
-	private int mentaldex = 10;
+	protected int mentaldex = 10;
 
-	private int physicalcha = 10;
+	protected int physicalcha = 10;
 
-	private int mentalcha = 10;
+	protected int mentalcha = 10;
 
 
 	public BirdRace() {
@@ -71,7 +71,6 @@ public class BirdRace extends DefaultRaceImpl implements Singleton
 		return 0;
 	}
 	
-	Slot[] slots = new Slot[0];	
 	public int getMinimumVisibleIllumination() {
 		return 35;
 	}
@@ -111,8 +110,7 @@ public class BirdRace extends DefaultRaceImpl implements Singleton
 	}
 	
 		
-	public Item getLimb(int limb)
-	{
+	public Item getLimb(int limb) {
 		if (limb == 0)
 			return BirdRace.hand;
 
@@ -125,13 +123,11 @@ public class BirdRace extends DefaultRaceImpl implements Singleton
 		return BirdRace.beak;
 	}
 
-	public int getLimbCount()
-	{
+	public int getLimbCount() {
 		return 3;
 	}
 	
-	public static Race getInstance()
-	{
+	public synchronized static Race getInstance() {
 		if(_instance == null) {
 			_instance = new BirdRace();
 			_instance.start();
@@ -140,23 +136,19 @@ public class BirdRace extends DefaultRaceImpl implements Singleton
 		return _instance;
 	}
 	
-	public int getBaseHpRegen()
-	{
+	public int getBaseHpRegen() {
 		return 15;
 	}
 	
-	public int getBaseSpRegen()
-	{
+	public int getBaseSpRegen() {
 		return 1;
 	}
 	
-	public int getSize()
-	{
+	public int getSize() {
 		return this.size;
 	}
 	
-	public int getExpRate()
-	{
+	public int getExpRate() {
 		return 90;
 	}
 

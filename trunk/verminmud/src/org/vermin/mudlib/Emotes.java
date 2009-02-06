@@ -28,7 +28,7 @@ public class Emotes {
 	};
 
 
-	protected static Emotes _instance = new Emotes();
+	protected final static Emotes _instance = new Emotes();
 
 	private HashMap<String,Emote> emotes = new HashMap<String, Emote>();
 
