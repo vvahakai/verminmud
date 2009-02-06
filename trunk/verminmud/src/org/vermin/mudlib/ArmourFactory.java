@@ -127,7 +127,7 @@ public class ArmourFactory implements Factory
 
 	String vokaalit = "aeyoui";
 
-	protected static ArmourFactory _instance = new ArmourFactory();	
+	protected final static ArmourFactory _instance = new ArmourFactory();	
 
 	protected ArmourFactory() {											
 						// Slots								// Types				   //name		  //ac //size //desc, //slots					//materials
@@ -250,7 +250,7 @@ public class ArmourFactory implements Factory
 		String[] slots = null;
 		Vector<String> possibleMaterials = new Vector<String>();
 		String shortDesc;
-		String sizeDesc = new String();
+		String sizeDesc = "";
 		String shortDescAlias;
 		String shortDescPrefix;
 		StringBuffer longDesc = new StringBuffer();
@@ -259,18 +259,16 @@ public class ArmourFactory implements Factory
 		int size = 0;
 
 		// randomize slot
-		if(slot == null)
-		{
-			dicenum = ( Math.abs( dice.nextInt() ) % slotChoices.length );
+		if(slot == null) {
+			dicenum = dice.nextInt(slotChoices.length);
 			slot = new String[slotChoices[dicenum].length];
 			for(int i=0; i<slot.length; i++)
-				slot[i] = new String(slotChoices[dicenum][i]);
+				slot[i] = slotChoices[dicenum][i];
 		}
 			
 		// find subtypes for slot
 		Enumeration<String[]> e = slotTypes.keys();
-		while(e.hasMoreElements())
-		{
+		while(e.hasMoreElements()) {
 			int counter = 0;
 			String[] temptype = e.nextElement();
 			boolean[] usedTypes = new boolean[temptype.length];
@@ -298,31 +296,26 @@ public class ArmourFactory implements Factory
 		}
 
 		//randomize subtype
-		dicenum = ( Math.abs( dice.nextInt() ) % types.length );
+		dicenum = dice.nextInt(types.length);
 		type = types[dicenum];	
 
 		//randomize construction method
-		dicenum = ( Math.abs( dice.nextInt() ) % type.method.length );
+		dicenum = dice.nextInt(type.method.length);
 		ArmourMethod method = type.method[dicenum];	
 
 
 		//find possible materials from intersection of preferred materials and materials for this type
-		if(materials != null)
-		{
-			for(int i=0;i < materials.length;i++)
-			{
-				for(int j=0;j < method.materials.length; j++)
-				{
+		if(materials != null) {
+			for(int i=0;i < materials.length;i++) {
+				for(int j=0;j < method.materials.length; j++) {
 					if(materials[i].equals(method.materials[j])) {
 						possibleMaterials.add(materials[i]);
 					}
 				}
 			}
 		}
-		if(materials == null || possibleMaterials.size() == 0)
-		{
-			for(int i=0;i < method.materials.length; i++)
-			{
+		if(materials == null || possibleMaterials.size() == 0) {
+			for(int i=0;i < method.materials.length; i++) {
 				possibleMaterials.add(method.materials[i]);
 			}
 		}
@@ -333,16 +326,13 @@ public class ArmourFactory implements Factory
 		}
 			
 		//randomize material from possible materials
-		dicenum = ( Math.abs( dice.nextInt() ) % possibleMaterials.size() );
+		dicenum = dice.nextInt(possibleMaterials.size());
 		mat = MaterialFactory.createMaterial((possibleMaterials.get(dicenum)));	
 	
 		// luodaan descriptionit
-		if(vokaalit.indexOf(mat.getName().charAt(0)) != -1)
-		{
+		if(vokaalit.indexOf(mat.getName().charAt(0)) != -1) {
 			shortDescPrefix = "an ";
-		}
-		else
-		{
+		} else {
 			shortDescPrefix = "a ";
 		}
 		

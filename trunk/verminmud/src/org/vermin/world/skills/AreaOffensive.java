@@ -25,7 +25,7 @@ public class AreaOffensive extends BaseSkill {
 	protected SkillType[] skillTypes = new SkillType[] { SkillTypes.AREA, SkillTypes.OFFENSIVE };
 
 	public SkillType[] getTypes() {
-		return skillTypes;
+		return skillTypes.clone();
 	}
 	
 	public String getName() { return name; }

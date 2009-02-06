@@ -17,7 +17,7 @@ import org.vermin.world.items.Piston;
 
 public class AutomatonRace extends DefaultRaceImpl {
 
-	protected static AutomatonRace _instance = null;
+	private static AutomatonRace _instance = null;
 
 	private int size = 50;
 	private int physicalstr = 6;
@@ -29,7 +29,6 @@ public class AutomatonRace extends DefaultRaceImpl {
 	private int physicalcha = 2;
 	private int mentalcha = 10;
 
-	Slot[] slots = new Slot[0];	
 	public int getMinimumVisibleIllumination() {
 		return 35;
 	}
@@ -93,8 +92,7 @@ public class AutomatonRace extends DefaultRaceImpl {
 		return 2;
 	}
 	
-	public static Race getInstance()
-	{
+	public synchronized static Race getInstance() {
 		if(_instance == null) {
 			_instance = new AutomatonRace();
 			_instance.start();

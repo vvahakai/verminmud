@@ -24,7 +24,7 @@ import org.vermin.world.items.InsectJaw;
  */
 public class AntRace extends DefaultRaceImpl implements Singleton {
 	
-	protected static AntRace _instance = null;
+	private static AntRace _instance = null;
 
 	protected String name = "ant";
 	private int size = 10;
@@ -37,7 +37,6 @@ public class AntRace extends DefaultRaceImpl implements Singleton {
 	private int physicalcha = 2;
 	private int mentalcha = 10;
 
-	Slot[] slots = new Slot[0];	
 	public int getMinimumVisibleIllumination() {
 		return 35;
 	}
@@ -45,8 +44,7 @@ public class AntRace extends DefaultRaceImpl implements Singleton {
 		return "ant";
 	}
 	/* hit location name by percent */
-	public String getHitLocation(int pos)
-	{
+	public String getHitLocation(int pos) {
 		if(pos < 10)	{ return "head"; }
 		if(pos < 12)	{ return "jaw"; }
 		if(pos < 13)	{ return "left eye cluster"; }
@@ -70,37 +68,31 @@ public class AntRace extends DefaultRaceImpl implements Singleton {
 	}
 	
 	/* slot by percent */
-	public Slot getSlotForLocation(int pos)
-	{
+	public Slot getSlotForLocation(int pos) {
 		return null;
 	}	
 
 	
 	/* indexed limb name 0 to n */
-	public String getLimbName(int limb)
-	{
-		switch(limb)
-		{
+	public String getLimbName(int limb) {
+		switch(limb) {
 			case 0: return "jaw";
 			default: return "left butt cheek";
 		}
 	}
 	
 		
-	public Item getLimb(int limb)
-	{
+	public Item getLimb(int limb) {
 		if (limb == 0)
 			return new InsectJaw();
 		return null;
 	}
 
-	public int getLimbCount()
-	{
+	public int getLimbCount() {
 		return 1;
 	}
 	
-	public static Race getInstance()
-	{
+	public synchronized static Race getInstance() {
 		if(_instance == null) {
 			_instance = new AntRace();
 			_instance.start();
@@ -109,23 +101,19 @@ public class AntRace extends DefaultRaceImpl implements Singleton {
 		return _instance;
 	}
 	
-	public int getBaseHpRegen()
-	{
+	public int getBaseHpRegen() {
 		return 15;
 	}
 	
-	public int getBaseSpRegen()
-	{
+	public int getBaseSpRegen() {
 		return 1;
 	}
 	
-	public int getSize()
-	{
+	public int getSize() {
 		return this.size;
 	}
 	
-	public int getExpRate()
-	{
+	public int getExpRate() {
 		return 90;
 	}
 

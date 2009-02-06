@@ -9,7 +9,7 @@ public class Arrays {
 			return false;
 		for(Object o : haystack)
 			if( (o==null && needle==null) ||
-				 o.equals(needle) )
+				 (o != null && o.equals(needle)) )
 				return true;
 		return false;
 	}

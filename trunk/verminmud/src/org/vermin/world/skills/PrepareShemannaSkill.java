@@ -40,7 +40,7 @@ public class PrepareShemannaSkill extends BaseSkill {
 		int success = suc.getSkillSuccess();
 
 		Shemanna shemanna = new Shemanna();
-		String message = new String();
+		String message = "";
 
 		if(success > 0)
 		{

@@ -40,7 +40,7 @@ public class CreateTorchSkill extends BaseSkill {
 		int success = suc.getSkillSuccess();
 
 		Torch torch = new Torch();
-		String message = new String();
+		String message = "";
 
 		if(success > 0)
 		{

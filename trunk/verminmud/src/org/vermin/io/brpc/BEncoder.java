@@ -61,9 +61,9 @@ public class BEncoder {
 
 	public void encodeDictionary(Map<String,Object> m) throws IOException {
 		out.write('d');
-		for(String key : m.keySet()) {
-			encodeString(key);
-			encode(m.get(key));
+		for(Map.Entry<String,Object> entry : m.entrySet()) {
+			encodeString(entry.getKey());
+			encode(entry.getValue());
 		}
 		out.write('e');
 	}

@@ -58,8 +58,8 @@ public class MantisHookSkill extends BaseSkill {
 
 			Race r = tgt.getRace();
 			String hitloc = r.getHitLocation(Dice.random()); // hitlocation
-			String message = new String();
-			String vmessage = new String();
+			String message = "";
+			String vmessage = "";
 			if(dices < 15) {
 				message =  "You grab a feeble hold of "+tgt.getName()+"'s "+hitloc+".";
 				vmessage = Print.capitalize(who.getName())+" grabs a feeble hold of your "+hitloc+".";

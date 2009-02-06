@@ -65,7 +65,7 @@ public class WarcrySkill extends BaseSkill {
 			int maxdamage = getDamage(who,tgt);
 			int dices = Dice.random();
 
-			String message = new String();
+			String message = "";
 			message = "You let out a powerful warcry catching " + tgt.getName() + " by suprise and attack " + tgt.getObjective();
 			if(dices < 25)
 				message = message + ", making " + tgt.getObjective() + " sway.";

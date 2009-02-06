@@ -47,7 +47,7 @@ public class CreateFoodSkill extends BaseSkill {
 		Room room = who.getRoom();
 
 		CreatedFood food = new CreatedFood();
-		String message = new String();
+		String message = "";
 
 		if(success > 0)
 		{

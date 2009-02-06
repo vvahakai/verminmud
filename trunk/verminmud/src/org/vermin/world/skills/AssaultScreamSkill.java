@@ -30,7 +30,7 @@ public class AssaultScreamSkill extends BaseSkill {
 	}
 
 	public SkillType[] getTypes() {
-		return skillTypes;
+		return skillTypes.clone();
 	}
 	
 	public boolean tryUse(Living who, MObject target) {
@@ -76,8 +76,8 @@ public class AssaultScreamSkill extends BaseSkill {
 			
 			//Race r = tgt.getRace();
 			//String hitloc = r.getHitLocation(Dice.random()); // hitlocation
-			String message = new String();
-			String vmessage = new String();
+			String message = "";
+			String vmessage = "";
 			if(dices < 25) {
 				message =  "You are able to make "+tgt.getName()+" flinch.";
 				vmessage = Print.capitalize(who.getName())+" makes you flinch a bit with a feeble scream.";

@@ -82,7 +82,7 @@ public class BDecoder {
 			ch = in.read();
 		}
 
-		return new Integer(luku);
+		return Integer.valueOf(luku);
 	}
 	
     

@@ -15,7 +15,7 @@ public class BashSkill extends BaseSkill {
 	protected SkillType[] skillTypes = new SkillType[] { SkillTypes.OFFENSIVE, SkillTypes.LOCAL };
 
 	public SkillType[] getTypes() {
-		return skillTypes;
+		return skillTypes.clone();
 	}
 
 	public String getName() {
@@ -56,7 +56,7 @@ public class BashSkill extends BaseSkill {
 			int maxdamage = getDamage(who,tgt);
 			int dices = Dice.random();
 
-			String message = new String();
+			String message = "";
 			message = "You gather your strength and bash " + tgt.getName();
 			if(dices < 25)
 				message = message + ", making " + tgt.getObjective() + " sway.";

@@ -22,7 +22,7 @@ import org.vermin.util.Print;
 public class Authenticator implements AuthenticationProvider {
 
 	/* inner class for password records */
-	public class PasswordRecord {
+	public static class PasswordRecord {
 		private String password;
 		private String id;
 		
@@ -61,29 +61,33 @@ public class Authenticator implements AuthenticationProvider {
 	}
 	
 	private void readPasswordList() throws IOException {
-		BufferedReader in = 
-			new BufferedReader(new FileReader(passwd));
-		
-		String line=null;		
-		line = in.readLine();
-		
-		while(line != null) {
-			StringTokenizer st = new StringTokenizer(line, ":");
-			
-			if(st.countTokens() != 3) {
-				System.out.println("[Authenticator] WARNING: Incorrect number of tokens in password entry, skipped..");
-			} else {
-				String name, password;
-				String id;
-				
-				name = st.nextToken();
-				password = st.nextToken();
-				id = st.nextToken();
-				
-				record.put(name, new PasswordRecord(password, id));
-			}
-			
+		BufferedReader in = null;
+		try {
+			in = new BufferedReader(new FileReader(passwd));
+
+			String line=null;		
 			line = in.readLine();
+
+			while(line != null) {
+				StringTokenizer st = new StringTokenizer(line, ":");
+
+				if(st.countTokens() != 3) {
+					System.out.println("[Authenticator] WARNING: Incorrect number of tokens in password entry, skipped..");
+				} else {
+					String name, password;
+					String id;
+
+					name = st.nextToken();
+					password = st.nextToken();
+					id = st.nextToken();
+
+					record.put(name, new PasswordRecord(password, id));
+				}
+
+				line = in.readLine();
+			}
+		} finally {
+			if(in != null) in.close();
 		}
 	}
 	
@@ -152,8 +156,7 @@ public class Authenticator implements AuthenticationProvider {
 		
 		byte[] c = md.digest();
 		for(int i=0; i<c.length; i++) {
-			String hex = Integer.toHexString( (new Integer(c[i])).intValue() );
-			
+			String hex = Integer.toHexString( (int) c[i]); 
 			if(hex.length() == 1)
 				hex = "0"+hex;
 			crypted.append(hex);	
