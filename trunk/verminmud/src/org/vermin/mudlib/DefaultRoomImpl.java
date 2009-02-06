@@ -66,6 +66,19 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
     
     private boolean explorable = true;
     
+	private static transient final HashMap<String, String> dirShortcuts = new HashMap<String, String>() {{
+		put("west", "w");
+		put("northwest", "nw");
+		put("north", "n");
+		put("northeast", "ne");
+		put("east", "e");
+		put("southeast", "se");
+		put("south", "s");
+		put("southwest", "sw");
+		put("up", "u");
+		put("down", "d");
+	}};
+    
 	public DefaultRoomImpl() {
 		living = new HashSet();
 		lp = new LivingProxy(living);
@@ -483,8 +496,10 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 	
 	/* Search exits by name */
 	private MObject getExitByName(Collection haystack, String needle) {
+		needle = dirShortcuts.containsKey(needle.toLowerCase()) ? dirShortcuts.get(needle.toLowerCase()) : needle;
 		for(Object e : haystack) {
 			String dir = ((Exit)e).getDirection(getId());
+			dir = dirShortcuts.containsKey(dir.toLowerCase()) ? dirShortcuts.get(dir.toLowerCase()) : dir;
 			if(dir != null && dir.equalsIgnoreCase(needle))
 				return (Exit) e;
 		}
@@ -493,8 +508,11 @@ public class DefaultRoomImpl extends DefaultObjectImpl implements Room {
 	
 	/* Search index:th exit by name */
 	private MObject getExitByName(Collection haystack, int index, String needle) {
+		// translate long dir names to short versions (west->w)
+		needle = dirShortcuts.containsKey(needle.toLowerCase()) ? dirShortcuts.get(needle.toLowerCase()) : needle;
 		for(Object e : haystack) {
 			String dir = ((Exit)e).getDirection(getId());
+			dir = dirShortcuts.containsKey(dir.toLowerCase()) ? dirShortcuts.get(dir.toLowerCase()) : dir;
 			if(dir != null && dir.equalsIgnoreCase(needle)) {
 				if(index == 1) {
 					return (Exit) e;
