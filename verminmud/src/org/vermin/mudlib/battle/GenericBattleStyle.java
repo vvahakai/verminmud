@@ -255,8 +255,6 @@ public abstract class GenericBattleStyle implements BattleStyle {
 	
 	private void handleReaction(Attack attack, Reaction reaction, Living subject) {
 		
-		Vector objectMessage = new Vector();
-		Vector subjectMessage = new Vector();
 		Vector spectMessage = new Vector();
 
 		spectMessage.add(Print.capitalize(owner.getName()) + " attacks " + subject.getName()+".");
