@@ -170,8 +170,8 @@ public class GolemCreationSkill extends BaseSkill {
 		}
 	}
 	
-	public int minionMax(){
-		return Leash.getMinionSize();
+	public int minionMax(Living master){
+		return Leash.getMinionCount(master);
 	}
 	
 	public void onTick(SkillUsageContext suc) {
@@ -202,7 +202,7 @@ public class GolemCreationSkill extends BaseSkill {
 		if (golemSuccess < 0) {
 			suc.getActor().notice("You fail the skill.");
 		}
-		else if (minionMax() > 2) {
+		else if (minionMax(suc.getActor()) > 2) {
 			suc.getActor().notice("You fail to summon more minions.");
 		}
 		else {
@@ -237,7 +237,7 @@ public class GolemCreationSkill extends BaseSkill {
 			golem.addCommand("loot");
 			golem.addCommand("stats");			
 			suc.getActor().getParent().add(golem);
-			Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.ITEM);
+			Leash l = Leash.get(suc.getActor());
 			if(l == null) {
 				l = new Leash();
 				suc.getActor().add(l);				

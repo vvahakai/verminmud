@@ -73,7 +73,28 @@ public class Leash extends DefaultItemImpl {
 		return found;
     }
 
-	public static int getMinionSize() {
+    /**
+     * Returns the amount of minions the given master has.
+     */
+	public static int getMinionCount(Living master) {
+		Leash leash = get(master);
+		return leash == null
+			? 0
+			: leash.getMinionCount();
+	}
+
+	/**
+	 * Return the minion controlling leash of the given master.
+	 * If the given living does not have a leash, returns null.
+	 * 
+	 * @param master the master
+	 * @return a <code>Leash</code> or <code>null</code>
+	 */
+	public static Leash get(Living master) {
+		return (Leash) master.findByNameAndType("_minion_leash", Types.ITEM);
+	}
+
+	public int getMinionCount() {
 		return minions.size();
 	}
 	

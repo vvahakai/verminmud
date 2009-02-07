@@ -5,6 +5,7 @@
 package org.vermin.world.skills;
 
 import org.vermin.mudlib.Dice;
+import org.vermin.mudlib.Living;
 import org.vermin.mudlib.SkillType;
 import org.vermin.mudlib.SkillTypes;
 import org.vermin.mudlib.SkillUsageContext;
@@ -36,8 +37,8 @@ public class CreateClockworkSentinelSkill extends BaseSkill {
 		return 300;
 	}
 
-	public int minionMax(){
-		return Leash.getMinionSize();
+	public int minionMax(Living master){
+		return Leash.getMinionCount(master);
 	}
 	
 	protected SkillType[] skillTypes = new SkillType[] { SkillTypes.SUMMONING, SkillTypes.MAGICAL };
@@ -50,7 +51,7 @@ public class CreateClockworkSentinelSkill extends BaseSkill {
 		if (sentinelSuccess <= 0) {
 			suc.getActor().notice("You fail the skill.");
 		}
-		else if (minionMax() > 2) {
+		else if (minionMax(suc.getActor()) > 2) {
 			suc.getActor().notice("You fail to summon more minions.");
 		}
 		
@@ -78,7 +79,7 @@ public class CreateClockworkSentinelSkill extends BaseSkill {
 			sentinel.addCommand("loot");
 			sentinel.addCommand("stats");			
 			suc.getActor().getParent().add(sentinel);
-			Leash l = (Leash) suc.getActor().findByNameAndType("_minion_leash", Types.ITEM);
+			Leash l = Leash.get(suc.getActor());
 			if(l == null) {
 				l = new Leash();
 				suc.getActor().add(l);				
