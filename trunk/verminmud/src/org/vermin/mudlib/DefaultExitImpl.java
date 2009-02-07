@@ -14,7 +14,8 @@ public class DefaultExitImpl extends DefaultObjectImpl implements Exit {
 	protected String[] rooms = new String[2];
 	protected String[] directions = new String[2];
 	protected String[] passMessages = new String[2];
-
+	protected boolean[] obvious = new boolean[] { true, true };
+	
    public DefaultExitImpl() {} // 0-arg constructor for serialization
 
 	protected LinkedList[] barrierModifiers;
@@ -106,5 +107,9 @@ public class DefaultExitImpl extends DefaultObjectImpl implements Exit {
 			return 1;
 		else
 			throw new IllegalArgumentException("Exit is not linked to room: "+roomId);
+	}
+
+	public boolean isObvious(Living who, String roomId) {
+		return obvious[ind(roomId)];
 	}
 }

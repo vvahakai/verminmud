@@ -146,5 +146,9 @@ public class ConcreteQuadrupleRace extends RaceAdapter {
       return limbs.length;
    }
 
+   public void changeLeader(String leaderId, String leaderDescription) {
+	   throw new UnsupportedOperationException();
+   }
+
 }
 

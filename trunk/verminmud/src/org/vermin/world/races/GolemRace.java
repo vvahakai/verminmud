@@ -170,4 +170,8 @@ public class GolemRace implements Race
 		return null;
 	}
 
+	public void changeLeader(String leaderId, String leaderDescription) {
+		throw new UnsupportedOperationException();
+	}
+
 }

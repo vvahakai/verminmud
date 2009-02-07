@@ -318,4 +318,12 @@ public interface Race extends Alignment {
 	 * @return a short description of the leader
 	 */
 	public String getLeaderDescription();
+	
+	/**
+	 * Change the current leader and their description.
+	 * 
+	 * @param leaderId the id of the player who is the new leader
+	 * @param leaderDescription current description of the new leader
+	 */
+	public void changeLeader(String leaderId, String leaderDescription);
 }

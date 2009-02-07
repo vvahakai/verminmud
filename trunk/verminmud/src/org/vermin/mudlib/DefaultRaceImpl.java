@@ -424,4 +424,9 @@ public class DefaultRaceImpl implements Race {
 		return leaderDescription;
 	}
 
+	public void changeLeader(String leaderId, String leaderDescription) {
+		this.leader = leaderId;
+		this.leaderDescription = leaderDescription;
+	}
+
 }

@@ -218,6 +218,7 @@ public class World {
 		cc.notice("info", msg);
 	}
 
+	
 	public static int getExplorableRoomCount() {
 
 		try {
@@ -587,6 +588,13 @@ public class World {
 	public static void setPlaque(Plaque plaque) {
 		World.plaque = plaque;
 		saveOnExit(World.plaque);
+	}
+	public static void wall(String msg) {
+		Iterator<Player> it = getPlayers();
+		while(it.hasNext()) {
+			Player p = (Player) it.next();
+			p.notice(msg);
+		}
 	}
 	
 	

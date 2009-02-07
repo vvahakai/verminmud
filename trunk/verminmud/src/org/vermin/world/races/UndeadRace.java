@@ -165,6 +165,9 @@ public class UndeadRace implements Race
 	public String getLeaderDescription() {
 		return null;
 	}
+	public void changeLeader(String leaderId, String leaderDescription) {
+		throw new UnsupportedOperationException();
+	}
 		
 	
 }

@@ -24,6 +24,7 @@ import java.io.FileReader;
 
 import java.io.IOException;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -61,8 +62,16 @@ public class OutworldLoader implements Loader {
 	/* To guard positions against map evolution */
 	protected int origoX, origoY;
 
+	/**
+	 * List of special things to load per room.
+	 */
 	public HashMap specialThings = new HashMap();
 
+	/**
+	 * Set of special locations' ids. 
+	 */
+	public HashSet<String> specialLocations = new HashSet<String>();
+	
 	/* Geographical areas in this loader */
 	private LinkedList<LocationSpec> locations = new LinkedList();
 	private Map<String, Area> areaMap = new HashMap();
@@ -186,6 +195,14 @@ public class OutworldLoader implements Loader {
 					
 				} else {
 
+					boolean special = false;
+					if(line.charAt(0) == '?') {
+						System.out.println("SPESIAALI! "+line);
+						special = true;
+						line = line.substring(1);
+						while(Character.isWhitespace(line.charAt(0)))
+							line = line.substring(1);
+					}
 					String[] spes = line.split(":");
 				
 					String[] coord = spes[0].split(",");
@@ -199,6 +216,8 @@ public class OutworldLoader implements Loader {
 					String[] things = spes[1].split(",");
 					for(int t=0; t<things.length; t++)
 						addThingForLocation(x, y, layer, things[t].trim());
+					if(special)
+						specialLocations.add(x+","+y+","+layer);
 				}
 			}
 			line = in.readLine();
@@ -290,7 +309,7 @@ public class OutworldLoader implements Loader {
 						for(int x=pad; x<pad+xs; x++) {
 							if(y==ysize/2 && x==xsize/2)
 								sb.append("&B2;@&;");
-							else if(!suppressSpecials && specialThings.containsKey((loc[0]-(xsize/2)+x)+","+(loc[1]-(ysize/2)+y)+","+loc[2]))
+							else if(!suppressSpecials && isSpecial((loc[0]-(xsize/2)+x), (loc[1]-(ysize/2)+y), loc[2]))
 								sb.append("&B2;?");
 							else
 								sb.append(orf.getLegend(getType(loc[0]-(xsize/2)+x, loc[1]-(ysize/2)+y, loc[2])));
@@ -318,6 +337,9 @@ public class OutworldLoader implements Loader {
 			};
 	}
 
+	private boolean isSpecial(int x,int y,int layer) {
+		return specialLocations.contains((x-origoX)+","+(y-origoY)+","+layer);
+	}
 
 	public int[] parseId(String ids) {
 		int[] pos = parsePosition(ids);
