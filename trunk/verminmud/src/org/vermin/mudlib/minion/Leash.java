@@ -2,11 +2,12 @@ package org.vermin.mudlib.minion;
 
 import java.util.HashSet;
 
+import org.vermin.driver.Transient;
 import org.vermin.mudlib.*;
 
 public class Leash extends DefaultItemImpl {
 
-	protected static HashSet<DefaultMinionImpl> minions = new HashSet<DefaultMinionImpl>();
+	protected transient HashSet<DefaultMinionImpl> minions = new HashSet<DefaultMinionImpl>();
 	
 	public Leash() {
 		name = "_minion_leash";			

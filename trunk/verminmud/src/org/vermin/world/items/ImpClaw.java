@@ -15,23 +15,17 @@ public class ImpClaw extends DefaultWieldableImpl
 	private static final String SUBJECT_HIT_MESSAGE = "$object$ shreds you with $o_poss$ claw.";
 	private static final String SPECTATOR_HIT_MESSAGE = "$object$ shreds $subject$ with $o_poss$ claw.";
 	
-	private static Damage[] dmg = null;
 	
 	public boolean isWeapon() { return true; }
 	
-	public Damage[] getHitDamage(Living target)
-	{
-		if(dmg == null)
-		{
-			dmg = new Damage[2];
-			dmg[0] = new Damage();
-			dmg[0].type = Damage.Type.SLASHING;
-			dmg[0].damage = 6;
-		        dmg[1] = new Damage();
-		        dmg[1].type = Damage.Type.CRUSHING;
-		        dmg[1].damage = 3;
-		}
-		
+	public Damage[] getHitDamage(Living target) {
+		Damage[] dmg = new Damage[2];
+		dmg[0] = new Damage();
+		dmg[0].type = Damage.Type.SLASHING;
+		dmg[0].damage = 6;
+		dmg[1] = new Damage();
+		dmg[1].type = Damage.Type.CRUSHING;
+		dmg[1].damage = 3;
 		return dmg;
 	}
 
