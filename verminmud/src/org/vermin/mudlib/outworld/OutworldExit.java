@@ -157,4 +157,8 @@ public class OutworldExit extends DefaultObjectImpl implements Exit {
 		barrierModifiers.put(roomId, m);
 	}
 
+	public boolean isObvious(Living who, String roomId) {
+		return true;
+	}
+
 }

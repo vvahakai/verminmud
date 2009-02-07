@@ -7,6 +7,7 @@ package org.vermin.mudlib;
 public class OneWayExit extends DefaultObjectImpl implements Exit {
 
 	private String from, to, direction;
+	private boolean obvious = true;
 	
 	public OneWayExit() {}
 	
@@ -38,6 +39,10 @@ public class OneWayExit extends DefaultObjectImpl implements Exit {
 
 	public Types getType() {
 		return Types.EXIT;
+	}
+
+	public boolean isObvious(Living who, String roomId) {
+		return obvious;
 	}
 		
 }

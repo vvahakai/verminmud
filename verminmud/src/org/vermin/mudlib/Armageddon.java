@@ -45,7 +45,7 @@ public class Armageddon {
 
 				if(minutes == 10 && notifiedMinutes != 10) {
 					notifiedMinutes = 10;
-					info("The world is coming to an end in 10 minutes.");
+					World.wall("[Armageddon] The world is coming to an end in 10 minutes.");
 					Iterator<Service> it = d.connectionListeners();
 					while(it.hasNext())
 						it.next().stopService();
@@ -53,20 +53,12 @@ public class Armageddon {
 				}
 				if(minutes <= 2 && notifiedMinutes != 2) {
 					notifiedMinutes = 2;
-					info("The end of the world is imminent!");
+					World.wall("[Armageddon] The end of the world is imminent!");
 					return;
 				}
 				if(minutes < 1)
-					info("The world is ending NOW!");
+					World.wall("[Armageddon] The world is ending NOW!");
 					System.exit(1); // World will save player upon exit
 				}		
 		}};
-			
-	private void info(String msg) {
-		Iterator<Player> it = World.getPlayers();
-		while(it.hasNext()) {
-			Player p = (Player) it.next();
-			p.notice("[Armageddon] "+msg);
-		}
-	}
 }

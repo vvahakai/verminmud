@@ -56,5 +56,16 @@ public interface Exit extends MObject {
 	 * @return the message or null
 	 */
 	public String getPassMessage(String roomId);
+	
+	/**
+	 * Check if this exit is obvious in the given room for the 
+	 * given actor. This method should be called for every look
+	 * operation as the obviousness status can change.
+	 * 
+	 * @param who the actor who is examining the room
+	 * @param roomId the room being examined
+	 */
+	public boolean isObvious(Living who, String roomId);
+	
 
 }

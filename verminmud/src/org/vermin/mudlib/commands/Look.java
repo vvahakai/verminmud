@@ -56,6 +56,9 @@ public class Look extends RegexCommand {
 		
 			boolean first = true;
 			while(en.hasNext()) {
+				Exit e = (Exit) en.next();
+				if(!e.isObvious(who, currentRoom.getId()))
+					continue;
 				if(first) {
 					if(moved && !verbose) sb.append("(");
 					else sb.append("The obvious exits are: ");
@@ -68,7 +71,6 @@ public class Look extends RegexCommand {
 					}
 				}
 			
-				Exit e = (Exit) en.next();
 				sb.append("&B2;"+e.getDirection(currentRoom.getId())+"&21;");
 			}
 			if(!first) {
