@@ -29,8 +29,6 @@ public class MudSession implements Runnable, Session {
 	
 	private AuthenticationProvider authenticator;
 	
-	private OutputFilter of;
-	
 	private Driver driver;
 
 

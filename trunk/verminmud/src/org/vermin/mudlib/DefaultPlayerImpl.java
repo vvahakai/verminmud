@@ -97,15 +97,15 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 		ESCAPE_PATTERN = Pattern.compile("[$]");
 
 		hungerMessages = new HashMap<Integer, String>();
-		hungerMessages.put(new Integer(3000), "You feel a bit hungry.");
-		hungerMessages.put(new Integer(2000), "You feel hungry.");
-		hungerMessages.put(new Integer(1000), "You feel very hungry.");
-		hungerMessages.put(new Integer(500), "You are ravenous.");
-		hungerMessages.put(new Integer(400), "Your stomach hurts.");
-		hungerMessages.put(new Integer(300), "You feel faint.");
-		hungerMessages.put(new Integer(200), "Your vision dims... you need food!");
-		hungerMessages.put(new Integer(100), "You are starving.");
-		hungerMessages.put(new Integer(0), "You are STARVING.");
+		hungerMessages.put(3000, "You feel a bit hungry.");
+		hungerMessages.put(2000, "You feel hungry.");
+		hungerMessages.put(1000, "You feel very hungry.");
+		hungerMessages.put(500, "You are ravenous.");
+		hungerMessages.put(400, "Your stomach hurts.");
+		hungerMessages.put(300, "You feel faint.");
+		hungerMessages.put(200, "Your vision dims... you need food!");
+		hungerMessages.put(100, "You are starving.");
+		hungerMessages.put(0, "You are STARVING.");
 	}
 
 	private static String DEFAULT_PROMPT = "[Hp: $hp$ / $maxhp$] [Sp: $sp$ / $maxsp$] [Exp: $exp$] > ";
@@ -743,26 +743,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 		}
 		m.appendTail(result);
 		return result.toString();
-	}
-			
-	private Boolean stringToBoolean(String str) {
-		if(str.equalsIgnoreCase("on")) {
-			return new Boolean(true);
-		} else if(str.equalsIgnoreCase("1")) {
-			return new Boolean(true);
-		} else if(str.equalsIgnoreCase("true")) {
-			return new Boolean(true);
-		} else if(str.equalsIgnoreCase("off")) {
-			return new Boolean(false);
-		} else if(str.equalsIgnoreCase("0")) {
-			return new Boolean(false);
-		} else if(str.equalsIgnoreCase("false")) {
-			return new Boolean(false);
-		} else {
-			return null;
-		}
-	}
-		 
+	} 
 		
    private void quit() {
 
@@ -1359,7 +1340,7 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 
 	public void modifySustenance(int amount) {
 		super.modifySustenance(amount);
-		Integer current = new Integer(getSustenance());
+		Integer current = getSustenance();
 		if(hungerMessages.containsKey(current)) {
 			notice(hungerMessages.get(current));
 		}

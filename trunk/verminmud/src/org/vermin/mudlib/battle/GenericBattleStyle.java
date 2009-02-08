@@ -312,9 +312,9 @@ public abstract class GenericBattleStyle implements BattleStyle {
 		}
 	}
 
-	float calculateHit(Living subject, Wieldable weapon) {
+	double calculateHit(Living subject, Wieldable weapon) {
 		// ### 1. Calculate hit chance ###
-		int totalEff = 0;
+		double totalEff = 0d;
 		Effector[] he = (Effector[]) getHitEffectors();
 			
 		// calculate total effectiveness of hit effectors
@@ -322,9 +322,9 @@ public abstract class GenericBattleStyle implements BattleStyle {
 			totalEff += he[z].getEffectiveness();
 			
 		// sum up the effects of all effectors in proportion
-		float hit = (float) 0.0;
+		double hit = 0.0d;
 		for(int z=0; z<he.length; z++)
-			hit += he[z].getEffectiveness() * he[z].calculateEffect(owner, subject, weapon, Damage.Type.PHYSICAL) / totalEff;
+			hit += (double) he[z].getEffectiveness() * (double) he[z].calculateEffect(owner, subject, weapon, Damage.Type.PHYSICAL) / totalEff;
 
 		// scale down hit with defender's defensive modifier
 		hit = (100-subject.getBattleStyle().calculateHitModifier()) * hit / 100;
@@ -333,7 +333,7 @@ public abstract class GenericBattleStyle implements BattleStyle {
 	}
 
 	// GLOBAL TUNE POINT
-	private float globalTuneHit(float original) {
+	private double globalTuneHit(double original) {
 		return original * 2.0f;
 	}
 	
@@ -398,8 +398,8 @@ public abstract class GenericBattleStyle implements BattleStyle {
 			{
 				hits++;
 				//System.out.println("HITS: "+hits);
-				float hitDice = Dice.random();
-				float hit = calculateHit(subject, weapon);
+				double hitDice = Dice.random();
+				double hit = calculateHit(subject, weapon);
 				
 				if(hitDice >= hit) { 
 					/* Hit MISSED */

@@ -32,7 +32,7 @@ import org.vermin.world.commands.ChannelCommand;
  */
 public class World {
 	
-	public static ThreadLocal<DateFormat> dateFormat = new ThreadLocal<DateFormat>() {
+	public static final ThreadLocal<DateFormat> dateFormat = new ThreadLocal<DateFormat>() {
 		@Override
 		protected DateFormat initialValue() {
 			return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
@@ -42,8 +42,8 @@ public class World {
     
 	private static HashSet<Persistent> saveSet = new HashSet();
 
-	public static String dbDriver = "org.apache.derby.jdbc.EmbeddedDriver";
-	public static String dbURL = "jdbc:derby:database;create=true";
+	static String dbDriver = "org.apache.derby.jdbc.EmbeddedDriver";
+	static String dbURL = "jdbc:derby:database;create=true";
 	
 
 	public static final Driver driver = Driver.getInstance();

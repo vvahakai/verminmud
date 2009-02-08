@@ -5,12 +5,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Logger;
 
 /**
  * Provides a low-level WICCA connection.
  */
 public class Connection implements Runnable {
 
+	private static final Logger log = Logger.getLogger(Connection.class.getName());
 	private Socket socket;
 	private InputStream in;
 	private OutputStream out;
@@ -105,7 +107,9 @@ public class Connection implements Runnable {
 		try {
 			in.close();
 			out.close();
-		} catch(IOException ioe) {}
+		} catch(IOException ioe) {
+			log.info("Failed to close WICCA web connection properly, ignoring. Exception message: "+ioe.getLocalizedMessage());
+		}
 		active = false;
 	}
 	

@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.vermin.driver.Driver;
 import org.vermin.driver.Service;
+import org.vermin.driver.TickerThread;
 
 public class Armageddon {
 
@@ -56,9 +57,14 @@ public class Armageddon {
 					World.wall("[Armageddon] The end of the world is imminent!");
 					return;
 				}
-				if(minutes < 1)
+				if(minutes < 1) {
 					World.wall("[Armageddon] The world is ending NOW!");
+					TickerThread.stopAllTickerThreads();
+					Driver d = Driver.getInstance();
+					Iterator<Service> services = d.connectionListeners();
+					while(services.hasNext()) services.next().stopService();
+					d.closeAllConnections();
 					System.exit(1); // World will save player upon exit
 				}		
-		}};
+		}}};
 }

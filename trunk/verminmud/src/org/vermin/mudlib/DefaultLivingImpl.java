@@ -185,6 +185,8 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
 
         if(behaviours == null)
             behaviours = new LinkedList<Behaviour>();
+        else
+        	for(Behaviour b : behaviours) setBehaviourOwner(b);
         
         Driver.getInstance().getTickService().addTick(this, Tick.REGEN);
         try {
@@ -1645,9 +1647,16 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     }
     
     public void addBehaviour(Behaviour b) {
+    	setBehaviourOwner(b);
         behaviours.add(b);
     }
-    public void removeBehaviour(Behaviour b) {
+    
+    private void setBehaviourOwner(Behaviour b) {
+		if(b instanceof OwnBehaviour)
+			((OwnBehaviour)b).setOwner(this);
+	}
+
+	public void removeBehaviour(Behaviour b) {
         behaviours.remove(b);
     }
 	public void removeBehaviour(Functional.Predicate<Behaviour> p) {

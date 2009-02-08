@@ -4,23 +4,26 @@
  */
 package org.vermin.mudlib.behaviour;
 
-import org.vermin.mudlib.Behaviour;
 import org.vermin.mudlib.Exit;
 import org.vermin.mudlib.Item;
 import org.vermin.mudlib.Living;
+import org.vermin.mudlib.OwnBehaviour;
 import org.vermin.mudlib.Skill;
 
 /**
  * @author tadex
  *
  */
-public class BehaviourAdapter implements Behaviour {
+public class BehaviourAdapter implements OwnBehaviour {
 
     protected Living owner;
     
     public void setOwner(Living owner) {
         this.owner = owner;
     }
+	public Living getOwner() {
+		return owner;
+	}
     
     /* (non-Javadoc)
      * @see org.vermin.mudlib.Behaviour#arrives(org.vermin.mudlib.Living, org.vermin.mudlib.Exit)
@@ -82,4 +85,5 @@ public class BehaviourAdapter implements Behaviour {
     public void onRegenTick(Living who) {}
     
     public void command(Object ... args) {}
+
 }

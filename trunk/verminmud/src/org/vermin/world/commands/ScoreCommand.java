@@ -74,7 +74,7 @@ public class ScoreCommand extends TokenizedCommand
 //		--------------------
 		sb.append("Exp: "+actor.getExperience()+exptabs+"Total: "+actor.getTotalExperience()+"\n");
 		sb.append("Cash: "+cash+" copper"+moneytabs+"In bank: "+bank+" copper\n");
-		int explorePercent = Math.round(actor.getExploreCount()*100/World.getExplorableRoomCount());
+		int explorePercent = (int) Math.round(actor.getExploreCount()*100d/World.getExplorableRoomCount());
 		sb.append("Hitpoints: "+actor.getHp()+"("+actor.getMaxHp()+")\tSpellpoints: "+actor.getSp()+"("+actor.getMaxSp()+")\n");
 		
 		sb.append("Physical: Str("+who.getPhysicalStrength()+") Dex("+who.getPhysicalDexterity()+") Con("+who.getPhysicalConstitution()+") Cha("+who.getPhysicalCharisma()+")\n");
