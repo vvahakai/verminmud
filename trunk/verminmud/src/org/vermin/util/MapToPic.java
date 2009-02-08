@@ -65,7 +65,7 @@ public class MapToPic {
 		}
 		*/
 		try {
-			keys = new KeyValueFile("/home/warped/mapcolours");
+			keys = new KeyValueFile("mapcolours");
 		} catch(FileNotFoundException fnef) {
 			fnef.printStackTrace();
 			System.exit(1);
@@ -82,7 +82,7 @@ public class MapToPic {
 			}
 		}
 		try {
-			ImageIO.write(image, "png", new File("/home/warped/output.png"));
+			ImageIO.write(image, "png", new File("output.png"));
 		}
 		catch(IOException ioe) {
 			System.out.println("write failed");

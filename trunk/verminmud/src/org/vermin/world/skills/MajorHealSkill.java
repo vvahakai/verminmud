@@ -6,7 +6,7 @@ public class MajorHealSkill extends GenericHealing {
      spellWords = "Orutom urbuzun";
      healAmount = 300;
      name = "major heal";
-	 MentalDexEffect = true;
+	 mentalDexEffect = true;
    }
    
    }

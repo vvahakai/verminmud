@@ -13,7 +13,7 @@ import org.vermin.world.calendar.*;
  */
 public class WeatherService implements Weather {
 
-	protected static WeatherService instance = new WeatherService();
+	protected static final WeatherService instance = new WeatherService();
 	
 	//FIXME: should get these from outworld loader
 	private static final int MAP_LIMIT_X = 900;

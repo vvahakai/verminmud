@@ -8,27 +8,12 @@ package org.vermin.world.items;
 
 import org.vermin.mudlib.*;
 
-public class RodentTooth extends DefaultWieldableImpl
-{
-	
-	private static Damage[] dmg = null;
-	
+public class RodentTooth extends DefaultWieldableImpl {
+
 	public boolean isWeapon() { return true; }
 	
-	public Damage[] getHitDamage(Living target)
-	{
-		if(dmg == null)
-		{
-			dmg = new Damage[2];
-			dmg[0] = new Damage();
-			dmg[0].type = Damage.Type.PIERCING;
-			dmg[0].damage = 12;
-			dmg[1] = new Damage();
-			dmg[1].type = Damage.Type.CRUSHING;
-			dmg[1].damage = 12;
-		}
-		
-		return dmg;
+	public Damage[] getHitDamage(Living target) {
+		return Damage.build().piercing(12).crushing(12).dmg();
 	}
 	public boolean isVisible() {
 		return false;

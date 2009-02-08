@@ -10,19 +10,11 @@ import org.vermin.mudlib.*;
 
 public class TrollFist extends DefaultWieldableImpl {
 	
-	private static Damage[] dmg = null;
 	
 	public boolean isWeapon() { return true; }
 	
 	public Damage[] getHitDamage(Living target) {
-		if(dmg == null) {
-			dmg = new Damage[1];
-			dmg[0] = new Damage();
-			dmg[0].type = Damage.Type.CRUSHING;
-			dmg[0].damage = 10;
-		}
-		
-		return dmg;
+		return Damage.build().crushing(10).dmg();
 	}
 
 	public int getDefensiveValue() {

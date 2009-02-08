@@ -47,7 +47,7 @@ public class QuadrupleRace extends DefaultRaceImpl implements Singleton {
 
 	private static final Wieldable tail = new QuadrupleTail();
 
-	protected static QuadrupleRace _instance;
+	protected static final QuadrupleRace _instance = new QuadrupleRace();
 
 	private static String[] genders = new String[0];
 
@@ -75,7 +75,6 @@ public class QuadrupleRace extends DefaultRaceImpl implements Singleton {
 			"right rear foot", "right rear foot", "left hock", "right hock" };
 
 	static {
-		_instance = new QuadrupleRace();
 		_instance.start();
 		// System.out.println("GORE MESSAGE PrOvIdEr !!!!
 		// --->"+_instance.goreMessageProvider);

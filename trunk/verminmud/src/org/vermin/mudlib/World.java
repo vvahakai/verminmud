@@ -10,6 +10,7 @@ import org.vermin.driver.Prototype;
 import org.vermin.driver.Driver;
 import org.vermin.driver.LoadException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import java.io.ByteArrayOutputStream;
@@ -31,7 +32,12 @@ import org.vermin.world.commands.ChannelCommand;
  */
 public class World {
 	
-	public static DateFormat dateFormat;
+	public static ThreadLocal<DateFormat> dateFormat = new ThreadLocal<DateFormat>() {
+		@Override
+		protected DateFormat initialValue() {
+			return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+		}};
+		
 	private static HashSet<String> playableRaces;
     
 	private static HashSet<Persistent> saveSet = new HashSet();
@@ -39,17 +45,8 @@ public class World {
 	public static String dbDriver = "org.apache.derby.jdbc.EmbeddedDriver";
 	public static String dbURL = "jdbc:derby:database;create=true";
 	
-	static {
-		logstream = System.out;
-		
-		//System.out.println("World STATIC START");
-		dateFormat = DateFormat.getTimeInstance(DateFormat.LONG);
-		driver = Driver.getInstance();
-		//System.out.println("World STATIC END");
-        
-	}
 
-	public static Driver driver;
+	public static final Driver driver = Driver.getInstance();
 
 	private static java.sql.Connection verminDB;
 
@@ -97,7 +94,6 @@ public class World {
     }
     
     public static void resetDatabaseConnection() {
-        driver = Driver.getInstance();
 		try {
 			Class c = Class.forName(dbDriver);
 			verminDB = DriverManager.getConnection(dbURL);
@@ -192,7 +188,7 @@ public class World {
 	 */
 	public static void log(String msg) {
 		StringBuilder sb = new StringBuilder("[");
-		sb.append(dateFormat.format(new java.util.Date()));
+		sb.append(dateFormat.get().format(new java.util.Date()));
 		sb.append("] ");
 		sb.append(msg);
 		logstream.println(sb.toString());

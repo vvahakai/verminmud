@@ -94,6 +94,7 @@ public class RootBattleGroup extends AbstractBattleGroup {
 					return !fetched[0];
 				}
 				public Object next() {
+					if(fetched[0]) throw new NoSuchElementException();
 					fetched[0] = true;
 					return child;
 				}

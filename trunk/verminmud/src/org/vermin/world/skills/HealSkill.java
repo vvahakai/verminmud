@@ -6,7 +6,7 @@ public class HealSkill extends GenericHealing {
      spellWords = "Orutom katzam";
      healAmount = 135;
      name = "heal";
-	 MentalDexEffect = true;
+	 mentalDexEffect = true;
    }
    
    }

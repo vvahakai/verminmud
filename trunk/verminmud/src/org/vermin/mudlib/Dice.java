@@ -4,10 +4,13 @@
 	Throws a d<n>
 */
 package org.vermin.mudlib;
+import java.util.List;
 import java.util.Random;
 
-public class Dice
-{
+/**
+ * Utilities for getting random numbers and elements.
+ */
+public class Dice {
 
 	public final static Random rng = new Random();
 
@@ -31,10 +34,17 @@ public class Dice
 			return 0;
 		}
 		return 1+rng.nextInt(n);
-		/*
-		int ret = 1;
-		ret += ((Math.random()*(n-1)));
-		return ret;
-		*/
 	}	
+	
+	public static <T> T randomElement(T[] elements) {
+		if(elements == null)
+			throw new IllegalArgumentException("Cannot get random element from null array");
+		return elements[rng.nextInt(elements.length)];
+	}
+	
+	public static <T> T randomElement(List<T> elements) {
+		if(elements == null)
+			throw new IllegalArgumentException("Cannot get random element from null list");
+		return elements.get(rng.nextInt(elements.size()));
+	}
 }

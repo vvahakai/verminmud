@@ -71,7 +71,7 @@ public class ReflectHelper
 	}
 
 	
-   public static Hashtable primitives = new Hashtable();
+   public static final Hashtable primitives = new Hashtable();
    static {
       primitives.put("int", Integer.TYPE);
       primitives.put("long", Long.TYPE);
@@ -212,12 +212,13 @@ public class ReflectHelper
 				Method m = val.getClass().getMethod("charValue");
 				ret = m.invoke(val);
 			} else if(type.equals("boolean")) {
-            Boolean val = new Boolean(data);
-            Method m = val.getClass().getMethod("booleanValue");
-            ret = m.invoke(val);
-         }
-		}
-		catch(Exception e) {} 
+				Boolean val = Boolean.valueOf(data);
+				Method m = val.getClass().getMethod("booleanValue");
+				ret = m.invoke(val);
+			}
+		} catch(Exception e) {
+			throw new RuntimeException("Unable to make primitive value.", e);
+		} 
 		return ret;
 	}
 

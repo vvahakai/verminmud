@@ -13,11 +13,7 @@ public class HumanHand extends DefaultWieldableImpl {
 	public boolean isWeapon() { return true; }
 	
 	public Damage[] getHitDamage(Living target) {
-		Damage[] dmg = new Damage[1];
-		dmg[0] = new Damage();
-		dmg[0].type = Damage.Type.CRUSHING;
-		dmg[0].damage = 7;
-		return dmg;
+		return Damage.build().crushing(7).dmg();
 	}
 
 	public boolean isVisible() {

@@ -41,7 +41,7 @@ import java.awt.Rectangle;
 
 public class OutworldLoader implements Loader {
 	
-	protected static Logger log = Logger.getLogger(OutworldLoader.class.getName());
+	protected static final Logger log = Logger.getLogger(OutworldLoader.class.getName());
 	
 	private MapSource source;
 	

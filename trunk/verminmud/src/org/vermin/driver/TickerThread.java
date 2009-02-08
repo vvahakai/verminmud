@@ -6,14 +6,15 @@
 
 package org.vermin.driver;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class TickerThread extends Thread {
 	
+	private static AtomicBoolean active = new AtomicBoolean(true);
 	private TickService ts;
 	private Queue queue;
 	private long interval;
-	
-	private int id;
-	
+		
 	public TickerThread(TickService ts, Queue queue) {
 		this.queue = queue;
 		this.ts = ts;
@@ -21,14 +22,13 @@ public class TickerThread extends Thread {
 	}
 	
 	public void run() {
-		boolean active = true;
 		
 		TickEntry tick;
 		
 		long elapsed;
 		boolean again;
 		
-		while(active) {
+		while(active.get()) {
 			tick = ts.getNextTickObject(queue);
 			
 			elapsed = System.currentTimeMillis() - tick.last;
@@ -59,5 +59,9 @@ public class TickerThread extends Thread {
 				ts.removeTickable(tick.obj, queue);
 			}
 		}
+	}
+	
+	public static void stopAllTickerThreads() {
+		active.set(false);
 	}
 }
