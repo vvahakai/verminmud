@@ -56,7 +56,7 @@ public class SacredCovenant extends BaseSkill {
 			
         Covenant c = new Covenant();
         c.ticks = 3 + Dice.random(3)+arcane;
-        c.owner = suc.getActor();
+        c.setOwner(suc.getActor());
         
         suc.getActor().addBehaviour(c);
         suc.getActor().addDamageListener(c);
@@ -64,7 +64,6 @@ public class SacredCovenant extends BaseSkill {
     
     public class Covenant extends BehaviourAdapter implements DamageListener {
         int ticks;
-        Living owner;
         
         public void onBattleTick(Living who) {
             ticks--;

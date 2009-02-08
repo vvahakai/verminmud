@@ -65,7 +65,7 @@ public class SExpObjectInput {
 	}
 	
 	/* The no operation method, this is used when the first position in a list is not any function */
-	public static MethodInfo NOP = new MethodInfo(true, null);
+	public static final MethodInfo NOP = new MethodInfo(true, null);
 	
 	/* Nested class representing an S-Expression. */
 	public class SExp {

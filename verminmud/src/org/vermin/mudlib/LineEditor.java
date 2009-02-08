@@ -23,11 +23,7 @@ public class LineEditor implements ActionHandler<MObject>, Prompt {
 	};
 
 	public LineEditor(Player who, Listener l, int maxLines) {
-		this.who = who;
-        this.maxLines = maxLines;
-        this.listener = l;
-		who.handleAll(this);
-        who.setPrompt(this);
+		this(who,l,maxLines,null);
 	}
 	
 	public LineEditor(Player who, Listener l, int maxLines, String lineMargin) {
@@ -35,6 +31,9 @@ public class LineEditor implements ActionHandler<MObject>, Prompt {
         this.maxLines = maxLines;
         this.listener = l;
         this.lineMargin = lineMargin;
+	}
+	
+	public void activate() {
 		who.handleAll(this);
         who.setPrompt(this);
 	}

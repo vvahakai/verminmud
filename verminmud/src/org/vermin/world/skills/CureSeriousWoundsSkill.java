@@ -6,7 +6,7 @@ public class CureSeriousWoundsSkill extends GenericHealing {
      spellWords = "Jrzi abtum";
      healAmount = 82;
      name = "cure serious wounds";
-	 MentalDexEffect = true;
+	 mentalDexEffect = true;
    }
    
    }

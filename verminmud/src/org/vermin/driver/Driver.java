@@ -20,7 +20,7 @@ import org.vermin.io.ClientConnection;
 
 public class Driver {
 	
-	private static Driver _instance = new Driver();
+	private static final Driver _instance = new Driver();
 	
 	private LinkedList<Service> connectionListeners = new LinkedList<Service>();
 	private TickService tickService;

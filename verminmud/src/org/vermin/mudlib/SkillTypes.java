@@ -185,17 +185,17 @@ public class SkillTypes {
 			}
 		};
 
-	public static final SkillType AREA =
-		new SkillTypeAdapter() {
-			public MObject findTarget(Player who, String target) {
-				return who.getRoom();
-			}};
+	public static final SkillType AREA = new SkillTypeAdapter() {
+		@Override	
+		public MObject findTarget(Living who, String target) {
+			return who.getRoom();
+		}};
 
-	public static final SkillType SELF =
-		new SkillTypeAdapter() {
-			public MObject findTarget(Player who, String target) {
-				return who;
-			}};
+	public static final SkillType SELF = new SkillTypeAdapter() {
+		@Override
+		public MObject findTarget(Living who, String target) {
+			return who;
+		}};
 
 	/**
 	 * Use a remote player as a target. The player must be in the game

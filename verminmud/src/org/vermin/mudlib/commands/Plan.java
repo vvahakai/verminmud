@@ -40,17 +40,15 @@ public class Plan extends RegexCommand {
     }
     
     public void setPlan(final Player actor) {
-        LineEditor.Listener listener =
+        new LineEditor(actor, 
             new LineEditor.Listener() {
                 public void done(String txt) {
                     actor.setPlan(txt);
                     actor.notice("Plan set.");
                 }
-
                 public void canceled() {
-                }};    
-        
-        LineEditor le = new LineEditor(actor, listener, 5, new String(">")); 
+                }},
+            5, ">").activate();
     }
     
     public void showUsage(Player actor) {

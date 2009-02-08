@@ -13,16 +13,8 @@ public class LargeFishTooth extends DefaultWieldableImpl
 	
 	public boolean isWeapon() { return true; }
 	
-	public Damage[] getHitDamage(Living target)
-	{
-		Damage[] dmg = new Damage[2];
-		dmg[0] = new Damage();
-		dmg[0].type = Damage.Type.PIERCING;
-		dmg[0].damage = 20;
-		dmg[1] = new Damage();
-		dmg[1].type = Damage.Type.CRUSHING;
-		dmg[1].damage = 20;
-		return dmg;
+	public Damage[] getHitDamage(Living target) {
+		return Damage.build().piercing(20).crushing(20).dmg();
 	}
 	public boolean isVisible() {
 		return false;

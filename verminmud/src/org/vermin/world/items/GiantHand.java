@@ -18,11 +18,7 @@ public class GiantHand extends DefaultWieldableImpl {
 	public boolean isWeapon() { return true; }
 	
 	public Damage[] getHitDamage(Living target) {
-		Damage[] dmg = new Damage[1];
-		dmg[0] = new Damage();
-		dmg[0].type = Damage.Type.CRUSHING;
-		dmg[0].damage = 19;	
-		return dmg;
+		return Damage.build().crushing(19).dmg();
 	}
 
 	public String getObjectHitMessage(int damageType)

@@ -78,7 +78,7 @@ public class LeafBattleGroup extends AbstractBattleGroup {
 					return false;
 				}
 				public Object next() {
-					return null;
+					throw new NoSuchElementException();
 				}
 				public void remove() {}
 			};

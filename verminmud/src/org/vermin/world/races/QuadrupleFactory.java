@@ -35,7 +35,7 @@ public class QuadrupleFactory implements Factory {
 		TAIL
 	}
 	
-	protected static QuadrupleFactory _instance = new QuadrupleFactory();
+	protected static final QuadrupleFactory _instance = new QuadrupleFactory();
 	
 	protected QuadrupleFactory() {
 		

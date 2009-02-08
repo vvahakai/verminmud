@@ -220,7 +220,7 @@ public class WeaponFactory implements Factory
 	
 	String vokaalit = "aeyoui";
 
-	protected static WeaponFactory _instance = new WeaponFactory();	
+	protected static final WeaponFactory _instance = new WeaponFactory();	
 
 	protected WeaponFactory() {}
 
@@ -243,44 +243,21 @@ public class WeaponFactory implements Factory
 		String shortDescAlias;
 		String longDesc;
 
-		// randomoidaan materiaali, tyyppi ja subtype
-		if(weapontypes != null)
-		{
-			dicenum = ( Math.abs( dice.nextInt() ) % weapontypes.length );
-			type = weapontypes[dicenum];
-		}
-		else
-		{
-			dicenum = ( Math.abs( dice.nextInt() ) % (weaponSubTypes.size()-1) );
-			type = allWeaponTypes[dicenum + 1];
-		}
-
-		dicenum = ( Math.abs( dice.nextInt() ) % weaponSubTypes.get(type).length );
-		WeaponSubType subType = weaponSubTypes.get(type)[dicenum];
+		/* Pick a random type, subtype and material.
+		 * If types and materials are specified, pick only from those.
+		 */
+		type = Dice.randomElement(weapontypes != null ? weapontypes : allWeaponTypes);
+		
+		WeaponSubType subType = Dice.randomElement(weaponSubTypes.get(type));
 		weaponName = subType.name;
 
-		if(materials != null)
-		{
-			dicenum = Dice.random(materials.length)-1;
-			matId = materials[dicenum];
-			mat = MaterialFactory.createMaterial(materials[dicenum]);		
-		}
-		else
-		{
-			dicenum = Dice.random(subType.materials.length)-1;
-			matId = subType.materials[dicenum];
-			mat = MaterialFactory.createMaterial(subType.materials[dicenum]);	
-		}
-
-		// luodaan descriptionit
-		if(vokaalit.indexOf(mat.getName().charAt(0)) != -1)
-		{
-			shortDesc = "an "+mat.getName()+" "+weaponName;		
-		}
-		else
-		{
-			shortDesc = "a "+mat.getName()+" "+weaponName;
-		}
+		matId = Dice.randomElement(materials != null ? materials : subType.materials);
+		mat = MaterialFactory.createMaterial(matId);		
+		
+		// Create short and long descriptions
+		shortDesc = 
+			((vokaalit.indexOf(mat.getName().charAt(0)) != -1) ? "an " : "a ") +
+			mat.getName()+" "+weaponName;
 
 		shortDescAlias = mat.getName()+" "+weaponName;
 
@@ -295,7 +272,7 @@ public class WeaponFactory implements Factory
 
 		World.log("WeaponFactory: "+shortDesc);
 
-		// Tehd��n se ase sitten
+		// Create the weapon
 		FactoryWeapon weapon = new FactoryWeapon();
 		weapon.setDescription(shortDesc);
 		weapon.setLongDescription(longDesc);
@@ -309,16 +286,13 @@ public class WeaponFactory implements Factory
 		weapon.setSpeed(subType.speed);
 		weapon.setDamageType(subType.damageType);
 		weapon.addDp(mat.getDurability()*subType.size);
-		if(type == WeaponType.SHIELD)
-		{
+		if(type == WeaponType.SHIELD) {
 			weapon.setDefensiveValue(hitDamage);
-			weapon.setHitDamage((int) ((hitDamage/4) * ((1.0f - subType.aerodynamicity)/2 + 0.5f)));
-			weapon.setProjectileClass((int) ((hitDamage/4) * subType.aerodynamicity));
-		}
-		else
-		{
+			weapon.setHitDamage((int) ((hitDamage/4.0f) * ((1.0f - subType.aerodynamicity)/2.0f + 0.5f)));
+			weapon.setProjectileClass((int) ((hitDamage/4.0f) * subType.aerodynamicity));
+		} else {
 			weapon.setDefensiveValue((hitDamage/4));
-			weapon.setHitDamage((int) ((hitDamage) * ((1.0f - subType.aerodynamicity)/2 + 0.5f)));
+			weapon.setHitDamage((int) ((hitDamage) * ((1.0f - subType.aerodynamicity)/2.0f + 0.5f)));
 			weapon.setProjectileClass((int) (hitDamage * subType.aerodynamicity));			
 		}
 		return weapon;

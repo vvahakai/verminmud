@@ -6,6 +6,8 @@
 
 package org.vermin.mudlib;
 
+import java.util.ArrayList;
+
 public class Damage {
 
 	public static final int NUM_TYPES		= 12;
@@ -72,5 +74,39 @@ public class Damage {
 	public Damage(Type type, int damage) {
 		this.type = type;
 		this.damage = damage;
+	}
+	
+	public static class DamageBuilder {
+		private ArrayList<Damage> dmg = new ArrayList<Damage>();
+		public DamageBuilder physical(int value) { return add(Damage.Type.PHYSICAL, value);	}
+		public DamageBuilder electric(int value) { return add(Damage.Type.ELECTRIC, value); }
+		public DamageBuilder poison(int value) { return add(Damage.Type.POISON, value); }
+		public DamageBuilder fire(int value) { return add(Damage.Type.FIRE, value); }
+		public DamageBuilder cold(int value) { return add(Damage.Type.COLD, value); }
+		public DamageBuilder asphyxiation(int value) { return add(Damage.Type.ASPHYXIATION, value); }
+		public DamageBuilder psionic(int value) { return add(Damage.Type.PSIONIC, value); }
+		public DamageBuilder acid(int value) { return add(Damage.Type.ACID, value); }
+		public DamageBuilder magical(int value) { return add(Damage.Type.MAGICAL, value); }
+		public DamageBuilder radiation(int value) { return add(Damage.Type.RADIATION, value); }
+		public DamageBuilder sonic(int value) { return add(Damage.Type.SONIC, value); }
+		public DamageBuilder stun(int value) { return add(Damage.Type.STUN, value); }
+
+		/* SUB-TYPES FOR PHYSICAL */
+		public DamageBuilder crushing(int value) { return add(Damage.Type.CRUSHING, value); }
+		public DamageBuilder piercing(int value) { return add(Damage.Type.PIERCING, value); }
+		public DamageBuilder chopping(int value) { return add(Damage.Type.CHOPPING, value); }
+		public DamageBuilder slashing(int value) { return add(Damage.Type.SLASHING, value); }
+
+		public DamageBuilder add(Damage.Type t, int value) {
+			dmg.add(new Damage(t, value));
+			return this;
+		}
+		public Damage[] dmg() {
+			return (Damage[]) dmg.toArray(new Damage[dmg.size()]);
+		}
+	}
+	
+	public static DamageBuilder build() {
+		return new DamageBuilder();
 	}
 }

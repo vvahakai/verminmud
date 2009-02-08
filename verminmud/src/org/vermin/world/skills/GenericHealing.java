@@ -14,8 +14,8 @@ public class GenericHealing extends BaseSkill {
 	protected String spellWords = "FIXME!";
 	protected int healAmount = 1;
 	protected SkillType[] skillTypes = new SkillType[] { SkillTypes.DIVINE, SkillTypes.HEALING, SkillTypes.LOCAL };
-	protected boolean MentalDexEffect = false;
-	protected boolean MentalStrEffect = false;
+	protected boolean mentalDexEffect = false;
+	protected boolean mentalStrEffect = false;
 
 	public SkillType[] getTypes() {
 		return skillTypes;
@@ -67,11 +67,11 @@ public class GenericHealing extends BaseSkill {
 			who.notice("Your supreme grandmastery of the healing arts allows you to heal your target better.\n");
 			amount += amount * success / 300;
 		}
-		if(MentalDexEffect)
+		if(mentalDexEffect)
 		{
 			amount = amount * (75 + who.getMentalDexterity()/4) / 100;
 		}
-		if(MentalStrEffect)
+		if(mentalStrEffect)
 		{
 			amount = amount * (75 + who.getMentalStrength()/4) / 100;
 		}

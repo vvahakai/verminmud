@@ -8,24 +8,12 @@ package org.vermin.world.items;
 
 import org.vermin.mudlib.*;
 
-public class LizardmanTail extends DefaultWieldableImpl
-{
-	
-	private static Damage[] dmg = null;
+public class LizardmanTail extends DefaultWieldableImpl {
 	
 	public boolean isWeapon() { return true; }
 	
-	public Damage[] getHitDamage(Living target)
-	{
-		if(dmg == null)
-		{
-			dmg = new Damage[1];
-			dmg[0] = new Damage();
-			dmg[0].type = Damage.Type.CRUSHING;
-			dmg[0].damage = 5;
-		}
-		
-		return dmg;
+	public Damage[] getHitDamage(Living target) {
+		return Damage.build().crushing(5).dmg();
 	}
 	public boolean isVisible() {
 		return false;
