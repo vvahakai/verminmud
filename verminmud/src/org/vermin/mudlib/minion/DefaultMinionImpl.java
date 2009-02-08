@@ -45,12 +45,12 @@ public class DefaultMinionImpl extends DefaultMonster implements Minion {
 	/* (non-Javadoc)
 	 * @see org.vermin.mudlib.minion.Minion#setNickname(java.lang.String)
 	 */
-	public void setNickname(String nickname) {
-		if(nickname != null) {
-			aliases.remove(nickname);
-		}
-		this.nickname = nickname;
-		addAlias(nickname);
+	public void setNickname(String nick) {
+		if(nickname != null) 
+			aliases.remove(nickname); // remove old nickname as alias
+		
+		nickname = nick;
+		if(nick != null) addAlias(nick);
 	}
 	
 	/* (non-Javadoc)

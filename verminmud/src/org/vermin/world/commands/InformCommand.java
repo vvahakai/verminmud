@@ -7,6 +7,9 @@ package org.vermin.world.commands;
 
 import org.vermin.mudlib.*;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 import java.util.TreeMap;
 
@@ -24,7 +27,8 @@ public class InformCommand extends TokenizedCommand
 		}
 	}
 	
-	private TreeMap masks;   // inform masks for all players
+	// inform masks for all players
+	private Map<String,InformMask> masks = Collections.synchronizedMap(new HashMap<String,InformMask>());   
 	
 	private InformMask getMask(Player who) {
 		InformMask m = (InformMask) masks.get(who.getId());

@@ -171,6 +171,8 @@ public class SqlAuthenticationProvider implements AuthenticationProvider {
 			while(rs.next())
 				al.add(rs.getString(1));
 		
+			rs.close();
+			stmt.close();
 			return al;
 		} catch(SQLException se) {
 			logException(se);

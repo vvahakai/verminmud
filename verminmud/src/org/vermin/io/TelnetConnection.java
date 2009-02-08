@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.BufferedInputStream;
 import java.net.Socket;
+import java.util.logging.Logger;
 
 
 /**
@@ -19,6 +20,8 @@ import java.net.Socket;
  * telnet commands.
  */
 public class TelnetConnection extends AbstractConnection {
+	
+	private static final Logger log = Logger.getLogger(TelnetConnection.class.getName());
 	
 	/* Telnet control codes */
 	protected static final int IAC	= 255;	/* interpret as command: */
@@ -125,7 +128,9 @@ public class TelnetConnection extends AbstractConnection {
 		try {
 			input.close();
 			output.close();
-		} catch(IOException ie) {}
+		} catch(IOException ie) {
+			log.info("Failed to close telnet connection properly, ignoring. Exception message: "+ie.getLocalizedMessage());
+		}
 	}
 
 

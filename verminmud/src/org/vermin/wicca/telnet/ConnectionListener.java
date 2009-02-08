@@ -7,6 +7,7 @@ package org.vermin.wicca.telnet;
 
 import java.io.*;
 import java.net.*;
+import java.util.logging.Logger;
 
 import org.vermin.driver.AnsiOutputFilter;
 import org.vermin.driver.Driver;
@@ -18,7 +19,7 @@ import org.vermin.wicca.ClientInput;
 import org.vermin.wicca.ClientInputHandler;
 
 public class ConnectionListener implements Service {
-	
+	private static final Logger log = Logger.getLogger(ConnectionListener.class.getName());
 	private ServerSocket ss;
 	private Driver driver;
 	private boolean active;
@@ -81,7 +82,9 @@ public class ConnectionListener implements Service {
 	public void stopService() {
 		try {
 			ss.close();
-		} catch(IOException ioe) {}
+		} catch(IOException ioe) {
+			log.warning("Unable to close server socket: "+ioe.getLocalizedMessage());
+		}
 		active = false;
 	}
 
