@@ -334,7 +334,7 @@ public abstract class GenericBattleStyle implements BattleStyle {
 
 	// GLOBAL TUNE POINT
 	private double globalTuneHit(double original) {
-		return original * 2.0f;
+		return original * 3.2f;
 	}
 	
 	// GLOBAL TUNE POINT
