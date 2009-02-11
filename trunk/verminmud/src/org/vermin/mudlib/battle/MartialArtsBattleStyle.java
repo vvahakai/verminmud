@@ -1,5 +1,7 @@
 package org.vermin.mudlib.battle;
 
+import java.util.ArrayList;
+
 import org.vermin.mudlib.Dice;
 import org.vermin.mudlib.Living;
 import org.vermin.mudlib.WeaponType;
@@ -47,16 +49,20 @@ public class MartialArtsBattleStyle extends GenericBattleStyle {
 	public Effector[] getDefensiveHitEffectors() {
 		return new Effector[0];
 	}
-
-	public boolean canHitAgain(int hits, Living target) {
+	
+	@Override
+	public boolean canHitAgain(int hits, Living target, ArrayList<Message> messages) {
 		if(hits == 1 && owner.checkSkill("sticky hands") > 0) {
 			if(Dice.random(4) >= 3) {
-				World.log("STICKY");
-				return true;
+				for (Message m : messages) {
+					// only allow sticky hands if there have been successful attacks
+					if(!(m instanceof FailedAttack)) {
+						return true;
+					}
+				}
 			}
 		} else if(hits == 2 && owner.checkSkill("rolling punches") > 0) {
 			if(Dice.random(5) >= 4) {
-				World.log("ROLLING");
 				return true;
 
 			}
