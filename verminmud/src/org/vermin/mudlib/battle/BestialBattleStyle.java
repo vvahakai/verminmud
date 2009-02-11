@@ -3,6 +3,8 @@
  */
 package org.vermin.mudlib.battle;
 
+import java.util.ArrayList;
+
 import org.vermin.mudlib.DefaultBattleStyle;
 import org.vermin.mudlib.Dice;
 import org.vermin.mudlib.Living;
@@ -205,13 +207,18 @@ public class BestialBattleStyle extends DefaultBattleStyle {
 	 *
 	 * @param hits number of hits so far
 	 * @param target the object of aggression
+	 * @param messages attack messages so far this turn
 	 * @return true, if another hit is possible, false otherwise
 	 */
-	protected boolean canHitAgain(int hits, Living target) {
+	@Override
+	protected boolean canHitAgain(int hits, Living target, ArrayList<Message> messages) {
 		if(isBerserk && hits == 1) {
-			return true;
+			for (Message m : messages) {
+				if(!(m instanceof FailedAttack)) {
+					return true;
+				}
+			}
 		}
-		
 		return false;
 	}
 }

@@ -2,6 +2,7 @@ package org.vermin.mudlib.battle;
 
 import org.vermin.mudlib.*;
 
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.Iterator;
 
@@ -345,7 +346,7 @@ public abstract class GenericBattleStyle implements BattleStyle {
 
 	private Message[] generateAttackMessages(Living subject) {
 		
-		Vector messages = new Vector();
+		ArrayList<Message> messages = new ArrayList<Message>();
 
 		Wieldable[] wielded = owner.getWieldedItems(true);
 		Wieldable weapon;
@@ -376,8 +377,8 @@ public abstract class GenericBattleStyle implements BattleStyle {
 				wieldedAccumulatedSpeeds = new float[wielded.length];
 			}
 			
-			float weaponSpeed;	
-			int finalWeaponSpeed;
+			float weaponSpeed; // attacker speed with weapon
+			int finalWeaponSpeed; // speed with accumulated speed fractions from previous rounds
 		
 			weaponSpeed = calculateWeaponSpeed(weapon);
 
@@ -394,10 +395,9 @@ public abstract class GenericBattleStyle implements BattleStyle {
 			/* Calculate hit success */
 
 			int hits=0;
-			while(hits < finalWeaponSpeed || (hits >= finalWeaponSpeed && canHitAgain(hits-(int) weaponSpeed+1, subject)))
+			while(hits < finalWeaponSpeed || (hits >= finalWeaponSpeed && canHitAgain(hits-finalWeaponSpeed+1, subject, messages)))
 			{
 				hits++;
-				//System.out.println("HITS: "+hits);
 				double hitDice = Dice.random();
 				double hit = calculateHit(subject, weapon);
 				
@@ -409,17 +409,17 @@ public abstract class GenericBattleStyle implements BattleStyle {
 					fa.hitLocation = Dice.random();
 					messages.add(fa);
 
-					if(hits == 1) // 1st hit must succeed in order to have bonus hits 
-						break;
-
 				} else {
 			
-					/* Hit was successfull */
+					/* Hit was successful */
 					
 					// Calculate hit location according to hit succesfullnes
 					int hitLoc = (100-(int) Math.min(hit, 100)) + Dice.random(40)-25;
-					if(hitLoc < 0) hitLoc = 0;
-					if(hitLoc > 100) hitLoc = 100;
+
+					// spread the very low and very high hits around a bit
+					// instead of just capping which produces an unnecessarily uneven distribution 
+					if(hitLoc < 0) hitLoc = 0 - hitLoc%100;
+					if(hitLoc > 100) hitLoc = 100 - hitLoc%100;
 				
 					/* 2. Calculate potential damage */
 					Damage[] potential = new Damage[dmg.length];
@@ -534,9 +534,10 @@ public abstract class GenericBattleStyle implements BattleStyle {
 	 *
 	 * @param hits number of hits so far
 	 * @param target the object of aggression
+	 * @param messages attack messages so far this turn
 	 * @return true, if another hit is possible, false otherwise
 	 */
-	protected boolean canHitAgain(int hits, Living target) {
+	protected boolean canHitAgain(int hits, Living target, ArrayList<Message> messages) {
 		return false;
 	}
 
@@ -613,7 +614,7 @@ public abstract class GenericBattleStyle implements BattleStyle {
 		taken.damage = new Damage[attack.damage.length];
 
 		int total=0;
-		int maxDamageIndex = 0; //Etsit��n t�h�n se kovimman damagen tehneen tyypin indeksi ja tehd��n messut sen perusteella.
+		int maxDamageIndex = 0; //Find the index of type with most damage and generated messages based on it.
 		int maxDamage = 0;
 		for(int i=0; i<attack.damage.length; i++) {
 			taken.damage[i] = new Damage();
@@ -630,8 +631,8 @@ public abstract class GenericBattleStyle implements BattleStyle {
 			}
 		}
 
-		// FIXME: messaget tehd��n l�hteneen damagen (joka ei ole Affliction) perusteella, ei DamageTaken arvojen perusteella,
-		//        eli resistancet / muut ei vaikuta :/
+		// FIXME: messages are generated based the preliminary damage values (except for Afflictions),
+		//        they should be based on DamageTaken instead (to resistance etc into account)
 		String[] msgs = getDamageMessages(owner, attack, attack.hitLocation);
                
                 
