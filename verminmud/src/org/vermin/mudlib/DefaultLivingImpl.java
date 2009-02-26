@@ -120,6 +120,9 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     private Money money = new DefaultMoneyImpl();
     
     protected List<Behaviour> behaviours = new LinkedList<Behaviour>();
+
+	/* The gender. This is race specific (most should have 'male' and 'female') */
+	protected String gender;
     
     public DefaultLivingImpl() {
   // 	currentRoom = null;
@@ -136,6 +139,7 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
         possessive = null;
         objective = null;
         pronoun = null;
+        gender = null;
         //attackers = new Vector();
         resistance = new int[Damage.NUM_TYPES];
         wielded = null;
@@ -662,15 +666,51 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
     }
     
     public String getPossessive() {
-        return possessive == null ? "its" : possessive;
+    	if(possessive == null) {
+			String g = getGender();
+	
+			if(g.equalsIgnoreCase("male"))
+				return "his";
+			else if(g.equalsIgnoreCase("female"))
+				return "her";
+			else
+				return "its";
+    	}
+    	else {
+    		return possessive;
+    	}
     }
     
     public String getObjective() {
-        return objective == null ? "it" : objective;
+    	if(objective == null) {
+			String g = getGender();
+	
+			if(g.equalsIgnoreCase("male"))
+				return "him";
+			else if(g.equalsIgnoreCase("female"))
+				return "her";
+			else
+				return "it";
+    	}
+    	else {
+    		return objective;
+    	}
     }
     
     public String getPronoun() {
-        return pronoun == null ? "it" : pronoun;
+    	if(pronoun == null) {
+			String g = getGender();
+	
+			if(g.equalsIgnoreCase("male"))
+				return "he";
+			else if(g.equalsIgnoreCase("female"))
+				return "she";
+			else
+				return "it";
+    	}
+    	else {
+    		return pronoun;
+    	}
     }
     
     public synchronized void addAttacker(Living who) {
@@ -1687,6 +1727,13 @@ public class DefaultLivingImpl extends DefaultObjectImpl implements Living {
 
 	public SkillObject getSkillObject() {
 		return new SkillObject();
+	}
+
+	public String getGender() {
+		if(gender == null)
+			return "neuter";
+		else
+			return gender;
 	}
 	
 }

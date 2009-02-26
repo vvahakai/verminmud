@@ -957,5 +957,7 @@ public class DummyLiving implements Player {
 	public void command(Object... args) {
 		
 	}
-	
+	public String getGender() {
+		return "male";
+	}
 }
