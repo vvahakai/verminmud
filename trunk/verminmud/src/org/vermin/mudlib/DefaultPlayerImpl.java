@@ -51,9 +51,6 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
    protected String surname;
    protected String title;
 
-	/* The gender. This is race specific (most shoud have 'male' and 'female') */
-	protected String gender; 
-	
 	protected LinkedHashSet<String> availableTitles;
 
 	/* Contains preference settings, such as
@@ -275,17 +272,6 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 		}
 		super.start();
 
-	}
-	
-	public String getPronoun() {
-		String g = getGender();
-
-		if(g.equalsIgnoreCase("male"))
-			return "he";
-		else if(g.equalsIgnoreCase("female"))
-			return "she";
-		else
-			return "it"; // Race should handle this
 	}
 
 	public ClientOutput getClientOutput() {
@@ -770,10 +756,6 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 		
 		World.info(getName()+" has left the game.");
    }
-	
-	public String getPossessive() {
-		return "his";
-	}
 
 	protected void look(boolean moved) {
 
@@ -1318,13 +1300,6 @@ public class DefaultPlayerImpl extends DefaultLivingImpl implements Player, Clie
 				break;
 			}
 		}
-	}
-
-	public String getGender() {
-		if(gender == null)
-			return "male";
-		else
-			return gender;
 	}
 
 	public boolean isVerbose() {

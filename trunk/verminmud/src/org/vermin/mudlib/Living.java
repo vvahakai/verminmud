@@ -751,8 +751,15 @@ public interface Living
 	public int checkSkill(String skill);
     
     /**
-     * Returns the player's skill object.
+     * Returns theis living's skill object.
      * @return
      */
 	public SkillObject getSkillObject();
+
+    /**
+     * Returns this living's gender object.
+     * Should usually be "male" or "female"
+     * @return the gender
+     */
+	public String getGender();
 }
