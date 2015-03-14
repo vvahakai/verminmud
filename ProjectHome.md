@@ -1,0 +1,1 @@
+The open sourced driver, mudlib and world from the VerminMUD project.
